@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Filament\Resources\BlogCategories\Schemas;
+
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Schema;
+
+class BlogCategoryForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                TextInput::make('category_name')
+                    ->required(),
+                Toggle::make('status')
+                    ->required(),
+            ]);
+    }
+}

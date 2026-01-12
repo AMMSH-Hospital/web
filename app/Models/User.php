@@ -33,6 +33,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    protected $guarded = [];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,5 +47,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function blogs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Blog::class, 'author_id');
     }
 }
