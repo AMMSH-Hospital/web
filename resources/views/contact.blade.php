@@ -1,3 +1,5 @@
+@extends('layouts.main')
+
 @push('styles')
     <style>
         .contact-info-card {

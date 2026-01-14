@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediCare Hospital - Quality Healthcare Services</title>
+    <title>আল মুত্বমাইন্নাহ মা ও শিশু হাসপাতাল</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex gap-4">
-                        <a href="tel:+1234567890"><i class="fas fa-phone-alt me-2"></i> Emergency: +1 (234) 567-890</a>
+                        <a href="tel:+1234567890"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: 01711111111</a>
                         <a href="mailto:info@medicarehospital.com"><i class="fas fa-envelope me-2"></i> info@medicarehospital.com</a>
                     </div>
                 </div>
