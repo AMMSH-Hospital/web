@@ -11,6 +11,10 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -26,7 +30,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex gap-4">
-                        <a href="tel:+1234567890"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: 01711111111</a>
+                        <a href="tel:+1234567890"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: ০১৭১২৩৪৫৬৭৮</a>
                         <a href="mailto:info@medicarehospital.com"><i class="fas fa-envelope me-2"></i> info@medicarehospital.com</a>
                     </div>
                 </div>
@@ -45,7 +49,11 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('index') }}">Medi<span>Care</span> Hospital</a>
+            <a class="navbar-brand" href="{{ route('index') }}">
+                আল <span>মুত্বমাইন্নাহ</span>
+                <br>
+                <span style="font-size: 21.5px;">মা ও শিশু হাসপাতাল</span>
+            </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -54,25 +62,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('index') ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
+                        <a class="nav-link {{ Route::is('index') ? 'active' : '' }}" href="{{ route('index') }}">হোম</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About Us</a>
+                        <a class="nav-link {{ Route::is('about') ? 'active' : '' }}" href="{{ route('about') }}">আমাদের সম্পর্কে</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('doctors') ? 'active' : '' }}" href="{{ route('doctors') }}">Doctors</a>
+                        <a class="nav-link {{ Route::is('doctors') ? 'active' : '' }}" href="{{ route('doctors') }}">ডাক্তারগণ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('departments') ? 'active' : '' }}" href="{{ route('departments') }}">Departments</a>
+                        <a class="nav-link {{ Route::is('departments') ? 'active' : '' }}" href="{{ route('departments') }}">ডিপার্টমেন্টস</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('appointment') ? 'active' : '' }}" href="{{ route('appointment') }}">Appointment</a>
+                        <a class="nav-link {{ Route::is('appointment') ? 'active' : '' }}" href="{{ route('appointment') }}">এপয়েন্টমেন্ট</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
+                        <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">যোগাযোগ</a>
                     </li>
                 </ul>
-                <a href="{{ route('appointment') }}" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">Book Appointment</a>
+                <a href="{{ route('appointment') }}" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0">এপয়েন্টমেন্ট বুক করুন</a>
             </div>
         </div>
     </nav>
@@ -84,8 +92,11 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h5>MediCare Hospital</h5>
-                    <p class="mt-3">Providing quality healthcare services with compassion and excellence since 1995. Our commitment is to your health and wellbeing.</p>
+                    <h5>আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল</h5>
+                    <p class="mt-3">
+                        শরীয়ত সম্মত পরিবেশে আধুনিক ও সাশ্রয়ী চিকিৎসা সেবা প্রদানে অঙ্গীকারবদ্ধ একটি নির্ভরযোগ্য মা ও শিশু হাসপাতাল।
+                        সঠিক চিকিৎসার মাধ্যমে দেহ ও মনের প্রশান্তি নিশ্চিত করাই আমাদের লক্ষ্য।
+                    </p>
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
@@ -95,53 +106,59 @@
                 </div>
                 
                 <div class="col-lg-2 col-md-6">
-                    <h5>Quick Links</h5>
+                    <h5>দ্রুত লিংক</h5>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="doctors.html">Doctors</a></li>
-                        <li><a href="departments.html">Departments</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="doctors.html">চিকিৎসকবৃন্দ</a></li>
+                        <li><a href="departments.html">বিভাগসমূহ</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <h5>Our Services</h5>
+                    <h5>আমাদের সেবাসমূহ</h5>
                     <ul class="footer-links">
-                        <li><a href="#">Emergency Care</a></li>
-                        <li><a href="#">OPD Services</a></li>
-                        <li><a href="#">ICU Facilities</a></li>
-                        <li><a href="#">Diagnostic Services</a></li>
-                        <li><a href="#">Pharmacy</a></li>
+                        <li><a href="#">গাইনি ও প্রসূতি সেবা</a></li>
+                        <li><a href="#">শিশুরোগ সেবা</a></li>
+                        <li><a href="#">জেনারেল মেডিসিন</a></li>
+                        <li><a href="#">ডায়াগনস্টিক ও প্যাথলজি</a></li>
+                        <li><a href="#">২৪ ঘণ্টা ফার্মেসি</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3">
-                    <h5>Contact Info</h5>
+                    <h5>যোগাযোগের তথ্য</h5>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Health Street, Medical City</li>
-                        <li><i class="fas fa-phone-alt me-2"></i> +1 (234) 567-8900</li>
-                        <li><i class="fas fa-envelope me-2"></i> info@medicarehospital.com</li>
-                        <li><i class="fas fa-clock me-2"></i> 24/7 Emergency Services</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            ৫ আউটার সার্কুলার রোড, রাজারবাগ শরীফ, ঢাকা<br>
+                            পুলিশ লাইন ৩ নং গেইটের বিপরীতে (পার্টি হাউজ কমিউনিটি সেন্টারের উপরে)
+                        </li>
+                        <li><i class="fas fa-phone-alt me-2"></i> ০২-৮৩৩৩০৮১, ০২-৯৩৪১৩৯৪</li>
+                        <li><i class="fas fa-mobile-alt me-2"></i> ০১৭৪০৬৫৬৭৪৮, ০১৭১১০৫২৩৬৬</li>
+                        <li><i class="fas fa-clock me-2"></i> ২৪ ঘণ্টা চিকিৎসা ও জরুরি সেবা</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p class="mb-0">&copy; 2023 MediCare Hospital. All Rights Reserved. | Designed with <i class="fas fa-heart text-danger"></i> for better healthcare</p>
+                <p class="mb-0">
+                    &copy; ২০২৬ আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল | সর্বস্বত্ব সংরক্ষিত
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <button id="whatsappBtn" class="floating-btn whatsapp" title="Chat on WhatsApp">
+        <button id="whatsappBtn" class="floating-btn whatsapp" title="হোয়াটসঅ্যাপ করুন">
             <i class="fab fa-whatsapp"></i>
         </button>
-        <button id="emergencyBtn" class="floating-btn emergency" title="Emergency Call">
+        <button id="emergencyBtn" class="floating-btn emergency" title="জরুরী সেবা">
             <i class="fas fa-phone-alt"></i>
         </button>
-        <button id="scrollToTop" class="floating-btn scroll-top" title="Scroll to Top">
+        <button id="scrollToTop" class="floating-btn scroll-top" title="উপরে যান">
             <i class="fas fa-arrow-up"></i>
         </button>
     </div>
@@ -151,17 +168,17 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title">Appointment Confirmed!</h5>
+                    <h5 class="modal-title">অ্যাপয়েন্টমেন্ট নিশ্চিত!</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center p-5">
                     <i class="fas fa-check-circle text-success mb-4" style="font-size: 4rem;"></i>
-                    <h4 class="mb-3">Thank You!</h4>
-                    <p>Your appointment has been successfully booked. Our team will contact you shortly for confirmation.</p>
-                    <p class="text-muted">A confirmation email has been sent to your registered email address.</p>
+                    <h4 class="mb-3">ধন্যবাদ!</h4>
+                    <p>আপনার অ্যাপয়েন্টমেন্ট সফলভাবে বুক করা হয়েছে। আমাদের টিম শীঘ্রই আপনার সাথে নিশ্চিতকরণের জন্য যোগাযোগ করবে।</p>
+                    <p class="text-muted">আপনার নিবন্ধিত ইমেল ঠিকানায় একটি নিশ্চিতকরণ ইমেল পাঠানো হয়েছে।</p>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">বন্ধ করুন</button>
                 </div>
             </div>
         </div>

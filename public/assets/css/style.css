@@ -10,7 +10,7 @@
     --medium-gray: #4b5563;
     --light-gray: #f9fafb;
     --white: #ffffff;
-    --transition: all 0.3s ease;
+    --transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Hind Siliguri', 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--dark-gray);
     line-height: 1.6;
     background-color: var(--light-gray);
@@ -58,9 +58,10 @@ body {
     font-size: 1.8rem;
     color: var(--dark-green) !important;
     letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
-.navbar-brand span {
+.navbar-brand span:first-child {
     color: var(--primary-green);
     font-weight: 900;
 }
@@ -75,9 +76,8 @@ body {
 }
 
 .nav-link:hover, .nav-link.active {
-    background: linear-gradient(135deg, var(--light-green), var(--light-teal));
+    background: var(--light-green);
     color: var(--dark-green) !important;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
 }
 
 .navbar {

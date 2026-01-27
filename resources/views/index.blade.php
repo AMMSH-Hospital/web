@@ -6,19 +6,19 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-3">Your Health is Our <span class="text-success">Priority</span></h1>
-                    <p class="lead mb-4">At MediCare Hospital, we provide exceptional healthcare services with state-of-the-art technology and a team of experienced medical professionals dedicated to your wellbeing.</p>
+                    <h1 class="display-4 fw-bold mb-3">আপনার সুস্বাস্থ্যই <span class="text-success">আমাদের অগ্রাধিকার</span></h1>
+                    <p class="lead mb-4">অভিজ্ঞ চিকিৎসক ও আধুনিক প্রযুক্তির মাধ্যমে আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল প্রদান করে নির্ভরযোগ্য ও সাশ্রয়ী চিকিৎসা সেবা।</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{{ route('appointment') }}" class="btn btn-primary btn-lg">
-                            <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                            <i class="fas fa-calendar-check me-2"></i>এপয়েন্টমেন্ট বুক করুন
                         </a>
                         <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">
-                            <i class="fas fa-phone-alt me-2"></i>Contact Us
+                            <i class="fas fa-phone-alt me-2"></i>যোগাযোগ করুন
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1516549655669-df6654e435de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                    <img src="{{ asset('assets/images/ammsh.jpg') }}" 
                          alt="Hospital Staff" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
@@ -30,8 +30,8 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title d-inline-block">Our Services</h2>
-                    <p class="text-muted">Comprehensive healthcare services for all your medical needs</p>
+                    <h2 class="section-title d-inline-block">আমাদের সেবা</h2>
+                    <p class="text-muted">আপনার সকল চিকিৎসা প্রয়োজনের জন্য সমন্বিত স্বাস্থ্যসেবা</p>
                 </div>
             </div>
             
@@ -41,8 +41,8 @@
                         <div class="service-icon">
                             <i class="fas fa-ambulance"></i>
                         </div>
-                        <h4>Emergency Care</h4>
-                        <p>24/7 emergency services with rapid response teams and advanced life support.</p>
+                        <h4>জরুরি চিকিৎসা সেবা</h4>
+                        <p>দ্রুত সাড়া প্রদানকারী টিম ও উন্নত লাইফ সাপোর্টসহ ২৪/৭ জরুরি চিকিৎসা সেবা।</p>
                     </div>
                 </div>
                 
@@ -51,8 +51,8 @@
                         <div class="service-icon">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <h4>OPD Services</h4>
-                        <p>Outpatient department with specialist consultations and diagnostic services.</p>
+                        <h4>বহির্বিভাগ (ওপিডি) সেবা</h4>
+                        <p>বিশেষজ্ঞ চিকিৎসকের পরামর্শ ও ডায়াগনস্টিক সেবাসহ বহির্বিভাগ।</p>
                     </div>
                 </div>
                 
@@ -61,8 +61,8 @@
                         <div class="service-icon">
                             <i class="fas fa-procedures"></i>
                         </div>
-                        <h4>ICU Facilities</h4>
-                        <p>State-of-the-art intensive care units with round-the-clock monitoring.</p>
+                        <h4>আইসিইউ (ICU) সুবিধা</h4>
+                        <p>সার্বক্ষণিক পর্যবেক্ষণসহ আধুনিক মানের ইনটেনসিভ কেয়ার ইউনিট।</p>
                     </div>
                 </div>
                 
@@ -71,8 +71,8 @@
                         <div class="service-icon">
                             <i class="fas fa-pills"></i>
                         </div>
-                        <h4>Pharmacy</h4>
-                        <p>Well-stocked pharmacy with all essential medicines and professional guidance.</p>
+                        <h4>ফার্মেসি</h4>
+                        <p>সকল প্রয়োজনীয় ওষুধ ও পেশাদার পরামর্শসহ সুসজ্জিত ফার্মেসি।</p>
                     </div>
                 </div>
             </div>
@@ -84,82 +84,46 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title d-inline-block">Our Expert Doctors</h2>
-                    <p class="text-muted">Meet our team of experienced and qualified medical professionals</p>
+                    <h2 class="section-title d-inline-block">আমাদের অভিজ্ঞ চিকিৎসক</h2>
+                    <p class="text-muted">অভিজ্ঞ ও যোগ্য চিকিৎসকদের নিয়ে গঠিত আমাদের টিমের সাথে পরিচিত হন</p>
                 </div>
             </div>
-            
-            <div class="row g-4">
+
+            <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Sarah Johnson">
+                    <div class="card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">Dr. Sarah Johnson</h5>
-                            <p class="card-text text-muted">Cardiologist</p>
-                            <p class="card-text">MBBS, MD, DM (Cardiology), 15+ years experience</p>
-                            <a href="doctor-profile.html" class="btn btn-outline-primary w-100">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Michael Chen">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Michael Chen</h5>
-                            <p class="card-text text-muted">Neurologist</p>
-                            <p class="card-text">MBBS, MD, DM (Neurology), 12+ years experience</p>
-                            <a href="doctor-profile.html" class="btn btn-outline-primary w-100">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Emily Rodriguez">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Emily Rodriguez</h5>
-                            <p class="card-text text-muted">Pediatrician</p>
-                            <p class="card-text">MBBS, MD, DCH, 10+ years experience</p>
-                            <a href="doctor-profile.html" class="btn btn-outline-primary w-100">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. David Wilson">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. David Wilson</h5>
-                            <p class="card-text text-muted">Orthopedic Surgeon</p>
-                            <p class="card-text">MBBS, MS (Ortho), 18+ years experience</p>
-                            <a href="doctor-profile.html" class="btn btn-outline-primary w-100">View Profile</a>
+                            <h5 class="card-title">ডা. সারাহ জনসন</h5>
+                            <p class="card-text text-muted">হৃদরোগ বিশেষজ্ঞ</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি), ১৫+ বছরের অভিজ্ঞতা</p>
+                            <a href="{{ route('doctor-profile') }}" class="btn btn-outline-primary w-100">প্রোফাইল দেখুন</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-5">
-                <a href="doctors.html" class="btn btn-primary btn-lg">View All Doctors <i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="doctors.html" class="btn btn-primary btn-lg">
+                    সকল চিকিৎসক দেখুন <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
     </section>
+
 
     <!-- Appointment CTA -->
     <section class="py-5 bg-primary text-white">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h2 class="mb-3">Need to See a Doctor Today?</h2>
-                    <p class="mb-0">Book an appointment with our specialist doctors. We ensure minimal waiting time and personalized care.</p>
+                    <h2 class="mb-3">আজই কি একজন চিকিৎসকের কাছে যেতে চান?</h2>
+                    <p class="mb-0">
+                        আমাদের বিশেষজ্ঞ চিকিৎসকদের সাথে অ্যাপয়েন্টমেন্ট বুক করুন। আমরা নিশ্চিত করি কম অপেক্ষার সময় এবং ব্যক্তিগত যত্ন।
+                    </p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
                     <a href="appointment.html" class="btn btn-light btn-lg">
-                        <i class="fas fa-calendar-plus me-2"></i>Book Appointment Now
+                        <i class="fas fa-calendar-plus me-2"></i>এখনই অ্যাপয়েন্টমেন্ট বুক করুন
                     </a>
                 </div>
             </div>
@@ -171,49 +135,49 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title d-inline-block">Patient Testimonials</h2>
-                    <p class="text-muted">What our patients say about our services</p>
+                    <h2 class="section-title d-inline-block">রোগীদের মতামত</h2>
+                    <p class="text-muted">আমাদের সেবা সম্পর্কে রোগীরা যা বলছেন</p>
                 </div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="testimonial-card">
-                        <p class="mb-0">"The care I received at MediCare Hospital was exceptional. Dr. Johnson's expertise and the nursing staff's attention made my recovery smooth and comfortable."</p>
+                        <p class="mb-0">
+                            "মেডিকেয়ার হাসপাতালে আমি যে সেবা পেয়েছি তা ছিল অসাধারণ। ডা. জনসনের দক্ষতা এবং নার্সিং স্টাফদের যত্ন আমার সুস্থ হয়ে ওঠাকে সহজ ও আরামদায়ক করেছে।"
+                        </p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Robert Johnson" class="author-img">
                             <div>
-                                <h6 class="mb-0">Robert Johnson</h6>
-                                <small class="text-muted">Cardiology Patient</small>
+                                <h6 class="mb-0">রবার্ট জনসন</h6>
+                                <small class="text-muted">হৃদরোগ বিভাগের রোগী</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 col-lg-4">
                     <div class="testimonial-card">
-                        <p class="mb-0">"From emergency admission to discharge, every staff member was professional and compassionate. The facilities are modern and clean. Highly recommended!"</p>
+                        <p class="mb-0">
+                            "জরুরি ভর্তি থেকে শুরু করে ছুটি পাওয়া পর্যন্ত প্রতিটি স্টাফই ছিলেন পেশাদার ও সহানুভূতিশীল। হাসপাতালের সুবিধাগুলো আধুনিক ও পরিচ্ছন্ন। অবশ্যই সুপারিশযোগ্য!"
+                        </p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Sarah Miller" class="author-img">
                             <div>
-                                <h6 class="mb-0">Sarah Miller</h6>
-                                <small class="text-muted">Pediatrics Patient</small>
+                                <h6 class="mb-0">সারা মিলার</h6>
+                                <small class="text-muted">শিশু বিভাগের রোগী</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-12 col-lg-4">
                     <div class="testimonial-card">
-                        <p class="mb-0">"The orthopedic team at MediCare performed my knee replacement surgery with precision. The post-operative care and physiotherapy support were excellent."</p>
+                        <p class="mb-0">
+                            "মেডিকেয়ারের অর্থোপেডিক টিম অত্যন্ত নিখুঁতভাবে আমার হাঁটু প্রতিস্থাপন অস্ত্রোপচার সম্পন্ন করেছে। অস্ত্রোপচারের পরের যত্ন ও ফিজিওথেরাপি সাপোর্ট ছিল দারুণ।"
+                        </p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="James Wilson" class="author-img">
                             <div>
-                                <h6 class="mb-0">James Wilson</h6>
-                                <small class="text-muted">Orthopedics Patient</small>
+                                <h6 class="mb-0">জেমস উইলসন</h6>
+                                <small class="text-muted">অর্থোপেডিক বিভাগের রোগী</small>
                             </div>
                         </div>
                     </div>
@@ -221,4 +185,5 @@
             </div>
         </div>
     </section>
+
 @endsection
