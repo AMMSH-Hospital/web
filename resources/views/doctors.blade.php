@@ -5,30 +5,30 @@
         .filter-buttons {
             margin-bottom: 30px;
         }
-        
+
         .filter-btn {
             margin: 0 5px 10px;
             border-radius: 25px;
             padding: 8px 20px;
             transition: all 0.3s ease;
         }
-        
+
         .filter-btn.active {
             background-color: var(--primary-blue);
             color: var(--primary-green);
         }
-        
+
         .doctor-card {
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        
+
         .visiting-time {
             background-color: var(--light-green);
             padding: 10px;
             border-radius: 5px;
             margin-top: 10px;
         }
-        
+
         .department-badge {
             background-color: var(--light-blue);
             color: var(--primary-blue);
@@ -46,8 +46,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Our Doctors</li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">হোম</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">আমাদের ডাক্তারগণ</li>
                 </ol>
             </nav>
         </div>
@@ -58,8 +58,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="display-5 fw-bold mb-3">Meet Our Expert Doctors</h1>
-                    <p class="lead text-muted">Our team of experienced medical professionals is dedicated to providing you with the highest quality care.</p>
+                    <h1 class="display-5 fw-bold mb-3">আমাদের বিশেষজ্ঞ ডাক্তারদের সাথে পরিচিত হোন</h1>
+                    <p class="lead text-muted">আমাদের অভিজ্ঞ চিকিৎসক দল আপনাকে সর্বোত্তম সেবা প্রদানে প্রতিশ্রুতিবদ্ধ।</p>
                 </div>
             </div>
         </div>
@@ -70,15 +70,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center filter-buttons">
-                    <h5 class="mb-3">Filter by Department:</h5>
+                    <h5 class="mb-3">বিভাগ অনুযায়ী খুঁজুন:</h5>
                     <div class="d-flex flex-wrap justify-content-center">
-                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">All Doctors</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="cardiology">Cardiology</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="neurology">Neurology</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="orthopedics">Orthopedics</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="pediatrics">Pediatrics</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="surgery">Surgery</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="dentistry">Dentistry</button>
+                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">সকল ডাক্তার</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="cardiology">কার্ডিওলজি</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="neurology">নিউরোলজি</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="orthopedics">অর্থোপেডিক্স</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="pediatrics">শিশুরোগ</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="surgery">সার্জারি</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="dentistry">ডেন্টিস্ট্রি</button>
                     </div>
                 </div>
             </div>
@@ -92,251 +92,257 @@
                 <!-- Doctor 1 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="cardiology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Sarah Johnson">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Sarah Johnson">
                         <div class="card-body">
-                            <span class="department-badge">Cardiology</span>
-                            <h5 class="card-title mt-3">Dr. Sarah Johnson</h5>
-                            <p class="card-text text-muted">Senior Consultant Cardiologist</p>
-                            <p class="card-text">MBBS, MD, DM (Cardiology)</p>
-                            <p class="card-text">15+ years of experience in interventional cardiology and heart failure management.</p>
-                            
+                            <span class="department-badge">কার্ডিওলজি</span>
+                            <h5 class="card-title mt-3">ডা. সারাহ জনসন</h5>
+                            <p class="card-text text-muted">সিনিয়র কনসালটেন্ট কার্ডিওলজিস্ট</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি)</p>
+                            <p class="card-text">ইন্টারভেনশনাল কার্ডিওলজি এবং হার্ট ফেইলিউর ম্যানেজমেন্টে ১৫+ বছরের
+                                অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Mon, Wed, Fri: 9:00 AM - 4:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">সোম, বুধ, শুক্র: সকাল ৯:০০ - বিকাল ৪:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 2 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="neurology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Michael Chen">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Michael Chen">
                         <div class="card-body">
-                            <span class="department-badge">Neurology</span>
-                            <h5 class="card-title mt-3">Dr. Michael Chen</h5>
-                            <p class="card-text text-muted">Consultant Neurologist</p>
-                            <p class="card-text">MBBS, MD, DM (Neurology)</p>
-                            <p class="card-text">Specialized in stroke management, epilepsy, and movement disorders with 12+ years experience.</p>
-                            
+                            <span class="department-badge">নিউরোলজি</span>
+                            <h5 class="card-title mt-3">ডা. মাইকেল চেন</h5>
+                            <p class="card-text text-muted">কনসালটেন্ট নিউরোলজিস্ট</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (নিউরোলজি)</p>
+                            <p class="card-text">স্ট্রোক ম্যানেজমেন্ট, মৃগী রোগ এবং মুভমেন্ট ডিসঅর্ডারে ১২+ বছরের অভিজ্ঞতা।
+                            </p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Tue, Thu, Sat: 10:00 AM - 5:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">মঙ্গল, বৃহস্পতি, শনি: সকাল ১০:০০ - বিকাল ৫:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 3 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="orthopedics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. David Wilson">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. David Wilson">
                         <div class="card-body">
-                            <span class="department-badge">Orthopedics</span>
-                            <h5 class="card-title mt-3">Dr. David Wilson</h5>
-                            <p class="card-text text-muted">Senior Orthopedic Surgeon</p>
-                            <p class="card-text">MBBS, MS (Ortho), MCh</p>
-                            <p class="card-text">Expert in joint replacement, arthroscopic surgeries and sports injuries with 18+ years experience.</p>
-                            
+                            <span class="department-badge">অর্থোপেডিক্স</span>
+                            <h5 class="card-title mt-3">ডা. ডেভিড উইলসন</h5>
+                            <p class="card-text text-muted">সিনিয়র অর্থোপেডিক সার্জন</p>
+                            <p class="card-text">এমবিবিএস, এমএস (অর্থো), এমসিএইচ</p>
+                            <p class="card-text">জয়েন্ট রিপ্লেসমেন্ট, আর্থ্রোস্কোপিক সার্জারি এবং স্পোর্টস ইনজুরিতে ১৮+
+                                বছরের অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Mon-Fri: 8:00 AM - 3:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">সোম-শুক্র: সকাল ৮:০০ - বিকাল ৩:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 4 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="pediatrics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Emily Rodriguez">
+                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Emily Rodriguez">
                         <div class="card-body">
-                            <span class="department-badge">Pediatrics</span>
-                            <h5 class="card-title mt-3">Dr. Emily Rodriguez</h5>
-                            <p class="card-text text-muted">Pediatric Specialist</p>
-                            <p class="card-text">MBBS, MD, DCH</p>
-                            <p class="card-text">Specialized in child healthcare, vaccinations, and developmental pediatrics with 10+ years experience.</p>
-                            
+                            <span class="department-badge">শিশুরোগ</span>
+                            <h5 class="card-title mt-3">ডা. এমিলি রদ্রিগেজ</h5>
+                            <p class="card-text text-muted">শিশু বিশেষজ্ঞ</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিসিএইচ</p>
+                            <p class="card-text">শিশু স্বাস্থ্যসেবা, টিকাদান এবং ডেভেলপমেন্টাল পেডিয়াট্রিক্সে ১০+ বছরের
+                                অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Mon-Sat: 9:00 AM - 2:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">সোম-শনি: সকাল ৯:০০ - দুপুর ২:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 5 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="surgery">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Robert Miller">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Robert Miller">
                         <div class="card-body">
-                            <span class="department-badge">General Surgery</span>
-                            <h5 class="card-title mt-3">Dr. Robert Miller</h5>
-                            <p class="card-text text-muted">General & Laparoscopic Surgeon</p>
-                            <p class="card-text">MBBS, MS, FICS</p>
-                            <p class="card-text">Expert in minimally invasive surgeries, gastrointestinal surgeries with 14+ years experience.</p>
-                            
+                            <span class="department-badge">জেনারেল সার্জারি</span>
+                            <h5 class="card-title mt-3">ডা. রবার্ট মিলার</h5>
+                            <p class="card-text text-muted">জেনারেল ও ল্যাপারোস্কোপিক সার্জন</p>
+                            <p class="card-text">এমবিবিএস, এমএস, এফআইসিএস</p>
+                            <p class="card-text">মিনিমাল ইনভেসিভ সার্জারি এবং গ্যাস্ট্রোইনটেস্টাইনাল সার্জারিতে ১৪+ বছরের
+                                অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Mon, Wed, Fri: 8:30 AM - 4:30 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">সোম, বুধ, শুক্র: সকাল ৮:৩০ - বিকাল ৪:৩০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 6 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="dentistry">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1622902046581-3c9c04c0d5a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Lisa Anderson">
+                        <img src="https://images.unsplash.com/photo-1622902046581-3c9c04c0d5a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Lisa Anderson">
                         <div class="card-body">
-                            <span class="department-badge">Dentistry</span>
-                            <h5 class="card-title mt-3">Dr. Lisa Anderson</h5>
-                            <p class="card-text text-muted">Dental Surgeon</p>
-                            <p class="card-text">BDS, MDS (Prosthodontics)</p>
-                            <p class="card-text">Specialized in cosmetic dentistry, dental implants, and oral rehabilitation with 9+ years experience.</p>
-                            
+                            <span class="department-badge">ডেন্টিস্ট্রি</span>
+                            <h5 class="card-title mt-3">ডা. লিসা অ্যান্ডারসন</h5>
+                            <p class="card-text text-muted">ডেন্টাল সার্জন</p>
+                            <p class="card-text">বিডিএস, এমডিএস (প্রস্থোডন্টিকস)</p>
+                            <p class="card-text">কসমেটিক ডেন্টিস্ট্রি, ডেন্টাল ইমপ্লান্ট এবং ওরাল রিহ্যাবিলিটেশনে ৯+ বছরের
+                                অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Tue, Thu, Sat: 10:00 AM - 6:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">মঙ্গল, বৃহস্পতি, শনি: সকাল ১০:০০ - সন্ধ্যা ৬:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 7 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="cardiology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. James Parker">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. James Parker">
                         <div class="card-body">
-                            <span class="department-badge">Cardiology</span>
-                            <h5 class="card-title mt-3">Dr. James Parker</h5>
-                            <p class="card-text text-muted">Interventional Cardiologist</p>
-                            <p class="card-text">MBBS, MD, DM (Cardiology)</p>
-                            <p class="card-text">Expert in coronary interventions, pacemaker implantation with 11+ years experience.</p>
-                            
+                            <span class="department-badge">কার্ডিওলজি</span>
+                            <h5 class="card-title mt-3">ডা. জেমস পার্কার</h5>
+                            <p class="card-text text-muted">ইন্টারভেনশনাল কার্ডিওলজিস্ট</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি)</p>
+                            <p class="card-text">করোনারি ইন্টারভেনশন এবং পেসমেকার ইমপ্লান্টেশনে ১১+ বছরের অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Mon, Tue, Thu: 9:00 AM - 3:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">সোম, মঙ্গল, বৃহস্পতি: সকাল ৯:০০ - বিকাল ৩:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 8 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="neurology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Maria Garcia">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Maria Garcia">
                         <div class="card-body">
-                            <span class="department-badge">Neurology</span>
-                            <h5 class="card-title mt-3">Dr. Maria Garcia</h5>
-                            <p class="card-text text-muted">Neurologist</p>
-                            <p class="card-text">MBBS, MD, DM (Neurology)</p>
-                            <p class="card-text">Specialized in headache disorders, multiple sclerosis with 8+ years experience.</p>
-                            
+                            <span class="department-badge">নিউরোলজি</span>
+                            <h5 class="card-title mt-3">ডা. মারিয়া গার্সিয়া</h5>
+                            <p class="card-text text-muted">নিউরোলজিস্ট</p>
+                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (নিউরোলজি)</p>
+                            <p class="card-text">মাথাব্যথা এবং মাল্টিপল স্ক্লেরোসিস চিকিৎসায় ৮+ বছরের অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Wed, Fri, Sat: 11:00 AM - 6:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">বুধ, শুক্র, শনি: সকাল ১১:০০ - সন্ধ্যা ৬:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Doctor 9 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="orthopedics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top" alt="Dr. Thomas Lee">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top" alt="Dr. Thomas Lee">
                         <div class="card-body">
-                            <span class="department-badge">Orthopedics</span>
-                            <h5 class="card-title mt-3">Dr. Thomas Lee</h5>
-                            <p class="card-text text-muted">Spine Specialist</p>
-                            <p class="card-text">MBBS, MS (Ortho), FNB (Spine)</p>
-                            <p class="card-text">Expert in spinal surgeries, disc replacement with 13+ years experience.</p>
-                            
+                            <span class="department-badge">অর্থোপেডিক্স</span>
+                            <h5 class="card-title mt-3">ডা. টমাস লি</h5>
+                            <p class="card-text text-muted">স্পাইন স্পেশালিস্ট</p>
+                            <p class="card-text">এমবিবিএস, এমএস (অর্থো), এফএনবি (স্পাইন)</p>
+                            <p class="card-text">স্পাইনাল সার্জারি এবং ডিস্ক রিপ্লেসমেন্টে ১৩+ বছরের অভিজ্ঞতা।</p>
+
                             <div class="visiting-time">
-                                <p class="mb-1"><strong>Visiting Time:</strong></p>
-                                <p class="mb-0">Tue, Thu, Sat: 9:00 AM - 4:00 PM</p>
+                                <p class="mb-1"><strong>সাক্ষাতের সময়:</strong></p>
+                                <p class="mb-0">মঙ্গল, বৃহস্পতি, শনি: সকাল ৯:০০ - বিকাল ৪:০০</p>
                             </div>
-                            
+
                             <div class="mt-4">
-                                <a href="doctor-profile.html" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>View Profile
+                                <a href="{{ route('doctor-profile') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Pagination -->
             <div class="row mt-5">
                 <div class="col-12">
                     <nav aria-label="Doctors pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                <a class="page-link" href="#" tabindex="-1">পূর্ববর্তী</a>
                             </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">১</a></li>
+                            <li class="page-item"><a class="page-link" href="#">২</a></li>
+                            <li class="page-item"><a class="page-link" href="#">৩</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
+                                <a class="page-link" href="#">পরবর্তী</a>
                             </li>
                         </ul>
                     </nav>
@@ -350,18 +356,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h2 class="mb-3">Can't Find Your Preferred Doctor?</h2>
-                    <p class="mb-0">Contact our appointment desk and we'll help you find the right specialist for your needs.</p>
+                    <h2 class="mb-3">আপনার পছন্দের ডাক্তার খুঁজে পাচ্ছেন না?</h2>
+                    <p class="mb-0">আমাদের অ্যাপয়েন্টমেন্ট ডেস্কে যোগাযোগ করুন এবং আমরা আপনাকে সঠিক বিশেষজ্ঞ খুঁজে পেতে
+                        সাহায্য করব।</p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                    <a href="appointment.html" class="btn btn-light btn-lg">
-                        <i class="fas fa-calendar-plus me-2"></i>Book Appointment
+                    <a href="{{ route('appointment') }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-calendar-plus me-2"></i>অ্যাপয়েন্টমেন্ট নিন
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')
@@ -370,18 +376,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const doctorCards = document.querySelectorAll('.doctor-card');
-            
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const filterValue = this.getAttribute('data-filter');
-                    
+
                     // Update active button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // Filter doctor cards
                     doctorCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        if (filterValue === 'all' || card.getAttribute('data-category') ===
+                            filterValue) {
                             card.style.display = 'block';
                             setTimeout(() => {
                                 card.style.opacity = '1';

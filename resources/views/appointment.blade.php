@@ -8,7 +8,7 @@
             margin-bottom: 40px;
             position: relative;
         }
-        
+
         .appointment-steps:before {
             content: '';
             position: absolute;
@@ -19,14 +19,14 @@
             background-color: #dee2e6;
             z-index: 1;
         }
-        
+
         .step {
             text-align: center;
             position: relative;
             z-index: 2;
             flex: 1;
         }
-        
+
         .step-circle {
             width: 30px;
             height: 30px;
@@ -40,34 +40,34 @@
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        
+
         .step.active .step-circle {
             background-color: var(--primary-blue);
             color: white;
         }
-        
+
         .step.completed .step-circle {
             background-color: var(--dark-green);
             color: white;
         }
-        
+
         .step-label {
             font-size: 0.9rem;
             color: #6c757d;
         }
-        
+
         .step.active .step-label {
             color: var(--primary-blue);
             font-weight: 500;
         }
-        
+
         .time-slot-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 10px;
             margin-top: 10px;
         }
-        
+
         .time-slot-option {
             padding: 10px;
             border: 2px solid #dee2e6;
@@ -76,26 +76,26 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .time-slot-option:hover {
             border-color: var(--primary-blue);
             background-color: var(--light-blue);
         }
-        
+
         .time-slot-option.selected {
             border-color: var(--dark-green);
             background-color: var(--light-green);
             color: var(--dark-green);
             font-weight: 500;
         }
-        
+
         .time-slot-option.unavailable {
             background-color: #f8f9fa;
             color: #adb5bd;
             cursor: not-allowed;
             text-decoration: line-through;
         }
-        
+
         .doctor-option {
             border: 2px solid #dee2e6;
             border-radius: 10px;
@@ -104,38 +104,43 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .doctor-option:hover {
             border-color: var(--primary-blue);
             background-color: var(--light-blue);
         }
-        
+
         .doctor-option.selected {
             border-color: var(--dark-green);
             background-color: var(--light-green);
         }
-        
+
         .doctor-img-small {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
-        
+
         .form-section {
             display: none;
         }
-        
+
         .form-section.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        
+
         .navigation-buttons {
             display: flex;
             justify-content: space-between;
@@ -143,7 +148,7 @@
             padding-top: 20px;
             border-top: 1px solid #dee2e6;
         }
-        
+
         .required-field::after {
             content: " *";
             color: #dc3545;
@@ -156,8 +161,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">হোম</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">অ্যাপয়েন্টমেন্ট নিন</li>
                 </ol>
             </nav>
         </div>
@@ -168,8 +173,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="display-5 fw-bold mb-3">Book Your Appointment</h1>
-                    <p class="lead text-muted">Schedule your visit with our expert medical professionals</p>
+                    <h1 class="display-5 fw-bold mb-3">অ্যাপয়েন্টমেন্ট বুক করুন</h1>
+                    <p class="lead text-muted">আমাদের বিশেষজ্ঞ চিকিৎসকদের সাথে আপনার ভিজিট শিডিউল করুন</p>
                 </div>
             </div>
         </div>
@@ -183,245 +188,258 @@
                     <!-- Appointment Steps -->
                     <div class="appointment-steps">
                         <div class="step active" id="step1">
-                            <div class="step-circle">1</div>
-                            <div class="step-label">Select Department</div>
+                            <div class="step-circle">১</div>
+                            <div class="step-label">বিভাগ নির্বাচন</div>
                         </div>
                         <div class="step" id="step2">
-                            <div class="step-circle">2</div>
-                            <div class="step-label">Choose Doctor</div>
+                            <div class="step-circle">২</div>
+                            <div class="step-label">ডাক্তার নির্বাচন</div>
                         </div>
                         <div class="step" id="step3">
-                            <div class="step-circle">3</div>
-                            <div class="step-label">Select Date & Time</div>
+                            <div class="step-circle">৩</div>
+                            <div class="step-label">তারিখ ও সময়</div>
                         </div>
                         <div class="step" id="step4">
-                            <div class="step-circle">4</div>
-                            <div class="step-label">Patient Details</div>
+                            <div class="step-circle">৪</div>
+                            <div class="step-label">রোগীর বিবরণ</div>
                         </div>
                         <div class="step" id="step5">
-                            <div class="step-circle">5</div>
-                            <div class="step-label">Confirmation</div>
+                            <div class="step-circle">৫</div>
+                            <div class="step-label">নিশ্চিতকরণ</div>
                         </div>
                     </div>
-                    
+
                     <div class="appointment-form">
                         <form class="needs-validation" novalidate id="appointmentForm">
                             <!-- Step 1: Select Department -->
                             <div class="form-section active" id="section1">
-                                <h3 class="mb-4">Select Medical Department</h3>
+                                <h3 class="mb-4">চিকিৎসা বিভাগ নির্বাচন করুন</h3>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label required-field">Select Department</label>
+                                        <label class="form-label required-field">বিভাগ নির্বাচন করুন</label>
                                         <select class="form-select" id="departmentSelect" required>
-                                            <option value="" selected disabled>Choose a department</option>
-                                            <option value="cardiology">Cardiology</option>
-                                            <option value="neurology">Neurology</option>
-                                            <option value="orthopedics">Orthopedics</option>
-                                            <option value="pediatrics">Pediatrics</option>
-                                            <option value="surgery">General Surgery</option>
-                                            <option value="dentistry">Dentistry</option>
-                                            <option value="emergency">Emergency Medicine</option>
-                                            <option value="radiology">Radiology & Imaging</option>
-                                            <option value="physiotherapy">Physiotherapy</option>
+                                            <option value="" selected disabled>একটি বিভাগ চয়ন করুন</option>
+                                            <option value="cardiology">কার্ডিওলজি</option>
+                                            <option value="neurology">নিউরোলজি</option>
+                                            <option value="orthopedics">অর্থোপেডিক্স</option>
+                                            <option value="pediatrics">শিশুরোগ</option>
+                                            <option value="surgery">জেনারেল সার্জারি</option>
+                                            <option value="dentistry">ডেন্টিস্ট্রি</option>
+                                            <option value="emergency">ইমার্জেন্সি মেডিসিন</option>
+                                            <option value="radiology">রেডিওলজি এবং ইমেজিং</option>
+                                            <option value="physiotherapy">ফিজিওথেরাপি</option>
                                         </select>
                                         <div class="invalid-feedback">
-                                            Please select a department.
+                                            অনুগ্রহ করে একটি বিভাগ নির্বাচন করুন।
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Appointment Type</label>
+                                        <label class="form-label">অ্যাপয়েন্টমেন্টের ধরন</label>
                                         <select class="form-select" id="appointmentType">
-                                            <option value="new" selected>New Patient Consultation</option>
-                                            <option value="followup">Follow-up Visit</option>
-                                            <option value="emergency">Emergency Consultation</option>
-                                            <option value="test">Diagnostic Test</option>
-                                            <option value="surgery">Surgery Consultation</option>
+                                            <option value="new" selected>নতুন রোগীর পরামর্শ</option>
+                                            <option value="followup">ফলো-আপ ভিজিট</option>
+                                            <option value="emergency">জরুরী পরামর্শ</option>
+                                            <option value="test">ডায়াগনস্টিক টেস্ট</option>
+                                            <option value="surgery">সার্জারি পরামর্শ</option>
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="alert alert-info mt-4">
                                     <i class="fas fa-info-circle me-2"></i>
-                                    <strong>Note:</strong> If you're unsure about which department to choose, you can call our appointment desk at <strong>+1 (234) 567-8901</strong> for assistance.
+                                    <strong>দ্রষ্টব্য:</strong> আপনি যদি কোন বিভাগটি বেছে নেবেন তা নিশ্চিত না হন তবে
+                                    সহায়তার জন্য আমাদের অ্যাপয়েন্টমেন্ট ডেস্কে <strong>০১৭৪০৬৫৬৭৪৮</strong> নম্বরে কল করতে
+                                    পারেন।
                                 </div>
                             </div>
-                            
+
                             <!-- Step 2: Choose Doctor -->
                             <div class="form-section" id="section2">
-                                <h3 class="mb-4">Select Doctor</h3>
+                                <h3 class="mb-4">ডাক্তার নির্বাচন করুন</h3>
                                 <div id="doctorOptions">
                                     <!-- Doctors will be loaded dynamically based on department selection -->
                                     <div class="alert alert-info">
-                                        Please select a department first to view available doctors.
+                                        উপলব্ধ ডাক্তারদের দেখতে অনুগ্রহ করে প্রথমে একটি বিভাগ নির্বাচন করুন।
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Step 3: Select Date & Time -->
                             <div class="form-section" id="section3">
-                                <h3 class="mb-4">Select Date & Time</h3>
+                                <h3 class="mb-4">তারিখ ও সময় নির্বাচন করুন</h3>
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-                                        <label class="form-label required-field">Preferred Date</label>
-                                        <input type="date" class="form-control" id="appointmentDate" required min="">
+                                        <label class="form-label required-field">পছন্দের তারিখ</label>
+                                        <input type="date" class="form-control" id="appointmentDate" required
+                                            min="">
                                         <div class="invalid-feedback">
-                                            Please select a date.
+                                            অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।
                                         </div>
                                         <div class="mt-2">
-                                            <small class="text-muted">Note: Weekend appointments may have limited availability.</small>
+                                            <small class="text-muted">দ্রষ্টব্য: সাপ্তাহিক ছুটির দিনে অ্যাপয়েন্টমেন্ট সীমিত
+                                                হতে পারে।</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <label class="form-label required-field">Preferred Time Slot</label>
+                                        <label class="form-label required-field">পছন্দের সময়ের স্লট</label>
                                         <div class="time-slot-grid" id="timeSlots">
                                             <!-- Time slots will be loaded dynamically -->
                                             <div class="alert alert-info">
-                                                Please select a date to view available time slots.
+                                                উপলব্ধ সময়ের স্লট দেখতে অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।
                                             </div>
                                         </div>
                                         <div class="invalid-feedback d-block" id="timeSlotError" style="display: none;">
-                                            Please select a time slot.
+                                            অনুগ্রহ করে একটি সময়ের স্লট নির্বাচন করুন।
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="alert alert-warning">
                                     <i class="fas fa-exclamation-triangle me-2"></i>
-                                    <strong>Important:</strong> Please arrive 15 minutes before your scheduled appointment time. Late arrivals may need to be rescheduled.
+                                    <strong>গুরুত্বপূর্ণ:</strong> অনুগ্রহ করে আপনার নির্ধারিত সময়ের ১৫ মিনিট আগে উপস্থিত
+                                    হন। দেরিতে পৌঁছলে পুনর্নির্ধারণের প্রয়োজন হতে পারে।
                                 </div>
                             </div>
-                            
+
                             <!-- Step 4: Patient Details -->
                             <div class="form-section" id="section4">
-                                <h3 class="mb-4">Patient Information</h3>
+                                <h3 class="mb-4">রোগীর তথ্য</h3>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label required-field">Full Name</label>
+                                        <label class="form-label required-field">পুরো নাম</label>
                                         <input type="text" class="form-control" id="patientName" required>
                                         <div class="invalid-feedback">
-                                            Please enter your full name.
+                                            অনুগ্রহ করে আপনার পুরো নাম দিন।
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Date of Birth</label>
+                                        <label class="form-label">জন্ম তারিখ</label>
                                         <input type="date" class="form-control" id="patientDOB">
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label required-field">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="patientPhone" required pattern="[0-9]{10}">
+                                        <label class="form-label required-field">মোবাইল নম্বর</label>
+                                        <input type="tel" class="form-control" id="patientPhone" required
+                                            pattern="[0-9]{11}">
                                         <div class="invalid-feedback">
-                                            Please enter a valid 10-digit mobile number.
+                                            অনুগ্রহ করে একটি বৈধ ১১-সংখ্যার মোবাইল নম্বর দিন।
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Email Address</label>
+                                        <label class="form-label">ইমেইল ঠিকানা</label>
                                         <input type="email" class="form-control" id="patientEmail">
                                         <div class="invalid-feedback">
-                                            Please enter a valid email address.
+                                            অনুগ্রহ করে একটি বৈধ ইমেইল ঠিকানা দিন।
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Gender</label>
+                                        <label class="form-label">লিঙ্গ</label>
                                         <select class="form-select" id="patientGender">
-                                            <option value="" selected disabled>Select gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
-                                            <option value="prefer-not-to-say">Prefer not to say</option>
+                                            <option value="" selected disabled>লিঙ্গ নির্বাচন করুন</option>
+                                            <option value="male">পুরুষ</option>
+                                            <option value="female">মহিলা</option>
+                                            <option value="other">অন্যান্য</option>
+                                            <option value="prefer-not-to-say">বলতে চাই না</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Patient Type</label>
+                                        <label class="form-label">রোগীর ধরন</label>
                                         <select class="form-select" id="patientType">
-                                            <option value="new" selected>New Patient</option>
-                                            <option value="existing">Existing Patient</option>
-                                            <option value="insurance">Insurance Patient</option>
+                                            <option value="new" selected>নতুন রোগী</option>
+                                            <option value="existing">বিদ্যমান রোগী</option>
+                                            <option value="insurance">বীমা রোগী</option>
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-3">
-                                    <label class="form-label">Medical Problem / Reason for Visit</label>
-                                    <textarea class="form-control" id="medicalProblem" rows="4" placeholder="Please describe your symptoms or reason for visit"></textarea>
-                                    <div class="form-text">This information helps our doctors prepare for your consultation.</div>
+                                    <label class="form-label">মেডিকেল সমস্যা / ভিজিটের কারণ</label>
+                                    <textarea class="form-control" id="medicalProblem" rows="4"
+                                        placeholder="অনুগ্রহ করে আপনার লক্ষণ বা ভিজিটের কারণ বর্ণনা করুন"></textarea>
+                                    <div class="form-text">এই তথ্য আমাদের ডাক্তারদের আপনার পরামর্শের জন্য প্রস্তুত হতে
+                                        সাহায্য করে।</div>
                                 </div>
-                                
+
                                 <div class="mb-3">
-                                    <label class="form-label">Previous Medical Records (if any)</label>
-                                    <input type="file" class="form-control" id="medicalRecords" accept=".pdf,.jpg,.jpeg,.png">
-                                    <div class="form-text">You can upload prescription, test reports, or other medical documents (Max: 5MB)</div>
+                                    <label class="form-label">পূর্ববর্তী মেডিকেল রেকর্ড (যদি থাকে)</label>
+                                    <input type="file" class="form-control" id="medicalRecords"
+                                        accept=".pdf,.jpg,.jpeg,.png">
+                                    <div class="form-text">আপনি প্রেসক্রিপশন, টেস্ট রিপোর্ট বা অন্যান্য মেডিকেল নথি আপলোড
+                                        করতে পারেন (সর্বোচ্চ: ৫এমবি)</div>
                                 </div>
-                                
+
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" id="termsAgreement" required>
                                     <label class="form-check-label" for="termsAgreement">
-                                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a> and privacy policy
+                                        আমি <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#termsModal">শর্তাবলী এবং গোপনীয়তা নীতির</a> সাথে সম্মত
                                     </label>
                                     <div class="invalid-feedback">
-                                        You must agree to the terms and conditions.
+                                        আপনাকে অবশ্যই শর্তাবলীতে সম্মত হতে হবে।
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Step 5: Confirmation -->
                             <div class="form-section" id="section5">
-                                <h3 class="mb-4">Appointment Summary</h3>
+                                <h3 class="mb-4">অ্যাপয়েন্টমেন্ট সারাংশ</h3>
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5>Appointment Details</h5>
-                                                <p><strong>Department:</strong> <span id="summaryDepartment">-</span></p>
-                                                <p><strong>Doctor:</strong> <span id="summaryDoctor">-</span></p>
-                                                <p><strong>Date:</strong> <span id="summaryDate">-</span></p>
-                                                <p><strong>Time:</strong> <span id="summaryTime">-</span></p>
-                                                <p><strong>Type:</strong> <span id="summaryType">-</span></p>
+                                                <h5>অ্যাপয়েন্টমেন্টের বিবরণ</h5>
+                                                <p><strong>বিভাগ:</strong> <span id="summaryDepartment">-</span></p>
+                                                <p><strong>ডাক্তার:</strong> <span id="summaryDoctor">-</span></p>
+                                                <p><strong>তারিখ:</strong> <span id="summaryDate">-</span></p>
+                                                <p><strong>সময়:</strong> <span id="summaryTime">-</span></p>
+                                                <p><strong>ধরন:</strong> <span id="summaryType">-</span></p>
                                             </div>
                                             <div class="col-md-6">
-                                                <h5>Patient Information</h5>
-                                                <p><strong>Name:</strong> <span id="summaryName">-</span></p>
-                                                <p><strong>Contact:</strong> <span id="summaryContact">-</span></p>
-                                                <p><strong>Email:</strong> <span id="summaryEmail">-</span></p>
-                                                <p><strong>Medical Issue:</strong> <span id="summaryIssue">-</span></p>
+                                                <h5>রোগীর তথ্য</h5>
+                                                <p><strong>নাম:</strong> <span id="summaryName">-</span></p>
+                                                <p><strong>যোগাযোগ:</strong> <span id="summaryContact">-</span></p>
+                                                <p><strong>ইমেইল:</strong> <span id="summaryEmail">-</span></p>
+                                                <p><strong>মেডিকেল সমস্যা:</strong> <span id="summaryIssue">-</span></p>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>Important Notes</h5>
+                                                <h5>গুরুত্বপূর্ণ নোট</h5>
                                                 <ul>
-                                                    <li>Please arrive 15 minutes before your scheduled appointment</li>
-                                                    <li>Bring your ID proof and any previous medical records</li>
-                                                    <li>Consultation fee: $150 (New Patient) / $100 (Follow-up)</li>
-                                                    <li>Cancellation must be made at least 24 hours in advance</li>
+                                                    <li>অনুগ্রহ করে নির্ধারিত অ্যাপয়েন্টমেন্টের ১৫ মিনিট আগে পৌঁছান</li>
+                                                    <li>আপনার আইডি প্রমাণ এবং পূর্ববর্তী মেডিকেল রেকর্ড সাথে আনুন</li>
+                                                    <li>পরামর্শ ফি: ১০০০ টাকা (নতুন রোগী) / ৫০০ টাকা (ফলো-আপ)</li>
+                                                    <li>বাতিল করতে হলে কমপক্ষে ২৪ ঘণ্টা আগে জানাতে হবে</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="alert alert-success mt-4">
                                     <i class="fas fa-check-circle me-2"></i>
-                                    <strong>Your appointment is ready to be confirmed!</strong> Click "Confirm Appointment" to complete the booking.
+                                    <strong>আপনার অ্যাপয়েন্টমেন্ট নিশ্চিত করার জন্য প্রস্তুত!</strong> বুকিং সম্পূর্ণ করতে
+                                    "অ্যাপয়েন্টমেন্ট নিশ্চিত করুন" এ ক্লিক করুন।
                                 </div>
                             </div>
-                            
+
                             <!-- Navigation Buttons -->
                             <div class="navigation-buttons">
-                                <button type="button" class="btn btn-outline-primary" id="prevBtn" style="display: none;">
-                                    <i class="fas fa-arrow-left me-2"></i>Previous
+                                <button type="button" class="btn btn-outline-primary" id="prevBtn"
+                                    style="display: none;">
+                                    <i class="fas fa-arrow-left me-2"></i>পূর্ববর্তী
                                 </button>
                                 <button type="button" class="btn btn-primary ms-auto" id="nextBtn">
-                                    Next <i class="fas fa-arrow-right ms-2"></i>
+                                    পরবর্তী <i class="fas fa-arrow-right ms-2"></i>
                                 </button>
                                 <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">
-                                    <i class="fas fa-calendar-check me-2"></i>Confirm Appointment
+                                    <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিশ্চিত করুন
                                 </button>
                             </div>
                         </form>
@@ -436,33 +454,39 @@
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Terms & Conditions</h5>
+                    <h5 class="modal-title">শর্তাবলী</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Appointment Booking Terms</h5>
-                    <p>By booking an appointment, you agree to the following terms and conditions:</p>
-                    
-                    <h6>1. Appointment Confirmation</h6>
-                    <p>Appointments are confirmed only after receiving payment or confirmation call from our staff. We reserve the right to reschedule appointments if necessary.</p>
-                    
-                    <h6>2. Cancellation Policy</h6>
-                    <p>Cancellations must be made at least 24 hours before the scheduled appointment time. Late cancellations may incur a cancellation fee.</p>
-                    
-                    <h6>3. Late Arrivals</h6>
-                    <p>Patients arriving more than 15 minutes late may need to be rescheduled, depending on doctor availability.</p>
-                    
-                    <h6>4. Payment Terms</h6>
-                    <p>Consultation fees are payable at the time of appointment. Additional charges may apply for diagnostic tests or procedures.</p>
-                    
-                    <h6>5. Privacy Policy</h6>
-                    <p>Your medical information will be kept confidential in accordance with healthcare privacy laws. We may contact you for appointment reminders and follow-up care.</p>
-                    
-                    <h6>6. Emergency Cases</h6>
-                    <p>In case of medical emergencies, walk-in patients will be given priority over scheduled appointments.</p>
+                    <h5>অ্যাপয়েন্টমেন্ট বুকিং শর্তাবলী</h5>
+                    <p>অ্যাপয়েন্টমেন্ট বুকিং করে, আপনি নিম্নলিখিত শর্তাবলী এবং শর্তসাপেক্ষে সম্মত হন:</p>
+
+                    <h6>১. অ্যাপয়েন্টমেন্ট নিশ্চিতকরণ</h6>
+                    <p>পেমেন্ট বা আমাদের কর্মীদের কাছ থেকে নিশ্চিতকরণ কল পাওয়ার পরেই অ্যাপয়েন্টমেন্ট নিশ্চিত করা হয়। আমরা
+                        প্রয়োজন হলে অ্যাপয়েন্টমেন্ট পুনর্নির্ধারণ করার অধিকার রাখি।</p>
+
+                    <h6>২. বাতিলকরণ নীতি</h6>
+                    <p>নির্ধারিত অ্যাপয়েন্টমেন্ট সময়ের কমপক্ষে ২৪ ঘণ্টা আগে বাতিল করতে হবে। দেরিতে বাতিল হলে বাতিলকরণ ফি
+                        প্রযোজ্য হতে পারে।</p>
+
+                    <h6>৩. দেরিতে পৌঁছানো</h6>
+                    <p>১৫ মিনিটের বেশি দেরিতে আসা রোগীদের ডাক্তারের প্রাপ্যতার উপর ভিত্তি করে পুনর্নির্ধারণ করার প্রয়োজন
+                        হতে পারে।</p>
+
+                    <h6>৪. পেমেন্ট শর্তাবলী</h6>
+                    <p>অ্যাপয়েন্টমেন্টের সময় পরামর্শ ফি প্রদেয়। ডায়াগনস্টিক টেস্ট বা পদ্ধতির জন্য অতিরিক্ত চার্জ
+                        প্রযোজ্য হতে পারে।</p>
+
+                    <h6>৫. গোপনীয়তা নীতি</h6>
+                    <p>আপনার চিকিৎসা সংক্রান্ত তথ্য স্বাস্থ্যসেবা গোপনীয়তা আইন অনুযায়ী গোপন রাখা হবে। অ্যাপয়েন্টমেন্ট
+                        রিমাইন্ডার এবং ফলো-আপ কেয়ারের জন্য আমরা আপনার সাথে যোগাযোগ করতে পারি।</p>
+
+                    <h6>৬. জরুরী কেস</h6>
+                    <p>মেডিকেল জরুরী ক্ষেত্রে, নির্ধারিত অ্যাপয়েন্টমেন্টের চেয়ে ওয়াক-ইন রোগীদের অগ্রাধিকার দেওয়া হবে।
+                    </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">আমি বুঝেছি</button>
                 </div>
             </div>
         </div>
@@ -477,21 +501,21 @@
             const totalSteps = 5;
             let selectedDoctor = null;
             let selectedTimeSlot = null;
-            
+
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('appointmentDate').min = today;
-            
+
             // Department change event
             document.getElementById('departmentSelect').addEventListener('change', function() {
                 loadDoctors(this.value);
             });
-            
+
             // Date change event
             document.getElementById('appointmentDate').addEventListener('change', function() {
                 loadTimeSlots(this.value);
             });
-            
+
             // Next button click
             document.getElementById('nextBtn').addEventListener('click', function() {
                 if (validateStep(currentStep)) {
@@ -500,15 +524,15 @@
                         document.getElementById(`step${currentStep}`).classList.remove('active');
                         document.getElementById(`step${currentStep}`).classList.add('completed');
                         document.getElementById(`section${currentStep}`).classList.remove('active');
-                        
+
                         currentStep++;
-                        
+
                         document.getElementById(`step${currentStep}`).classList.add('active');
                         document.getElementById(`section${currentStep}`).classList.add('active');
-                        
+
                         // Update navigation buttons
                         updateNavigationButtons();
-                        
+
                         // If moving to confirmation step, update summary
                         if (currentStep === 5) {
                             updateAppointmentSummary();
@@ -516,44 +540,45 @@
                     }
                 }
             });
-            
+
             // Previous button click
             document.getElementById('prevBtn').addEventListener('click', function() {
                 if (currentStep > 1) {
                     // Update step UI
                     document.getElementById(`step${currentStep}`).classList.remove('active');
                     document.getElementById(`section${currentStep}`).classList.remove('active');
-                    
+
                     currentStep--;
-                    
+
                     document.getElementById(`step${currentStep}`).classList.add('active');
                     document.getElementById(`section${currentStep}`).classList.add('active');
-                    
+
                     // Update navigation buttons
                     updateNavigationButtons();
                 }
             });
-            
+
             // Form submit
             document.getElementById('appointmentForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 if (validateStep(5)) {
                     // Show confirmation modal
-                    const modal = new bootstrap.Modal(document.getElementById('appointmentConfirmationModal'));
+                    const modal = new bootstrap.Modal(document.getElementById(
+                        'appointmentConfirmationModal'));
                     modal.show();
-                    
+
                     // Reset form after successful submission (for demo)
                     setTimeout(() => {
                         resetForm();
                     }, 2000);
                 }
             });
-            
+
             function validateStep(step) {
                 let isValid = true;
-                
-                switch(step) {
+
+                switch (step) {
                     case 1:
                         const department = document.getElementById('departmentSelect');
                         if (!department.value) {
@@ -563,14 +588,14 @@
                             department.classList.remove('is-invalid');
                         }
                         break;
-                        
+
                     case 2:
                         if (!selectedDoctor) {
-                            showToast('Please select a doctor', 'warning');
+                            showToast('অনুগ্রহ করে একজন ডাক্তার নির্বাচন করুন', 'warning');
                             isValid = false;
                         }
                         break;
-                        
+
                     case 3:
                         const date = document.getElementById('appointmentDate');
                         if (!date.value) {
@@ -579,7 +604,7 @@
                         } else {
                             date.classList.remove('is-invalid');
                         }
-                        
+
                         if (!selectedTimeSlot) {
                             document.getElementById('timeSlotError').style.display = 'block';
                             isValid = false;
@@ -587,20 +612,22 @@
                             document.getElementById('timeSlotError').style.display = 'none';
                         }
                         break;
-                        
+
                     case 4:
                         // Validate required fields
                         const requiredFields = ['patientName', 'patientPhone'];
                         requiredFields.forEach(fieldId => {
                             const field = document.getElementById(fieldId);
-                            if (!field.value || (field.id === 'patientPhone' && !field.value.match(/^[0-9]{10}$/))) {
+                            // Adjusted regex for 11 digit BD numbers
+                            if (!field.value || (field.id === 'patientPhone' && !field.value.match(
+                                    /^[0-9]{11}$/))) {
                                 field.classList.add('is-invalid');
                                 isValid = false;
                             } else {
                                 field.classList.remove('is-invalid');
                             }
                         });
-                        
+
                         // Validate email if provided
                         const email = document.getElementById('patientEmail');
                         if (email.value && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
@@ -609,7 +636,7 @@
                         } else {
                             email.classList.remove('is-invalid');
                         }
-                        
+
                         // Validate terms agreement
                         const terms = document.getElementById('termsAgreement');
                         if (!terms.checked) {
@@ -620,15 +647,15 @@
                         }
                         break;
                 }
-                
+
                 return isValid;
             }
-            
+
             function updateNavigationButtons() {
                 const prevBtn = document.getElementById('prevBtn');
                 const nextBtn = document.getElementById('nextBtn');
                 const submitBtn = document.getElementById('submitBtn');
-                
+
                 if (currentStep === 1) {
                     prevBtn.style.display = 'none';
                     nextBtn.style.display = 'inline-block';
@@ -643,28 +670,61 @@
                     submitBtn.style.display = 'none';
                 }
             }
-            
+
             function loadDoctors(department) {
                 const doctorOptions = document.getElementById('doctorOptions');
-                
+
                 // Simulate loading doctors based on department
                 const doctors = {
-                    'cardiology': [
-                        { id: 1, name: 'Dr. Sarah Johnson', specialization: 'Senior Cardiologist', experience: '15+ years', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
-                        { id: 2, name: 'Dr. James Parker', specialization: 'Interventional Cardiologist', experience: '11+ years', img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' }
+                    'cardiology': [{
+                            id: 1,
+                            name: 'ডা. সারাহ জনসন',
+                            specialization: 'সিনিয়র কার্ডিওলজিস্ট',
+                            experience: 'অভিজ্ঞতা: ১৫+ বছর',
+                            img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        },
+                        {
+                            id: 2,
+                            name: 'ডা. জেমস পার্কার',
+                            specialization: 'ইন্টারভেনশনাল কার্ডিওলজিস্ট',
+                            experience: 'অভিজ্ঞতা: ১১+ বছর',
+                            img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        }
                     ],
-                    'neurology': [
-                        { id: 3, name: 'Dr. Michael Chen', specialization: 'Neurologist', experience: '12+ years', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
-                        { id: 4, name: 'Dr. Maria Garcia', specialization: 'Neurologist', experience: '8+ years', img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' }
+                    'neurology': [{
+                            id: 3,
+                            name: 'ডা. মাইকেল চেন',
+                            specialization: 'নিউরোলজিস্ট',
+                            experience: 'অভিজ্ঞতা: ১২+ বছর',
+                            img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        },
+                        {
+                            id: 4,
+                            name: 'ডা. মারিয়া গার্সিয়া',
+                            specialization: 'নিউরোলজিস্ট',
+                            experience: 'অভিজ্ঞতা: ৮+ বছর',
+                            img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        }
                     ],
-                    'orthopedics': [
-                        { id: 5, name: 'Dr. David Wilson', specialization: 'Orthopedic Surgeon', experience: '18+ years', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
-                        { id: 6, name: 'Dr. Thomas Lee', specialization: 'Spine Specialist', experience: '13+ years', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' }
+                    'orthopedics': [{
+                            id: 5,
+                            name: 'ডা. ডেভিড উইলসন',
+                            specialization: 'অর্থোপেডিক সার্জন',
+                            experience: 'অভিজ্ঞতা: ১৮+ বছর',
+                            img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        },
+                        {
+                            id: 6,
+                            name: 'ডা. টমাস লি',
+                            specialization: 'স্পাইন স্পেশালিস্ট',
+                            experience: 'অভিজ্ঞতা: ১৩+ বছর',
+                            img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+                        }
                     ]
                 };
-                
+
                 let html = '';
-                
+
                 if (doctors[department]) {
                     doctors[department].forEach(doctor => {
                         html += `
@@ -676,7 +736,7 @@
                                     <div class="col">
                                         <h5 class="mb-1">${doctor.name}</h5>
                                         <p class="mb-1 text-muted">${doctor.specialization}</p>
-                                        <p class="mb-0"><small>Experience: ${doctor.experience}</small></p>
+                                        <p class="mb-0"><small>${doctor.experience}</small></p>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-check-circle text-success" style="display: none;"></i>
@@ -686,28 +746,29 @@
                         `;
                     });
                 } else {
-                    html = '<div class="alert alert-info">Doctors for this department will be displayed here. Please select a doctor to continue.</div>';
+                    html =
+                        '<div class="alert alert-info">এই বিভাগের ডাক্তারদের এখানে দেখানো হবে। চালিয়ে যেতে অনুগ্রহ করে একজন ডাক্তার নির্বাচন করুন।</div>';
                 }
-                
+
                 doctorOptions.innerHTML = html;
                 selectedDoctor = null;
             }
-            
+
             function loadTimeSlots(date) {
                 const timeSlotsContainer = document.getElementById('timeSlots');
-                
+
                 // Generate time slots (9 AM to 4 PM)
                 const slots = [
                     '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
                     '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
                     '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM'
                 ];
-                
+
                 // Randomly mark some slots as unavailable for demo
                 const unavailableSlots = ['9:30 AM', '11:00 AM', '2:30 PM'];
-                
+
                 let html = '';
-                
+
                 slots.forEach(slot => {
                     const isUnavailable = unavailableSlots.includes(slot);
                     html += `
@@ -718,90 +779,96 @@
                         </div>
                     `;
                 });
-                
+
                 timeSlotsContainer.innerHTML = html;
                 selectedTimeSlot = null;
             }
-            
+
             function updateAppointmentSummary() {
-                document.getElementById('summaryDepartment').textContent = 
-                    document.getElementById('departmentSelect').options[document.getElementById('departmentSelect').selectedIndex].text;
-                
+                document.getElementById('summaryDepartment').textContent =
+                    document.getElementById('departmentSelect').options[document.getElementById('departmentSelect')
+                        .selectedIndex].text;
+
                 document.getElementById('summaryDoctor').textContent = selectedDoctor || '-';
-                document.getElementById('summaryDate').textContent = document.getElementById('appointmentDate').value || '-';
+                document.getElementById('summaryDate').textContent = document.getElementById('appointmentDate')
+                    .value || '-';
                 document.getElementById('summaryTime').textContent = selectedTimeSlot || '-';
-                document.getElementById('summaryType').textContent = 
-                    document.getElementById('appointmentType').options[document.getElementById('appointmentType').selectedIndex].text;
-                
-                document.getElementById('summaryName').textContent = document.getElementById('patientName').value || '-';
-                document.getElementById('summaryContact').textContent = document.getElementById('patientPhone').value || '-';
-                document.getElementById('summaryEmail').textContent = document.getElementById('patientEmail').value || '-';
-                document.getElementById('summaryIssue').textContent = 
-                    document.getElementById('medicalProblem').value.substring(0, 50) + 
+                document.getElementById('summaryType').textContent =
+                    document.getElementById('appointmentType').options[document.getElementById('appointmentType')
+                        .selectedIndex].text;
+
+                document.getElementById('summaryName').textContent = document.getElementById('patientName').value ||
+                    '-';
+                document.getElementById('summaryContact').textContent = document.getElementById('patientPhone')
+                    .value || '-';
+                document.getElementById('summaryEmail').textContent = document.getElementById('patientEmail')
+                    .value || '-';
+                document.getElementById('summaryIssue').textContent =
+                    document.getElementById('medicalProblem').value.substring(0, 50) +
                     (document.getElementById('medicalProblem').value.length > 50 ? '...' : '') || '-';
             }
-            
+
             function resetForm() {
                 currentStep = 1;
                 selectedDoctor = null;
                 selectedTimeSlot = null;
-                
+
                 // Reset steps UI
                 for (let i = 1; i <= totalSteps; i++) {
                     document.getElementById(`step${i}`).classList.remove('active', 'completed');
                     document.getElementById(`section${i}`).classList.remove('active');
                 }
-                
+
                 document.getElementById('step1').classList.add('active');
                 document.getElementById('section1').classList.add('active');
-                
+
                 // Reset form fields
                 document.getElementById('appointmentForm').reset();
                 document.getElementById('appointmentForm').classList.remove('was-validated');
-                
+
                 // Reset dynamic content
-                document.getElementById('doctorOptions').innerHTML = 
-                    '<div class="alert alert-info">Please select a department first to view available doctors.</div>';
-                document.getElementById('timeSlots').innerHTML = 
-                    '<div class="alert alert-info">Please select a date to view available time slots.</div>';
-                
+                document.getElementById('doctorOptions').innerHTML =
+                    '<div class="alert alert-info">উপলব্ধ ডাক্তারদের দেখতে অনুগ্রহ করে প্রথমে একটি বিভাগ নির্বাচন করুন।</div>';
+                document.getElementById('timeSlots').innerHTML =
+                    '<div class="alert alert-info">উপলব্ধ সময়ের স্লট দেখতে অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।</div>';
+
                 // Update navigation buttons
                 updateNavigationButtons();
             }
-            
+
             // Make functions available globally
             window.selectDoctor = function(doctorId, doctorName) {
                 selectedDoctor = doctorName;
-                
+
                 // Update UI
                 document.querySelectorAll('.doctor-option').forEach(option => {
                     option.classList.remove('selected');
                     option.querySelector('.fa-check-circle').style.display = 'none';
                 });
-                
+
                 const selectedOption = document.querySelector(`.doctor-option[data-doctor-id="${doctorId}"]`);
                 if (selectedOption) {
                     selectedOption.classList.add('selected');
                     selectedOption.querySelector('.fa-check-circle').style.display = 'block';
                 }
             };
-            
+
             window.selectTimeSlot = function(timeSlot) {
                 selectedTimeSlot = timeSlot;
-                
+
                 // Update UI
                 document.querySelectorAll('.time-slot-option:not(.unavailable)').forEach(option => {
                     option.classList.remove('selected');
                 });
-                
+
                 const selectedOption = document.querySelector(`.time-slot-option[data-time="${timeSlot}"]`);
                 if (selectedOption) {
                     selectedOption.classList.add('selected');
                 }
-                
+
                 document.getElementById('timeSlotError').style.display = 'none';
             };
-            
+
             // Initialize
             updateNavigationButtons();
         });

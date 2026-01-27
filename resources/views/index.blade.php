@@ -6,11 +6,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-3">আপনার সুস্বাস্থ্যই <span class="text-success">আমাদের অগ্রাধিকার</span></h1>
-                    <p class="lead mb-4">অভিজ্ঞ চিকিৎসক ও আধুনিক প্রযুক্তির মাধ্যমে আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল প্রদান করে নির্ভরযোগ্য ও সাশ্রয়ী চিকিৎসা সেবা।</p>
+                    <h1 class="display-4 fw-bold mb-3">আপনার সুস্বাস্থ্যই <span class="text-success">আমাদের অগ্রাধিকার</span>
+                    </h1>
+                    <p class="lead mb-4">অভিজ্ঞ চিকিৎসক ও আধুনিক প্রযুক্তির মাধ্যমে আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল প্রদান
+                        করে নির্ভরযোগ্য ও সাশ্রয়ী চিকিৎসা সেবা।</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{{ route('appointment') }}" class="btn btn-primary btn-lg">
-                            <i class="fas fa-calendar-check me-2"></i>এপয়েন্টমেন্ট বুক করুন
+                            <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিন
                         </a>
                         <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">
                             <i class="fas fa-phone-alt me-2"></i>যোগাযোগ করুন
@@ -18,8 +20,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ asset('assets/images/ammsh.jpg') }}" 
-                         alt="Hospital Staff" class="img-fluid rounded shadow-lg">
+                    <img src="{{ asset('assets/images/ammsh.jpg') }}" alt="Hospital Staff"
+                        class="img-fluid rounded shadow-lg">
                 </div>
             </div>
         </div>
@@ -34,7 +36,7 @@
                     <p class="text-muted">আপনার সকল চিকিৎসা প্রয়োজনের জন্য সমন্বিত স্বাস্থ্যসেবা</p>
                 </div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
@@ -45,7 +47,7 @@
                         <p>দ্রুত সাড়া প্রদানকারী টিম ও উন্নত লাইফ সাপোর্টসহ ২৪/৭ জরুরি চিকিৎসা সেবা।</p>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="service-icon">
@@ -55,7 +57,7 @@
                         <p>বিশেষজ্ঞ চিকিৎসকের পরামর্শ ও ডায়াগনস্টিক সেবাসহ বহির্বিভাগ।</p>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="service-icon">
@@ -65,7 +67,7 @@
                         <p>সার্বক্ষণিক পর্যবেক্ষণসহ আধুনিক মানের ইনটেনসিভ কেয়ার ইউনিট।</p>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="service-icon">
@@ -103,7 +105,7 @@
             </div>
 
             <div class="text-center mt-5">
-                <a href="doctors.html" class="btn btn-primary btn-lg">
+                <a href="{{ route('doctors') }}" class="btn btn-primary btn-lg">
                     সকল চিকিৎসক দেখুন <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
@@ -116,14 +118,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h2 class="mb-3">আজই কি একজন চিকিৎসকের কাছে যেতে চান?</h2>
+                    <h2 class="mb-3">আজই কি একজন চিকিৎসকের পরামর্শ নিতে চান?</h2>
                     <p class="mb-0">
-                        আমাদের বিশেষজ্ঞ চিকিৎসকদের সাথে অ্যাপয়েন্টমেন্ট বুক করুন। আমরা নিশ্চিত করি কম অপেক্ষার সময় এবং ব্যক্তিগত যত্ন।
+                        আমাদের বিশেষজ্ঞ চিকিৎসকদের সাথে এপয়েন্টমেন্ট নিন। আমরা নিশ্চিত করি কম অপেক্ষার সময় এবং ব্যক্তিগত
+                        যত্ন।
                     </p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                    <a href="appointment.html" class="btn btn-light btn-lg">
-                        <i class="fas fa-calendar-plus me-2"></i>এখনই অ্যাপয়েন্টমেন্ট বুক করুন
+                    <a href="{{ route('appointment') }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-calendar-plus me-2"></i>এখনই অ্যাপয়েন্টমেন্ট নিন
                     </a>
                 </div>
             </div>
@@ -144,7 +147,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="testimonial-card">
                         <p class="mb-0">
-                            "মেডিকেয়ার হাসপাতালে আমি যে সেবা পেয়েছি তা ছিল অসাধারণ। ডা. জনসনের দক্ষতা এবং নার্সিং স্টাফদের যত্ন আমার সুস্থ হয়ে ওঠাকে সহজ ও আরামদায়ক করেছে।"
+                            "আল মুতমাইন্নাহ হাসপাতালে আমি যে সেবা পেয়েছি তা ছিল অসাধারণ। চিকিৎসকদের দক্ষতা এবং নার্সিং
+                            স্টাফদের যত্ন আমার সুস্থ হয়ে ওঠাকে সহজ ও আরামদায়ক করেছে।"
                         </p>
                         <div class="testimonial-author">
                             <div>
@@ -158,7 +162,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="testimonial-card">
                         <p class="mb-0">
-                            "জরুরি ভর্তি থেকে শুরু করে ছুটি পাওয়া পর্যন্ত প্রতিটি স্টাফই ছিলেন পেশাদার ও সহানুভূতিশীল। হাসপাতালের সুবিধাগুলো আধুনিক ও পরিচ্ছন্ন। অবশ্যই সুপারিশযোগ্য!"
+                            "জরুরি ভর্তি থেকে শুরু করে ছুটি পাওয়া পর্যন্ত প্রতিটি স্টাফই ছিলেন পেশাদার ও সহানুভূতিশীল।
+                            হাসপাতালের সুবিধাগুলো আধুনিক ও পরিচ্ছন্ন। অবশ্যই সুপারিশযোগ্য!"
                         </p>
                         <div class="testimonial-author">
                             <div>
@@ -172,7 +177,8 @@
                 <div class="col-md-12 col-lg-4">
                     <div class="testimonial-card">
                         <p class="mb-0">
-                            "মেডিকেয়ারের অর্থোপেডিক টিম অত্যন্ত নিখুঁতভাবে আমার হাঁটু প্রতিস্থাপন অস্ত্রোপচার সম্পন্ন করেছে। অস্ত্রোপচারের পরের যত্ন ও ফিজিওথেরাপি সাপোর্ট ছিল দারুণ।"
+                            "আল মুতমাইন্নাহর অর্থোপেডিক টিম অত্যন্ত নিখুঁতভাবে আমার অস্ত্রোপচার সম্পন্ন করেছে। অস্ত্রোপচারের
+                            পরের যত্ন ও ফিজিওথেরাপি সাপোর্ট ছিল দারুণ।"
                         </p>
                         <div class="testimonial-author">
                             <div>
@@ -185,5 +191,4 @@
             </div>
         </div>
     </section>
-
 @endsection
