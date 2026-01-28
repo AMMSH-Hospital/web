@@ -30,7 +30,7 @@
                         হাশপাতাল সাশ্রয়ী মূল্যে অনেকগুলি চিকিৎসা প্যাকেজের সুব্যবস্থা রেখেছে।</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1516549655669-df6654e435de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                    <img src="{{ asset('assets/images/ammsh.jpg') }}"
                         alt="Hospital Building" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
@@ -131,7 +131,7 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             class="card-img-top" alt="Emergency Ward">
                         <div class="card-body">
                             <h5 class="card-title">ইনডোর কেবিন ও ওয়ার্ড</h5>
@@ -142,7 +142,7 @@
 
                 <div class="col-md-6 col-lg-4">
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1584467735871-8db9ac8d0916?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             class="card-img-top" alt="ICU">
                         <div class="card-body">
                             <h5 class="card-title">আধুনিক প্যাথলজিক্যাল ল্যাবরেটরি</h5>

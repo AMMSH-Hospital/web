@@ -42,7 +42,7 @@
         }
 
         .step.active .step-circle {
-            background-color: var(--primary-blue);
+            background-color: var(--dark-gray);
             color: white;
         }
 
@@ -57,7 +57,7 @@
         }
 
         .step.active .step-label {
-            color: var(--primary-blue);
+            color: var(--dark-gray);
             font-weight: 500;
         }
 
@@ -78,8 +78,8 @@
         }
 
         .time-slot-option:hover {
-            border-color: var(--primary-blue);
-            background-color: var(--light-blue);
+            border-color: var(--dark-gray);
+            background-color: var(--light-gray);
         }
 
         .time-slot-option.selected {
@@ -106,8 +106,8 @@
         }
 
         .doctor-option:hover {
-            border-color: var(--primary-blue);
-            background-color: var(--light-blue);
+            border-color: var(--dark-gray);
+            background-color: var(--light-gray);
         }
 
         .doctor-option.selected {

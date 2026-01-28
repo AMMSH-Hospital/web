@@ -92,8 +92,6 @@
                 <!-- Doctor 1 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="cardiology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Sarah Johnson">
                         <div class="card-body">
                             <span class="department-badge">কার্ডিওলজি</span>
                             <h5 class="card-title mt-3">ডা. সারাহ জনসন</h5>
@@ -119,8 +117,6 @@
                 <!-- Doctor 2 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="neurology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Michael Chen">
                         <div class="card-body">
                             <span class="department-badge">নিউরোলজি</span>
                             <h5 class="card-title mt-3">ডা. মাইকেল চেন</h5>
@@ -146,8 +142,6 @@
                 <!-- Doctor 3 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="orthopedics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. David Wilson">
                         <div class="card-body">
                             <span class="department-badge">অর্থোপেডিক্স</span>
                             <h5 class="card-title mt-3">ডা. ডেভিড উইলসন</h5>
@@ -173,8 +167,6 @@
                 <!-- Doctor 4 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="pediatrics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Emily Rodriguez">
                         <div class="card-body">
                             <span class="department-badge">শিশুরোগ</span>
                             <h5 class="card-title mt-3">ডা. এমিলি রদ্রিগেজ</h5>
@@ -200,8 +192,6 @@
                 <!-- Doctor 5 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="surgery">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Robert Miller">
                         <div class="card-body">
                             <span class="department-badge">জেনারেল সার্জারি</span>
                             <h5 class="card-title mt-3">ডা. রবার্ট মিলার</h5>
@@ -227,8 +217,6 @@
                 <!-- Doctor 6 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="dentistry">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1622902046581-3c9c04c0d5a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Lisa Anderson">
                         <div class="card-body">
                             <span class="department-badge">ডেন্টিস্ট্রি</span>
                             <h5 class="card-title mt-3">ডা. লিসা অ্যান্ডারসন</h5>
@@ -254,8 +242,6 @@
                 <!-- Doctor 7 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="cardiology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. James Parker">
                         <div class="card-body">
                             <span class="department-badge">কার্ডিওলজি</span>
                             <h5 class="card-title mt-3">ডা. জেমস পার্কার</h5>
@@ -280,8 +266,6 @@
                 <!-- Doctor 8 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="neurology">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Maria Garcia">
                         <div class="card-body">
                             <span class="department-badge">নিউরোলজি</span>
                             <h5 class="card-title mt-3">ডা. মারিয়া গার্সিয়া</h5>
@@ -306,8 +290,6 @@
                 <!-- Doctor 9 -->
                 <div class="col-md-6 col-lg-4 doctor-card" data-category="orthopedics">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            class="card-img-top" alt="Dr. Thomas Lee">
                         <div class="card-body">
                             <span class="department-badge">অর্থোপেডিক্স</span>
                             <h5 class="card-title mt-3">ডা. টমাস লি</h5>
