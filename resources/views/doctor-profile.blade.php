@@ -76,7 +76,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">হোম</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('doctors') }}">ডাক্তারগণ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">ডা. সারাহ জনসন</li>
+                    <li class="breadcrumb-item active" aria-current="page">ডা. জর্জিস</li>
                 </ol>
             </nav>
         </div>
@@ -87,12 +87,8 @@
         <div class="container">
             <div class="doctor-profile-header">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Dr. Sarah Johnson" class="profile-img">
-                    </div>
-                    <div class="col-lg-8">
-                        <h1 class="display-5 fw-bold mb-2">ডা. সারাহ জনসন</h1>
+                    <div class="col-lg-12">
+                        <h1 class="display-5 fw-bold mb-2">ডা. জর্জিস</h1>
                         <p class="lead text-primary mb-3">সিনিয়র কনসালটেন্ট কার্ডিওলজিস্ট</p>
 
                         <div class="mb-4">
@@ -133,18 +129,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h2 class="section-title">জীবনবৃত্তান্ত</h2>
                     <p>ডা. সারাহ জনসন কার্ডিওভাসকুলার রোগ নির্ণয় ও চিকিৎসায় ১৫ বছরেরও বেশি অভিজ্ঞ একজন অত্যন্ত দক্ষ
                         কার্ডিওলজিস্ট। তিনি ন্যাশনাল হার্ট ইনস্টিটিউট থেকে কার্ডিওলজিতে ডিএম সম্পন্ন করেছেন এবং আমাদের
                         অঞ্চলে কার্ডিয়াক কেয়ারের উন্নতিতে গুরুত্বপূর্ণ ভূমিকা পালন করছেন।</p>
-
-                    <p>ডা. জনসন করোনারি এনজিওপ্লাস্টি, স্টেন্ট প্লেসমেন্ট এবং জটিল কার্ডিয়াক ক্যাথেটারাইজেশন সহ
-                        ইন্টারভেনশনাল কার্ডিওলজি পদ্ধতিতে বিশেষজ্ঞ। তিনি ৯৮.৭% এর উল্লেখযোগ্য সাফল্যের হারের সাথে ৫,০০০ টিরও
-                        বেশি সফল কার্ডিয়াক পদ্ধতি সম্পন্ন করেছেন।</p>
-
-                    <p>তার গবেষণামূলক কাজ বেশ কয়েকটি আন্তর্জাতিক কার্ডিওলজি জার্নালে প্রকাশিত হয়েছে এবং তিনি নিয়মিতভাবে
-                        মূল বক্তা হিসেবে বৈশ্বিক কার্ডিওলজি সম্মেলনে অংশগ্রহণ করেন। ডা. জনসন প্রিভেন্টিভ কার্ডিওলজি সম্পর্কে
-                        আগ্রহী এবং রোগীদের হার্ট-হেলদি লাইফস্টাইল সম্পর্কে শিক্ষিত করায় বিশ্বাসী।</p>
 
                     <h4 class="mt-5 mb-3">পেশাগত অভিজ্ঞতা</h4>
                     <div class="experience-item">
@@ -179,12 +166,6 @@
                                     অ্যাডভান্সড মেডিকেল কলেজ (২০০৬)</li>
                                 <li><i class="fas fa-check-circle text-success me-2"></i> ডিএম (কার্ডিওলজি) - ন্যাশনাল হার্ট
                                     ইনস্টিটিউট (২০১০)</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> ফেলোশিপ ইন ইন্টারভেনশনাল
-                                    কার্ডিওলজি (২০১১)</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> অ্যাডভান্সড কার্ডিয়াক লাইফ
-                                    সাপোর্ট (ACLS) সার্টিফাইড</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> ফেলো অফ আমেরিকান কলেজ অফ
-                                    কার্ডিওলজি (FACC)</li>
                             </ul>
                         </div>
                     </div>
@@ -194,10 +175,6 @@
                             <h4 class="card-title mb-4">যোগাযোগের তথ্য</h4>
                             <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong> ০১৭৪০৬৫৬৭৪৮</p>
                             <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong> info@ammsh.com</p>
-                            <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>ক্লিনিক:</strong> কার্ডিওলজি
-                                বিভাগ, ৩য় তলা</p>
-                            <p><i class="fas fa-clock text-primary me-2"></i> <strong>পরামর্শ ফি:</strong> ১০০০ টাকা
-                                (ফলো-আপ: ৫০০ টাকা)</p>
                             <hr>
                             <p class="text-muted"><small><i class="fas fa-info-circle me-2"></i> আপনার প্রথম পরিদর্শনের সময়
                                     অনুগ্রহ করে পূর্ববর্তী মেডিকেল রেকর্ডগুলি সাথে আনুন।</small></p>

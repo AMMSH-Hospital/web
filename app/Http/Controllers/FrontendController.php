@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Testimonial;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $testimonials = Testimonial::all();
+
+        return view('index', compact('testimonials'));
     }
 
     public function about()

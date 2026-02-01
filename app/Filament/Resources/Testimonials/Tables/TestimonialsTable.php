@@ -18,8 +18,6 @@ class TestimonialsTable
             ->columns([
                 TextColumn::make('patient_name')
                     ->searchable(),
-                TextColumn::make('photo')
-                    ->searchable(),
                 TextColumn::make('rating')
                     ->numeric()
                     ->sortable(),

@@ -11,9 +11,7 @@
             transition: transform 0.3s ease;
         }
 
-        .contact-info-card:hover {
-            transform: translateY(-5px);
-        }
+        .contact-info-card:hover {}
 
         .contact-icon {
             width: 60px;
@@ -108,7 +106,6 @@
         .quick-contact-btn:hover {
             background-color: var(--light-blue);
             border-color: var(--primary-blue);
-            transform: translateY(-2px);
         }
 
         .quick-contact-icon {
@@ -151,7 +148,7 @@
     </section>
 
     <!-- Contact Info -->
-    <section class="py-5">
+    <section class="pb-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">

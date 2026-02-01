@@ -136,7 +136,7 @@
     <!-- Testimonials -->
     <section class="py-5">
         <div class="container">
-            <div class="row mb-5">
+            <div class="row mb-4">
                 <div class="col-12 text-center">
                     <h2 class="section-title d-inline-block">রোগীদের মতামত</h2>
                     <p class="text-muted">আমাদের সেবা সম্পর্কে রোগীরা যা বলছেন</p>
@@ -144,50 +144,21 @@
             </div>
 
             <div class="row g-4">
+                @foreach ($testimonials as $testimonial)
                 <div class="col-md-6 col-lg-4">
                     <div class="testimonial-card">
                         <p class="mb-0">
-                            "আল মুতমাইন্নাহ হাসপাতালে আমি যে সেবা পেয়েছি তা ছিল অসাধারণ। চিকিৎসকদের দক্ষতা এবং নার্সিং
-                            স্টাফদের যত্ন আমার সুস্থ হয়ে ওঠাকে সহজ ও আরামদায়ক করেছে।"
+                            {{ $testimonial->message }}
                         </p>
                         <div class="testimonial-author">
                             <div>
-                                <h6 class="mb-0">রবার্ট জনসন</h6>
-                                <small class="text-muted">হৃদরোগ বিভাগের রোগী</small>
+                                <h6 class="mb-0">{{ $testimonial->patient_name }}</h6>
+                                <small class="text-muted">{{ $testimonial->description }}</small>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card">
-                        <p class="mb-0">
-                            "জরুরি ভর্তি থেকে শুরু করে ছুটি পাওয়া পর্যন্ত প্রতিটি স্টাফই ছিলেন পেশাদার ও সহানুভূতিশীল।
-                            হাসপাতালের সুবিধাগুলো আধুনিক ও পরিচ্ছন্ন। অবশ্যই সুপারিশযোগ্য!"
-                        </p>
-                        <div class="testimonial-author">
-                            <div>
-                                <h6 class="mb-0">সারা মিলার</h6>
-                                <small class="text-muted">শিশু বিভাগের রোগী</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-lg-4">
-                    <div class="testimonial-card">
-                        <p class="mb-0">
-                            "আল মুতমাইন্নাহর অর্থোপেডিক টিম অত্যন্ত নিখুঁতভাবে আমার অস্ত্রোপচার সম্পন্ন করেছে। অস্ত্রোপচারের
-                            পরের যত্ন ও ফিজিওথেরাপি সাপোর্ট ছিল দারুণ।"
-                        </p>
-                        <div class="testimonial-author">
-                            <div>
-                                <h6 class="mb-0">জেমস উইলসন</h6>
-                                <small class="text-muted">অর্থোপেডিক বিভাগের রোগী</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

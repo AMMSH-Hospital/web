@@ -17,7 +17,7 @@ class DoctorsTable
     {
         return $table
             ->columns([
-                TextColumn::make('department.id')
+                TextColumn::make('department.name')
                     ->searchable(),
                 TextColumn::make('doctor_name')
                     ->searchable(),

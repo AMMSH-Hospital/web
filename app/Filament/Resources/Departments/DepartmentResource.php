@@ -20,7 +20,7 @@ class DepartmentResource extends Resource
 {
     protected static ?string $model = Department::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFolderOpen;
 
     public static function form(Schema $schema): Schema
     {
@@ -49,7 +49,7 @@ class DepartmentResource extends Resource
         return [
             'index' => ListDepartments::route('/'),
             'create' => CreateDepartment::route('/create'),
-            'view' => ViewDepartment::route('/{record}'),
+            // 'view' => ViewDepartment::route('/{record}'),
             'edit' => EditDepartment::route('/{record}/edit'),
         ];
     }
