@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('department_id')
-                  ->nullable()
-                  ->constrained('departments')
-                  ->nullOnDelete();
+                ->nullable()
+                ->constrained('departments')
+                ->nullOnDelete();
             $table->string('doctor_name');
             $table->string('designation')->nullable();
             $table->string('qualification')->nullable();

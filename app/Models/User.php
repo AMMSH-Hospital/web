@@ -33,7 +33,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
     protected $guarded = [];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Departments\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -19,7 +20,7 @@ class DepartmentsTable
             ->columns([
                 TextColumn::make('dept_name')
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')->defaultImageUrl(asset('assets/images/image_placeholder.png')),
                 IconColumn::make('status')
                     ->boolean(),
                 TextColumn::make('created_at')
@@ -37,6 +38,7 @@ class DepartmentsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

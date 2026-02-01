@@ -96,35 +96,40 @@
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
+                @foreach ($departments as $department)
                 <!-- Cardiology Department -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card department-card">
                         <div class="card-body text-center p-4">
                             <div class="department-icon">
-                                <i class="fas fa-heartbeat"></i>
+                                <img src="{{ Storage::url($department->image) }}" width="100" height="100" alt="{{ $department->dept_name }}">
                             </div>
-                            <h4 class="card-title mb-3">কার্ডিওলজি</h4>
-                            <p class="card-text">উন্নত ডায়াগনস্টিক এবং ইন্টারভেনশনাল কার্ডিওলজি পরিষেবা সহ সম্পূর্ণ হার্ট
-                                কেয়ার।</p>
+                            <h4 class="card-title mb-3">{{ $department->dept_name }}</h4>
+                            <p class="card-text">{{ $department->description }}</p>
 
                             <ul class="department-services">
-                                <li><i class="fas fa-check"></i> ইকোকার্ডিওগ্রাফি</li>
-                                <li><i class="fas fa-check"></i> এনজিওপ্লাস্টি ও স্টেন্টিং</li>
-                                <li><i class="fas fa-check"></i> পেসমেকার ইমপ্লান্টেশন</li>
-                                <li><i class="fas fa-check"></i> কার্ডিয়াক রিহ্যাবিলিটেশন</li>
+                                @foreach ($department->services as $service)
+                                    <li><i class="fas fa-check"></i> {{ $service }}</li>
+                                @endforeach
                             </ul>
 
                             <div class="department-features">
                                 <div class="feature-item">
-                                    <span class="feature-value">৮</span>
+                                    <span class="feature-value">{{ $department?->doctors?->count() ?? 0 }}</span>
                                     <span class="feature-label">ডাক্তার</span>
                                 </div>
+                                @php
+                                    $featured = collect($department->extra_infos)
+                                        ->firstWhere('featured', true);
+                                @endphp
+                                @if ($featured)
                                 <div class="feature-item">
-                                    <span class="feature-value">২৪/৭</span>
-                                    <span class="feature-label">ক ক্যাথ ল্যাব</span>
+                                    <span class="feature-value">{{ $featured['title'] }}</span>
+                                    <span class="feature-label">{{ $featured['description'] }}</span>
                                 </div>
+                                @endif
                                 <div class="feature-item">
-                                    <span class="feature-value">৫০+</span>
+                                    <span class="feature-value">{{ $department->beds_count }}</span>
                                     <span class="feature-label">বেড</span>
                                 </div>
                             </div>
@@ -137,214 +142,9 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                <!-- Neurology Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <h4 class="card-title mb-3">নিউরোলজি</h4>
-                            <p class="card-text">অত্যাধুনিক প্রযুক্তির সাথে মস্তিষ্ক, মেরুদণ্ড এবং স্নায়ুর রোগের জন্য উন্নত
-                                চিকিৎসা।</p>
-
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> ইইজি এবং ইএমজি স্টাডিজ</li>
-                                <li><i class="fas fa-check"></i> স্ট্রোক ম্যানেজমেন্ট</li>
-                                <li><i class="fas fa-check"></i> মৃগী রোগের চিকিৎসা</li>
-                                <li><i class="fas fa-check"></i> মুভমেন্ট ডিসঅর্ডার</li>
-                            </ul>
-
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">৬</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৩টি</span>
-                                    <span class="feature-label">এমআরআই</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৩০+</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
-                            </div>
-
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Orthopedics Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-bone"></i>
-                            </div>
-                            <h4 class="card-title mb-3">অর্থোপেডিকস</h4>
-                            <p class="card-text">উন্নত অস্ত্রোপচার এবং নন-সার্জিক্যাল চিকিৎসা সহ হাড় এবং জয়েন্টের সম্পূর্ণ
-                                যত্ন।</p>
-
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> জয়েন্ট রিপ্লেসমেন্ট</li>
-                                <li><i class="fas fa-check"></i> আর্থ্রোস্কোপিক সার্জারি</li>
-                                <li><i class="fas fa-check"></i> স্পাইন সার্জারি</li>
-                                <li><i class="fas fa-check"></i> স্পোর্টস ইনজুরি</li>
-                            </ul>
-
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">৯</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৪</span>
-                                    <span class="feature-label">ওটি</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৬০+</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
-                            </div>
-
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pediatrics Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-baby"></i>
-                            </div>
-                            <h4 class="card-title mb-3">শিশুরোগ</h4>
-                            <p class="card-text">নবজাতক থেকে কিশোর পর্যন্ত শিশুদের জন্য শিশু-বান্ধব পরিবেশে বিশেষ যত্ন।</p>
-
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> টিকাদান</li>
-                                <li><i class="fas fa-check"></i> নিওনেটাল আইসিইউ</li>
-                                <li><i class="fas fa-check"></i> বৃদ্ধি পর্যবেক্ষণ</li>
-                                <li><i class="fas fa-check"></i> কিশোরকালীন যত্ন</li>
-                            </ul>
-
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">৭</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">লেভেল ৩</span>
-                                    <span class="feature-label">এনআইসিইউ</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৪০+</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
-                            </div>
-
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- General Surgery Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-syringe"></i>
-                            </div>
-                            <h4 class="card-title mb-3">জেনারেল সার্জারি</h4>
-                            <p class="card-text">বিভিন্ন অবস্থার জন্য ন্যূনতম ইনভেসিভ কৌশল সহ উন্নত সার্জিকাল যত্ন।</p>
-
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> ল্যাপারোস্কোপিক সার্জারি</li>
-                                <li><i class="fas fa-check"></i> গ্যাস্ট্রোইনটেস্টাইনাল সার্জারি</li>
-                                <li><i class="fas fa-check"></i> ট্রমা সার্জারি</li>
-                                <li><i class="fas fa-check"></i> এন্ডোস্কোপিক পদ্ধতি</li>
-                            </ul>
-
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">৮</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৬</span>
-                                    <span class="feature-label">ওটি</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৫০+</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
-                            </div>
-
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dentistry Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-tooth"></i>
-                            </div>
-                            <h4 class="card-title mb-3">ডেন্টাল</h4>
-                            <p class="card-text">কসমেটিক ডেন্টিস্ট্রি, ইমপ্লান্ট এবং ওরাল সার্জারি সহ সম্পূর্ণ দাঁতের যত্ন।
-                            </p>
-
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> ডেন্টাল ইমপ্লান্ট</li>
-                                <li><i class="fas fa-check"></i> কসমেটিক ডেন্টিস্ট্রি</li>
-                                <li><i class="fas fa-check"></i> অর্থোডন্টিক্স</li>
-                                <li><i class="fas fa-check"></i> ওরাল সার্জারি</li>
-                            </ul>
-
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">৫</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">সিবিসিটি</span>
-                                    <span class="feature-label">স্ক্যান</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">১২</span>
-                                    <span class="feature-label">চেয়ার</span>
-                                </div>
-                            </div>
-
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <!-- Emergency Medicine -->
                 <div class="col-md-6 col-lg-4">

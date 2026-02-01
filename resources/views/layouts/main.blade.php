@@ -53,10 +53,14 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('index') }}">
+            {{-- <a class="navbar-brand" href="{{ route('index') }}">
                 আল <span>মুতমাইন্নাহ</span>
                 <br>
                 <span style="font-size: 21.5px;">মা ও শিশু হাসপাতাল</span>
+            </a> --}}
+
+            <a class="navbar-brand" href="{{ route('index') }}">
+                <img src="{{ asset('assets/images/logo.png') }}" width="70" alt="Logo" class="img-fluid">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

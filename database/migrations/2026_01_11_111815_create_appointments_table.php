@@ -18,20 +18,20 @@ return new class extends Migration
             $table->string('patient_email', 100)->nullable();
 
             $table->foreignId('doctor_id')
-                  ->nullable()
-                  ->constrained('doctors')
-                  ->nullOnDelete();
+                ->nullable()
+                ->constrained('doctors')
+                ->nullOnDelete();
 
             $table->foreignId('department_id')
-                  ->nullable()
-                  ->constrained('departments')
-                  ->nullOnDelete();
+                ->nullable()
+                ->constrained('departments')
+                ->nullOnDelete();
 
             $table->date('appointment_date')->nullable();
             $table->string('appointment_time', 50)->nullable();
             $table->text('message')->nullable();
             $table->string('status')->comment('pending, approved, rejected, completed')
-                  ->default('pending');
+                ->default('pending');
             $table->timestamps();
         });
     }

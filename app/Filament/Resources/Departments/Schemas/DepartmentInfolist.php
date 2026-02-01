@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Departments\Schemas;
 
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\KeyValueEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -16,6 +17,9 @@ class DepartmentInfolist
                 TextEntry::make('dept_name'),
                 TextEntry::make('description')
                     ->placeholder('-')
+                    ->columnSpanFull(),
+                KeyValueEntry::make('services')
+                    ->valueLabel('Service description')
                     ->columnSpanFull(),
                 ImageEntry::make('image')
                     ->placeholder('-'),

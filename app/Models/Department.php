@@ -12,6 +12,11 @@ class Department extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'services' => 'array',
+        'extra_infos' => 'array',
+    ];
+
     public function doctors(): HasMany
     {
         return $this->hasMany(Doctor::class);
