@@ -16,6 +16,8 @@ class Doctor extends Model
     protected $casts = [
         'professional_experiences' => 'array',
         'qualifications' => 'array',
+        'tags' => 'array',
+        'experience_year' => 'integer',
     ];
 
     public function department(): BelongsTo
@@ -31,5 +33,10 @@ class Doctor extends Model
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
     }
 }

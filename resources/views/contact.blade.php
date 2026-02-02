@@ -295,18 +295,21 @@
                 <div class="col-lg-6">
                     <div class="contact-form-card">
                         <h3 class="section-title mb-4">আমাদের মেসেজ পাঠান</h3>
-                        <form class="needs-validation" novalidate id="contactForm">
+                        <form class="needs-validation" action="{{ route('contact.store') }}" method="POST" novalidate
+                            id="contactForm">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label required-field">পুরো নাম</label>
-                                    <input type="text" class="form-control" id="contactName" required>
+                                    <input type="text" class="form-control" id="contactName" name="name" required>
                                     <div class="invalid-feedback">
                                         অনুগ্রহ করে আপনার নাম লিখুন।
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label required-field">ইমেইল</label>
-                                    <input type="email" class="form-control" id="contactEmail" required>
+                                    <input type="email" class="form-control" id="contactEmail" name="email"
+                                        required>
                                     <div class="invalid-feedback">
                                         অনুগ্রহ করে একটি সঠিক ইমেইল দিন।
                                     </div>
@@ -315,12 +318,12 @@
 
                             <div class="mb-3">
                                 <label class="form-label">ফোন নম্বর</label>
-                                <input type="tel" class="form-control" id="contactPhone">
+                                <input type="tel" class="form-control" id="contactPhone" name="phone">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label required-field">বিষয়</label>
-                                <select class="form-select" id="contactSubject" required>
+                                <select class="form-select" id="contactSubject" name="subject" required>
                                     <option value="" selected disabled>বিষয় নির্বাচন করুন</option>
                                     <option value="appointment">এপয়েন্টমেন্ট সংক্রান্ত</option>
                                     <option value="billing">বিলিং ও ইন্স্যুরেন্স</option>
@@ -335,7 +338,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label required-field">মেসেজ</label>
-                                <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                                <textarea class="form-control" id="contactMessage" name="message" rows="5" required></textarea>
                                 <div class="invalid-feedback">
                                     অনুগ্রহ করে আপনার মেসেজ লিখুন।
                                 </div>
@@ -343,7 +346,8 @@
 
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="contactNewsletter">
+                                    <input class="form-check-input" type="checkbox" id="contactNewsletter"
+                                        name="subscribe" value="1">
                                     <label class="form-check-label" for="contactNewsletter">
                                         স্বাস্থ্য টিপস এবং আপডেটের জন্য নিউজলেটারে সাবস্ক্রাইব করুন
                                     </label>
@@ -351,7 +355,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-lg w-100">
-                                <i class="fas fa-paper-plane me-2"></i>মেসেজ পাঠান
+                                মেসেজ পাঠান
                             </button>
                         </form>
                     </div>
@@ -527,6 +531,29 @@
 @endsection
 
 @push('scripts')
+    <!-- Contact Success Modal -->
+    <div class="modal fade" id="contactSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">মেসেজ পাঠানো হয়েছে!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4>ধন্যবাদ!</h4>
+                    <p class="mb-0">আপনার মেসেজটি সফলভাবে পাঠানো হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Contact Form Handling
         document.addEventListener('DOMContentLoaded', function() {
@@ -535,17 +562,54 @@
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                if (contactForm.checkValidity()) {
-                    // Show success modal
-                    const modal = new bootstrap.Modal(document.getElementById('contactSuccessModal'));
-                    modal.show();
-
-                    // Reset form after successful submission
-                    setTimeout(() => {
-                        contactForm.reset();
-                        contactForm.classList.remove('was-validated');
-                    }, 1000);
+                if (!contactForm.checkValidity()) {
+                    e.stopPropagation();
+                    contactForm.classList.add('was-validated');
+                    return;
                 }
+
+                // Show loading state
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML =
+                    '<span class="spinner-border spinner-border-sm me-2"></span>পাঠানো হচ্ছে...';
+
+                const formData = new FormData(contactForm);
+
+                fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success modal
+                            const modal = new bootstrap.Modal(document.getElementById(
+                                'contactSuccessModal'));
+                            modal.show();
+
+                            // Reset form
+                            contactForm.reset();
+                            contactForm.classList.remove('was-validated');
+                        } else {
+                            alert('দুঃখিত, কিছু সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+                            console.error('Submission failed:', data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('দুঃখিত, সার্ভারে সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।');
+                    })
+                    .finally(() => {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    });
 
                 contactForm.classList.add('was-validated');
             });

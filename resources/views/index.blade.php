@@ -81,6 +81,7 @@
         </div>
     </section>
 
+    @if ($doctors->isNotEmpty())
     <!-- Doctors Preview -->
     <section class="py-5 bg-light">
         <div class="container">
@@ -92,16 +93,18 @@
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">ডা. সারাহ জনসন</h5>
-                            <p class="card-text text-muted">হৃদরোগ বিশেষজ্ঞ</p>
-                            <p class="card-text">এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি), ১৫+ বছরের অভিজ্ঞতা</p>
-                            <a href="{{ route('doctor-profile') }}" class="btn btn-outline-primary w-100">প্রোফাইল দেখুন</a>
+                @foreach ($doctors as $doctor)
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $doctor->doctor_name }}</h5>
+                                <p class="card-text text-muted">{{ $doctor->designation }}</p>
+                                <p class="card-text">{{ $doctor->qualification }}</p>
+                                <a href="{{ route('doctor-profile', $doctor) }}" class="btn btn-outline-primary w-100">প্রোফাইল দেখুন</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="text-center mt-5">
@@ -111,6 +114,7 @@
             </div>
         </div>
     </section>
+    @endif
 
 
     <!-- Appointment CTA -->

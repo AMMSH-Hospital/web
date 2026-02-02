@@ -76,7 +76,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">হোম</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('doctors') }}">ডাক্তারগণ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">ডা. জর্জিস</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $doctor->doctor_name }}</li>
                 </ol>
             </nav>
         </div>
@@ -88,21 +88,23 @@
             <div class="doctor-profile-header">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
-                        <h1 class="display-5 fw-bold mb-2">ডা. জর্জিস</h1>
-                        <p class="lead text-primary mb-3">সিনিয়র কনসালটেন্ট কার্ডিওলজিস্ট</p>
+                        <h1 class="display-5 fw-bold mb-2">{{ $doctor->doctor_name }}</h1>
+                        <p class="lead text-primary mb-3">{{ $doctor->designation }}</p>
 
-                        <div class="mb-4">
-                            <span class="badge-specialization">ইন্টারভেনশনাল কার্ডিওলজি</span>
-                            <span class="badge-specialization">হার্ট ফেইলিউর ম্যানেজমেন্ট</span>
-                            <span class="badge-specialization">প্রিভেন্টিভ কার্ডিওলজি</span>
-                            <span class="badge-specialization">ইকোকার্ডিওগ্রাফি</span>
-                        </div>
+                        @if ($doctor->tags)
+                            <div class="mb-4">
+                                @foreach ($doctor->tags as $tag)
+                                    <span class="badge-specialization">{{ $tag }}</span>
+                                @endforeach
+                            </div>
+                        @endif
 
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <p><i class="fas fa-graduation-cap text-primary me-2"></i> <strong>যোগ্যতা:</strong>
-                                    এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি)</p>
-                                <p><i class="fas fa-briefcase text-primary me-2"></i> <strong>অভিজ্ঞতা:</strong> ১৫+ বছর</p>
+                                    {{ $doctor->qualification }}</p>
+                                <p><i class="fas fa-briefcase text-primary me-2"></i> <strong>অভিজ্ঞতা:</strong>
+                                    {{ enToBnNumber($doctor->experience_year) }}+ বছর</p>
                             </div>
                             {{-- <div class="col-md-6">
                                 <p><i class="fas fa-language text-primary me-2"></i> <strong>ভাষা:</strong> বাংলা, ইংরেজি
@@ -110,7 +112,7 @@
                             </div> --}}
                         </div>
 
-                        <a href="#appointment" class="btn btn-primary btn-lg me-3">
+                        <a href="{{ route('appointment') }}" class="btn btn-primary btn-lg me-3">
                             <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিন
                         </a>
                         <a href="tel:+1234567890" class="btn btn-outline-primary btn-lg">
@@ -127,52 +129,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <p>ডা. সারাহ জনসন কার্ডিওভাসকুলার রোগ নির্ণয় ও চিকিৎসায় ১৫ বছরেরও বেশি অভিজ্ঞ একজন অত্যন্ত দক্ষ
-                        কার্ডিওলজিস্ট। তিনি ন্যাশনাল হার্ট ইনস্টিটিউট থেকে কার্ডিওলজিতে ডিএম সম্পন্ন করেছেন এবং আমাদের
-                        অঞ্চলে কার্ডিয়াক কেয়ারের উন্নতিতে গুরুত্বপূর্ণ ভূমিকা পালন করছেন।</p>
+                    <p>{!! $doctor->bio !!}</p>
 
                     <h4 class="mt-5 mb-3">পেশাগত অভিজ্ঞতা</h4>
-                    <div class="experience-item">
-                        <h5>সিনিয়র কনসালটেন্ট কার্ডিওলজিস্ট</h5>
-                        <p class="text-primary mb-1">আল মুতমাইন্নাহ হাসপাতাল • ২০১৫ - বর্তমান</p>
-                        <p>কার্ডিওলজি বিভাগের নেতৃত্ব দিচ্ছেন, উন্নত কার্ডিয়াক ইন্টারভেনশন পরিচালনা করছেন, ফেলোদের
-                            প্রশিক্ষণ দিচ্ছেন এবং প্রিভেন্টিভ কার্ডিওলজিতে গবেষণা পরিচালনা করছেন।</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h5>কনসালটেন্ট কার্ডিওলজিস্ট</h5>
-                        <p class="text-primary mb-1">সিটি হার্ট সেন্টার • ২০১০ - ২০১৫</p>
-                        <p>আউটপেশেন্ট কার্ডিওলজি ক্লিনিক পরিচালনা করেছেন, ডায়াগনস্টিক এবং ইন্টারভেনশনাল পদ্ধতি সম্পন্ন
-                            করেছেন, কার্ডিয়াক রিহ্যাবিলিটেশন প্রোগ্রাম প্রতিষ্ঠা করেছেন।</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h5>কার্ডিওলজি ফেলো</h5>
-                        <p class="text-primary mb-1">ন্যাশনাল হার্ট ইনস্টিটিউট • ২০০৭ - ২০১০</p>
-                        <p>বিখ্যাত কার্ডিওলজিস্টদের অধীনে ইন্টারভেনশনাল কার্ডিওলজিতে অ্যাডভান্সড ফেলোশিপ সম্পন্ন করেছেন।</p>
-                    </div>
+                    @if ($doctor->professional_experiences)
+                        @foreach ($doctor->professional_experiences as $experience)
+                            <div class="experience-item">
+                                <h5>{{ $experience['title'] }}</h5>
+                                <p class="text-primary mb-1">{{ $experience['organization'] }} • {{ $experience['duration'] }}</p>
+                                <p>{{ $experience['description'] }}</p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <h4 class="card-title mb-4">যোগ্যতা</h4>
-                            <ul class="qualification-list">
-                                <li><i class="fas fa-check-circle text-success me-2"></i> এমবিবিএস - ইউনিভার্সিটি অফ মেডিকেল
-                                    সায়েন্সেস (২০০৩)</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> এমডি (জেনারেল মেডিসিন) -
-                                    অ্যাডভান্সড মেডিকেল কলেজ (২০০৬)</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> ডিএম (কার্ডিওলজি) - ন্যাশনাল হার্ট
-                                    ইনস্টিটিউট (২০১০)</li>
-                            </ul>
+                            @if ($doctor->qualifications)
+                                <ul>
+                                    @foreach ($doctor->qualifications as $qualification)
+                                        <li><i class="fas fa-check-circle text-success me-2"></i> {{ $qualification }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">যোগাযোগের তথ্য</h4>
-                            <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong> ০১৭৪০৬৫৬৭৪৮</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong> info@ammsh.com</p>
+                            <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong> {{ $doctor->phone }}</p>
+                            <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong> {{ $doctor->email }}</p>
                             <hr>
                             <p class="text-muted"><small><i class="fas fa-info-circle me-2"></i> আপনার প্রথম পরিদর্শনের সময়
                                     অনুগ্রহ করে পূর্ববর্তী মেডিকেল রেকর্ডগুলি সাথে আনুন।</small></p>

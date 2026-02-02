@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Doctors\Schemas;
 
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -26,6 +27,7 @@ class DoctorForm
                         TextInput::make('doctor_name')
                             ->required(),
                         TextInput::make('designation'),
+                        TagsInput::make('tags'),
                         Textarea::make('bio')
                             ->columnSpanFull(),
                         TextInput::make('experience_year')
@@ -45,7 +47,7 @@ class DoctorForm
                             ->simple(
                                 TextInput::make('qualification'),
                             )
-                            ->minItems(1)
+                            ->defaultItems(1)
                             ->columnSpan(1),
 
                     ]),
@@ -61,11 +63,14 @@ class DoctorForm
                                 TextInput::make('duration'),
                                 Textarea::make('description'),
                             ])
-                            ->minItems(1)
+                            ->defaultItems(1)
                             ->columnSpan(1),
                     ]),
                 Toggle::make('status')
                     ->label('Active')
+                    ->required(),
+                Toggle::make('featured_on_home')
+                    ->label('Featured on Home')
                     ->required(),
             ]);
     }
