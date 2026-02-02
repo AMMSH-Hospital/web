@@ -115,7 +115,7 @@
 
                             <div class="department-features">
                                 <div class="feature-item">
-                                    <span class="feature-value">{{ $department?->doctors?->count() ?? 0 }}</span>
+                                    <span class="feature-value">{{ enToBnNumber($department?->doctors?->count() ?? 0) }}</span>
                                     <span class="feature-label">ডাক্তার</span>
                                 </div>
                                 @php

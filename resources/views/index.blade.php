@@ -6,10 +6,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-3">আপনার সুস্বাস্থ্যই <span class="text-success">আমাদের অগ্রাধিকার</span>
+                    <h1 class="display-4 fw-bold mb-3">মানসম্মত চিকিৎসা, <span class="text-success">নির্ভরযোগ্য সেবা</span>
                     </h1>
-                    <p class="lead mb-4">অভিজ্ঞ চিকিৎসক ও আধুনিক প্রযুক্তির মাধ্যমে আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল প্রদান
-                        করে নির্ভরযোগ্য ও সাশ্রয়ী চিকিৎসা সেবা।</p>
+                    <p class="lead mb-4">আধুনিক প্রযুক্তি ও বিশেষজ্ঞ চিকিৎসকদের তত্ত্বাবধানে <br>
+                        আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল গড়ে তুলেছে মানসম্মত চিকিৎসার আস্থা।</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{{ route('appointment') }}" class="btn btn-primary btn-lg">
                             <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিন

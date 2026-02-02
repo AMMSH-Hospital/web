@@ -19,12 +19,12 @@
         rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     @stack('styles')
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo.png') }}">
 </head>
 
 <body>
@@ -53,12 +53,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            {{-- <a class="navbar-brand" href="{{ route('index') }}">
-                আল <span>মুতমাইন্নাহ</span>
-                <br>
-                <span style="font-size: 21.5px;">মা ও শিশু হাসপাতাল</span>
-            </a> --}}
-
             <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="{{ asset('assets/images/logo.png') }}" width="70" alt="Logo" class="img-fluid">
             </a>

@@ -104,12 +104,10 @@
                                     এমবিবিএস, এমডি, ডিএম (কার্ডিওলজি)</p>
                                 <p><i class="fas fa-briefcase text-primary me-2"></i> <strong>অভিজ্ঞতা:</strong> ১৫+ বছর</p>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <p><i class="fas fa-language text-primary me-2"></i> <strong>ভাষা:</strong> বাংলা, ইংরেজি
                                 </p>
-                                <p><i class="fas fa-star text-primary me-2"></i> <strong>রেটিং:</strong> ৪.৯/৫ (২৪৭ রিভিউ)
-                                </p>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <a href="#appointment" class="btn btn-primary btn-lg me-3">

@@ -13,6 +13,11 @@ class Doctor extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'professional_experiences' => 'array',
+        'qualifications' => 'array',
+    ];
+
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);

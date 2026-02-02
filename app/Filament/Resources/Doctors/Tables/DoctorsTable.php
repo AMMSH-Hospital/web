@@ -7,7 +7,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,7 +16,7 @@ class DoctorsTable
     {
         return $table
             ->columns([
-                TextColumn::make('department.name')
+                TextColumn::make('department.dept_name')
                     ->searchable(),
                 TextColumn::make('doctor_name')
                     ->searchable(),
@@ -28,14 +27,6 @@ class DoctorsTable
                 TextColumn::make('experience_year')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('chamber_time')
-                    ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                ImageColumn::make('image'),
                 IconColumn::make('status')
                     ->boolean(),
                 TextColumn::make('created_at')
