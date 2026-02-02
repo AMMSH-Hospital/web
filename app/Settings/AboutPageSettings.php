@@ -6,15 +6,17 @@ use Spatie\LaravelSettings\Settings;
 
 class AboutPageSettings extends Settings
 {
-    public string $about_description;
+    public ?string $about_title = null;
 
-    public string $mission;
+    public ?string $about_description = null;
 
-    public string $vision;
+    public ?string $mission = null;
 
-    public array $experience_counters;
+    public ?string $vision = null;
 
-    public array $facilities;
+    public array $experience_counters = [];
+
+    public array $facilities = [];
 
     public static function group(): string
     {

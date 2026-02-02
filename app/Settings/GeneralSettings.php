@@ -6,22 +6,21 @@ use Spatie\LaravelSettings\Settings;
 
 class GeneralSettings extends Settings
 {
-    public string $site_name;
+    public string $site_name = 'Al Mutmainnah';
 
-    public bool $site_active;
+    public bool $site_active = true;
 
-    public array $faqs;
+    public array $faqs = [];
 
-    // phone, mail
-    public string $phone;
+    public ?string $phone = null;
 
-    public string $mail;
+    public ?string $mail = null;
 
-    public string $address;
+    public ?string $address = null;
 
-    public string $whatsapp;
+    public ?string $whatsapp = null;
 
-    public array $socials;
+    public array $socials = [];
 
     public static function group(): string
     {

@@ -20,7 +20,7 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftEllipsis;
 
     public static function form(Schema $schema): Schema
     {
@@ -48,9 +48,9 @@ class ContactResource extends Resource
     {
         return [
             'index' => ListContacts::route('/'),
-            'create' => CreateContact::route('/create'),
-            'view' => ViewContact::route('/{record}'),
-            'edit' => EditContact::route('/{record}/edit'),
+            // 'create' => CreateContact::route('/create'),
+            // 'view' => ViewContact::route('/{record}'),
+            // 'edit' => EditContact::route('/{record}/edit'),
         ];
     }
 }
