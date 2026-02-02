@@ -219,15 +219,7 @@
                                         <label class="form-label required-field">বিভাগ নির্বাচন করুন</label>
                                         <select class="form-select" id="departmentSelect" required>
                                             <option value="" selected disabled>একটি বিভাগ চয়ন করুন</option>
-                                            <option value="cardiology">কার্ডিওলজি</option>
-                                            <option value="neurology">নিউরোলজি</option>
-                                            <option value="orthopedics">অর্থোপেডিক্স</option>
-                                            <option value="pediatrics">শিশুরোগ</option>
-                                            <option value="surgery">জেনারেল সার্জারি</option>
-                                            <option value="dentistry">ডেন্টিস্ট্রি</option>
-                                            <option value="emergency">ইমার্জেন্সি মেডিসিন</option>
-                                            <option value="radiology">রেডিওলজি এবং ইমেজিং</option>
-                                            <option value="physiotherapy">ফিজিওথেরাপি</option>
+                                            <!-- Departments will be loaded dynamically -->
                                         </select>
                                         <div class="invalid-feedback">
                                             অনুগ্রহ করে একটি বিভাগ নির্বাচন করুন।
@@ -284,7 +276,7 @@
                                         <label class="form-label required-field">পছন্দের সময়ের স্লট</label>
                                         <div class="time-slot-grid" id="timeSlots">
                                             <!-- Time slots will be loaded dynamically -->
-                                            <div class="alert alert-info">
+                                            <div class="alert alert-info" style="grid-column-start: 1; grid-column-end: 5;">
                                                 উপলব্ধ সময়ের স্লট দেখতে অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।
                                             </div>
                                         </div>
@@ -495,248 +487,288 @@
 
 @push('scripts')
     <script>
-        // Appointment Form Wizard
         document.addEventListener('DOMContentLoaded', function() {
-            let currentStep = 1;
-            const totalSteps = 5;
-            let selectedDoctor = null;
-            let selectedTimeSlot = null;
+    console.log("Appointment Form Wizard");
 
-            // Set minimum date to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('appointmentDate').min = today;
+    let currentStep = 1;
+    const totalSteps = 5;
+    let selectedDoctor = null;
+    let selectedDoctorName = null;
+    let selectedTimeSlot = null;
 
-            // Department change event
-            document.getElementById('departmentSelect').addEventListener('change', function() {
-                loadDoctors(this.value);
-            });
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('appointmentDate').min = today;
 
-            // Date change event
-            document.getElementById('appointmentDate').addEventListener('change', function() {
-                loadTimeSlots(this.value);
-            });
+    // Department change event
+    document.getElementById('departmentSelect').addEventListener('change', function() {
+        loadDoctors(this.value);
+    });
 
-            // Next button click
-            document.getElementById('nextBtn').addEventListener('click', function() {
-                if (validateStep(currentStep)) {
-                    if (currentStep < totalSteps) {
-                        // Update step UI
-                        document.getElementById(`step${currentStep}`).classList.remove('active');
-                        document.getElementById(`step${currentStep}`).classList.add('completed');
-                        document.getElementById(`section${currentStep}`).classList.remove('active');
+    // Date change event
+    document.getElementById('appointmentDate').addEventListener('change', function() {
+        loadTimeSlots(this.value);
+    });
 
-                        currentStep++;
+    // Next button click
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        if (validateStep(currentStep)) {
+            if (currentStep < totalSteps) {
+                // Update step UI
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById(`step${currentStep}`).classList.add('completed');
+                document.getElementById(`section${currentStep}`).classList.remove('active');
 
-                        document.getElementById(`step${currentStep}`).classList.add('active');
-                        document.getElementById(`section${currentStep}`).classList.add('active');
+                currentStep++;
 
-                        // Update navigation buttons
-                        updateNavigationButtons();
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById(`section${currentStep}`).classList.add('active');
 
-                        // If moving to confirmation step, update summary
-                        if (currentStep === 5) {
-                            updateAppointmentSummary();
-                        }
+                // Update navigation buttons
+                updateNavigationButtons();
+
+                // If moving to confirmation step, update summary
+                if (currentStep === 5) {
+                    updateAppointmentSummary();
+                }
+            }
+        }
+    });
+
+    // Previous button click
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        if (currentStep > 1) {
+            // Update step UI
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            document.getElementById(`section${currentStep}`).classList.remove('active');
+
+            currentStep--;
+
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            document.getElementById(`section${currentStep}`).classList.add('active');
+
+            // Update navigation buttons
+            updateNavigationButtons();
+        }
+    });
+
+    // **MOVED INSIDE: Form submit handler**
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (validateStep(5)) {
+            const formData = new FormData();
+            formData.append('department', document.getElementById('departmentSelect').value);
+            formData.append('doctor_id', selectedDoctor);
+            formData.append('appointment_date', document.getElementById('appointmentDate').value);
+            formData.append('appointment_time', selectedTimeSlot);
+            formData.append('patient_name', document.getElementById('patientName').value);
+            formData.append('patient_phone', document.getElementById('patientPhone').value);
+            formData.append('patient_email', document.getElementById('patientEmail').value);
+            formData.append('date_of_birth', document.getElementById('patientDOB').value);
+            formData.append('gender', document.getElementById('patientGender').value);
+            formData.append('patient_type', document.getElementById('patientType').value);
+            formData.append('appointment_type', document.getElementById('appointmentType').value);
+            formData.append('message', document.getElementById('medicalProblem').value);
+
+            const fileInput = document.getElementById('medicalRecords');
+            if (fileInput.files[0]) {
+                formData.append('medical_records', fileInput.files[0]);
+            }
+
+            fetch("{{ route('appointment.store') }}", {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
                     }
-                }
-            });
-
-            // Previous button click
-            document.getElementById('prevBtn').addEventListener('click', function() {
-                if (currentStep > 1) {
-                    // Update step UI
-                    document.getElementById(`step${currentStep}`).classList.remove('active');
-                    document.getElementById(`section${currentStep}`).classList.remove('active');
-
-                    currentStep--;
-
-                    document.getElementById(`step${currentStep}`).classList.add('active');
-                    document.getElementById(`section${currentStep}`).classList.add('active');
-
-                    // Update navigation buttons
-                    updateNavigationButtons();
-                }
-            });
-
-            // Form submit
-            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                if (validateStep(5)) {
+                })
+                .then(response => response.json())
+                .then(data => {
                     // Show confirmation modal
                     const modal = new bootstrap.Modal(document.getElementById(
                         'appointmentConfirmationModal'));
                     modal.show();
 
-                    // Reset form after successful submission (for demo)
+                    // Reset form after successful submission
                     setTimeout(() => {
-                        resetForm();
+                        window.location.reload();
                     }, 2000);
-                }
-            });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Something went wrong. Please try again.');
+                });
+        }
+    });
 
-            function validateStep(step) {
-                let isValid = true;
+    // Initialize
+    updateNavigationButtons();
+    loadDepartments();
 
-                switch (step) {
-                    case 1:
-                        const department = document.getElementById('departmentSelect');
-                        if (!department.value) {
-                            department.classList.add('is-invalid');
-                            isValid = false;
-                        } else {
-                            department.classList.remove('is-invalid');
-                        }
-                        break;
+    function loadDepartments() {
+        const departmentSelect = document.getElementById('departmentSelect');
+        departmentSelect.innerHTML = '<option value="" selected disabled>একটি বিভাগ চয়ন করুন</option>';
 
-                    case 2:
-                        if (!selectedDoctor) {
-                            showToast('অনুগ্রহ করে একজন ডাক্তার নির্বাচন করুন', 'warning');
-                            isValid = false;
-                        }
-                        break;
+        fetch("{{ route('appointment.get-departments') }}")
+            .then(response => response.json())
+            .then(departments => {
+                departments.forEach(dept => {
+                    const option = document.createElement('option');
+                    option.value = dept.id;
+                    option.textContent = dept.dept_name;
+                    departmentSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error loading departments:', error));
+    }
 
-                    case 3:
-                        const date = document.getElementById('appointmentDate');
-                        if (!date.value) {
-                            date.classList.add('is-invalid');
-                            isValid = false;
-                        } else {
-                            date.classList.remove('is-invalid');
-                        }
+    function validateStep(step) {
+        let isValid = true;
 
-                        if (!selectedTimeSlot) {
-                            document.getElementById('timeSlotError').style.display = 'block';
-                            isValid = false;
-                        } else {
-                            document.getElementById('timeSlotError').style.display = 'none';
-                        }
-                        break;
-
-                    case 4:
-                        // Validate required fields
-                        const requiredFields = ['patientName', 'patientPhone'];
-                        requiredFields.forEach(fieldId => {
-                            const field = document.getElementById(fieldId);
-                            // Adjusted regex for 11 digit BD numbers
-                            if (!field.value || (field.id === 'patientPhone' && !field.value.match(
-                                    /^[0-9]{11}$/))) {
-                                field.classList.add('is-invalid');
-                                isValid = false;
-                            } else {
-                                field.classList.remove('is-invalid');
-                            }
-                        });
-
-                        // Validate email if provided
-                        const email = document.getElementById('patientEmail');
-                        if (email.value && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                            email.classList.add('is-invalid');
-                            isValid = false;
-                        } else {
-                            email.classList.remove('is-invalid');
-                        }
-
-                        // Validate terms agreement
-                        const terms = document.getElementById('termsAgreement');
-                        if (!terms.checked) {
-                            terms.classList.add('is-invalid');
-                            isValid = false;
-                        } else {
-                            terms.classList.remove('is-invalid');
-                        }
-                        break;
-                }
-
-                return isValid;
-            }
-
-            function updateNavigationButtons() {
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                const submitBtn = document.getElementById('submitBtn');
-
-                if (currentStep === 1) {
-                    prevBtn.style.display = 'none';
-                    nextBtn.style.display = 'inline-block';
-                    submitBtn.style.display = 'none';
-                } else if (currentStep === totalSteps) {
-                    prevBtn.style.display = 'inline-block';
-                    nextBtn.style.display = 'none';
-                    submitBtn.style.display = 'inline-block';
+        switch (step) {
+            case 1:
+                const department = document.getElementById('departmentSelect');
+                if (!department.value) {
+                    department.classList.add('is-invalid');
+                    isValid = false;
                 } else {
-                    prevBtn.style.display = 'inline-block';
-                    nextBtn.style.display = 'inline-block';
-                    submitBtn.style.display = 'none';
+                    department.classList.remove('is-invalid');
                 }
-            }
+                break;
 
-            function loadDoctors(department) {
-                const doctorOptions = document.getElementById('doctorOptions');
+            case 2:
+                if (!selectedDoctor) {
+                    alert('অনুগ্রহ করে একজন ডাক্তার নির্বাচন করুন');
+                    isValid = false;
+                }
+                break;
 
-                // Simulate loading doctors based on department
-                const doctors = {
-                    'cardiology': [{
-                            id: 1,
-                            name: 'ডা. সারাহ জনসন',
-                            specialization: 'সিনিয়র কার্ডিওলজিস্ট',
-                            experience: 'অভিজ্ঞতা: ১৫+ বছর',
-                            img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        },
-                        {
-                            id: 2,
-                            name: 'ডা. জেমস পার্কার',
-                            specialization: 'ইন্টারভেনশনাল কার্ডিওলজিস্ট',
-                            experience: 'অভিজ্ঞতা: ১১+ বছর',
-                            img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        }
-                    ],
-                    'neurology': [{
-                            id: 3,
-                            name: 'ডা. মাইকেল চেন',
-                            specialization: 'নিউরোলজিস্ট',
-                            experience: 'অভিজ্ঞতা: ১২+ বছর',
-                            img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        },
-                        {
-                            id: 4,
-                            name: 'ডা. মারিয়া গার্সিয়া',
-                            specialization: 'নিউরোলজিস্ট',
-                            experience: 'অভিজ্ঞতা: ৮+ বছর',
-                            img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        }
-                    ],
-                    'orthopedics': [{
-                            id: 5,
-                            name: 'ডা. ডেভিড উইলসন',
-                            specialization: 'অর্থোপেডিক সার্জন',
-                            experience: 'অভিজ্ঞতা: ১৮+ বছর',
-                            img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        },
-                        {
-                            id: 6,
-                            name: 'ডা. টমাস লি',
-                            specialization: 'স্পাইন স্পেশালিস্ট',
-                            experience: 'অভিজ্ঞতা: ১৩+ বছর',
-                            img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                        }
-                    ]
-                };
+            case 3:
+                const date = document.getElementById('appointmentDate');
+                if (!date.value) {
+                    date.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    date.classList.remove('is-invalid');
+                }
 
+                if (!selectedTimeSlot) {
+                    document.getElementById('timeSlotError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('timeSlotError').style.display = 'none';
+                }
+                break;
+
+            case 4:
+                const requiredFields = ['patientName', 'patientPhone'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value || (field.id === 'patientPhone' && !field.value.match(
+                            /^[0-9]{11}$/))) {
+                        field.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+
+                const email = document.getElementById('patientEmail');
+                if (email.value && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                    email.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                }
+
+                const terms = document.getElementById('termsAgreement');
+                if (!terms.checked) {
+                    terms.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    terms.classList.remove('is-invalid');
+                }
+                break;
+        }
+
+        return isValid;
+    }
+
+    function updateNavigationButtons() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (currentStep === 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-block';
+            submitBtn.style.display = 'none';
+        } else if (currentStep === totalSteps) {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'inline-block';
+        } else {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'inline-block';
+            submitBtn.style.display = 'none';
+        }
+    }
+
+    // Expose selectDoctor and selectTimeSlot to global scope
+    window.selectDoctor = function(id, name) {
+        selectedDoctor = id;
+        selectedDoctorName = name;
+
+        document.querySelectorAll('.doctor-option').forEach(el => {
+            el.classList.remove('selected');
+            el.querySelector('.fa-check-circle').style.display = 'none';
+        });
+
+        const selectedEl = document.querySelector(`.doctor-option[data-doctor-id="${id}"]`);
+        if (selectedEl) {
+            selectedEl.classList.add('selected');
+            selectedEl.querySelector('.fa-check-circle').style.display = 'block';
+        }
+    }
+
+    window.selectTimeSlot = function(time) {
+        selectedTimeSlot = time;
+
+        document.querySelectorAll('.time-slot-option').forEach(el => {
+            el.classList.remove('selected');
+        });
+
+        const selectedEl = document.querySelector(`.time-slot-option[data-time="${time}"]`);
+        if (selectedEl) selectedEl.classList.add('selected');
+
+        document.getElementById('timeSlotError').style.display = 'none';
+    }
+
+    function loadDoctors(department) {
+        const doctorOptions = document.getElementById('doctorOptions');
+        doctorOptions.innerHTML =
+            '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p>Loading doctors...</p></div>';
+
+        fetch(`{{ route('appointment.get-doctors') }}?department=${department}`)
+            .then(response => response.json())
+            .then(doctors => {
                 let html = '';
+                if (doctors.length > 0) {
+                    doctors.forEach(doctor => {
+                        const img = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(
+                            doctor.doctor_name);
 
-                if (doctors[department]) {
-                    doctors[department].forEach(doctor => {
                         html += `
-                            <div class="doctor-option" data-doctor-id="${doctor.id}" onclick="selectDoctor(${doctor.id}, '${doctor.name}')">
+                            <div class="doctor-option" data-doctor-id="${doctor.id}" onclick="selectDoctor(${doctor.id}, '${doctor.doctor_name}')">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <img src="${doctor.img}" alt="${doctor.name}" class="doctor-img-small">
+                                        <img src="${img}" alt="${doctor.doctor_name}" class="doctor-img-small">
                                     </div>
                                     <div class="col">
-                                        <h5 class="mb-1">${doctor.name}</h5>
-                                        <p class="mb-1 text-muted">${doctor.specialization}</p>
-                                        <p class="mb-0"><small>${doctor.experience}</small></p>
+                                        <h5 class="mb-1">${doctor.doctor_name}</h5>
+                                        <p class="mb-1 text-muted">${doctor.designation || ''}</p>
+                                        <p class="mb-0"><small>${doctor.experience_year ? doctor.experience_year + ' years exp' : ''}</small></p>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-check-circle text-success" style="display: none;"></i>
@@ -747,130 +779,70 @@
                     });
                 } else {
                     html =
-                        '<div class="alert alert-info">এই বিভাগের ডাক্তারদের এখানে দেখানো হবে। চালিয়ে যেতে অনুগ্রহ করে একজন ডাক্তার নির্বাচন করুন।</div>';
+                        '<div class="alert alert-info">No doctors available in this department.</div>';
                 }
-
                 doctorOptions.innerHTML = html;
-                selectedDoctor = null;
-            }
+            });
 
-            function loadTimeSlots(date) {
-                const timeSlotsContainer = document.getElementById('timeSlots');
+        selectedDoctor = null;
+    }
 
-                // Generate time slots (9 AM to 4 PM)
-                const slots = [
-                    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
-                    '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-                    '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM'
-                ];
+    function loadTimeSlots(date) {
+        if (!selectedDoctor) {
+            alert('Please select a doctor first.');
+            return;
+        }
 
-                // Randomly mark some slots as unavailable for demo
-                const unavailableSlots = ['9:30 AM', '11:00 AM', '2:30 PM'];
+        const timeSlotsContainer = document.getElementById('timeSlots');
+        timeSlotsContainer.innerHTML =
+            '<div class="text-center" style="grid-column: 1/-1"><div class="spinner-border text-sm" role="status"></div></div>';
 
+        fetch(`{{ route('appointment.get-time-slots') }}?doctor_id=${selectedDoctor}&date=${date}`)
+            .then(response => response.json())
+            .then(slots => {
                 let html = '';
-
-                slots.forEach(slot => {
-                    const isUnavailable = unavailableSlots.includes(slot);
-                    html += `
-                        <div class="time-slot-option ${isUnavailable ? 'unavailable' : ''}" 
-                             data-time="${slot}" 
-                             onclick="${isUnavailable ? '' : `selectTimeSlot('${slot}')`}">
-                            ${slot}
-                        </div>
-                    `;
-                });
-
+                if (slots.length > 0) {
+                    slots.forEach(slot => {
+                        html += `
+                            <div class="time-slot-option" 
+                                 data-time="${slot}" 
+                                 onclick="selectTimeSlot('${slot}')">
+                                ${slot}
+                            </div>
+                        `;
+                    });
+                } else {
+                    html =
+                        '<div class="alert alert-warning" style="grid-column: 1/-1">No slots available for this date.</div>';
+                }
                 timeSlotsContainer.innerHTML = html;
-                selectedTimeSlot = null;
-            }
+            });
 
-            function updateAppointmentSummary() {
-                document.getElementById('summaryDepartment').textContent =
-                    document.getElementById('departmentSelect').options[document.getElementById('departmentSelect')
-                        .selectedIndex].text;
+        selectedTimeSlot = null;
+    }
 
-                document.getElementById('summaryDoctor').textContent = selectedDoctor || '-';
-                document.getElementById('summaryDate').textContent = document.getElementById('appointmentDate')
-                    .value || '-';
-                document.getElementById('summaryTime').textContent = selectedTimeSlot || '-';
-                document.getElementById('summaryType').textContent =
-                    document.getElementById('appointmentType').options[document.getElementById('appointmentType')
-                        .selectedIndex].text;
+    function updateAppointmentSummary() {
+        const departmentElement = document.getElementById('departmentSelect');
+        document.getElementById('summaryDepartment').textContent = departmentElement.options[
+            departmentElement.selectedIndex].text;
+        document.getElementById('summaryDoctor').textContent = selectedDoctorName || '-';
+        document.getElementById('summaryDate').textContent = document.getElementById('appointmentDate')
+            .value || '-';
+        document.getElementById('summaryTime').textContent = selectedTimeSlot || '-';
 
-                document.getElementById('summaryName').textContent = document.getElementById('patientName').value ||
-                    '-';
-                document.getElementById('summaryContact').textContent = document.getElementById('patientPhone')
-                    .value || '-';
-                document.getElementById('summaryEmail').textContent = document.getElementById('patientEmail')
-                    .value || '-';
-                document.getElementById('summaryIssue').textContent =
-                    document.getElementById('medicalProblem').value.substring(0, 50) +
-                    (document.getElementById('medicalProblem').value.length > 50 ? '...' : '') || '-';
-            }
+        const typeElement = document.getElementById('appointmentType');
+        document.getElementById('summaryType').textContent = typeElement.options[typeElement.selectedIndex]
+            .text;
 
-            function resetForm() {
-                currentStep = 1;
-                selectedDoctor = null;
-                selectedTimeSlot = null;
-
-                // Reset steps UI
-                for (let i = 1; i <= totalSteps; i++) {
-                    document.getElementById(`step${i}`).classList.remove('active', 'completed');
-                    document.getElementById(`section${i}`).classList.remove('active');
-                }
-
-                document.getElementById('step1').classList.add('active');
-                document.getElementById('section1').classList.add('active');
-
-                // Reset form fields
-                document.getElementById('appointmentForm').reset();
-                document.getElementById('appointmentForm').classList.remove('was-validated');
-
-                // Reset dynamic content
-                document.getElementById('doctorOptions').innerHTML =
-                    '<div class="alert alert-info">উপলব্ধ ডাক্তারদের দেখতে অনুগ্রহ করে প্রথমে একটি বিভাগ নির্বাচন করুন।</div>';
-                document.getElementById('timeSlots').innerHTML =
-                    '<div class="alert alert-info">উপলব্ধ সময়ের স্লট দেখতে অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।</div>';
-
-                // Update navigation buttons
-                updateNavigationButtons();
-            }
-
-            // Make functions available globally
-            window.selectDoctor = function(doctorId, doctorName) {
-                selectedDoctor = doctorName;
-
-                // Update UI
-                document.querySelectorAll('.doctor-option').forEach(option => {
-                    option.classList.remove('selected');
-                    option.querySelector('.fa-check-circle').style.display = 'none';
-                });
-
-                const selectedOption = document.querySelector(`.doctor-option[data-doctor-id="${doctorId}"]`);
-                if (selectedOption) {
-                    selectedOption.classList.add('selected');
-                    selectedOption.querySelector('.fa-check-circle').style.display = 'block';
-                }
-            };
-
-            window.selectTimeSlot = function(timeSlot) {
-                selectedTimeSlot = timeSlot;
-
-                // Update UI
-                document.querySelectorAll('.time-slot-option:not(.unavailable)').forEach(option => {
-                    option.classList.remove('selected');
-                });
-
-                const selectedOption = document.querySelector(`.time-slot-option[data-time="${timeSlot}"]`);
-                if (selectedOption) {
-                    selectedOption.classList.add('selected');
-                }
-
-                document.getElementById('timeSlotError').style.display = 'none';
-            };
-
-            // Initialize
-            updateNavigationButtons();
-        });
+        document.getElementById('summaryName').textContent = document.getElementById('patientName').value ||
+            '-';
+        document.getElementById('summaryContact').textContent = document.getElementById('patientPhone')
+            .value || '-';
+        document.getElementById('summaryEmail').textContent = document.getElementById('patientEmail')
+            .value || '-';
+        document.getElementById('summaryIssue').textContent = document.getElementById('medicalProblem')
+            .value || '-';
+    }
+});
     </script>
 @endpush

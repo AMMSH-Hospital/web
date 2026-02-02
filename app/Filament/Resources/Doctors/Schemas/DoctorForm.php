@@ -7,6 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -66,6 +67,34 @@ class DoctorForm
                             ->defaultItems(1)
                             ->columnSpan(1),
                     ]),
+
+                Section::make('Schedules')
+                    ->columnSpanFull()
+                    ->schema([
+                        Repeater::make('schedules')
+                            ->relationship('schedules')
+                            ->schema([
+                                Select::make('day_name')
+                                    ->options([
+                                        'Saturday' => 'Saturday',
+                                        'Sunday' => 'Sunday',
+                                        'Monday' => 'Monday',
+                                        'Tuesday' => 'Tuesday',
+                                        'Wednesday' => 'Wednesday',
+                                        'Thursday' => 'Thursday',
+                                        'Friday' => 'Friday',
+                                    ])
+                                    ->required(),
+                                TimePicker::make('start_time')
+                                    ->required(),
+                                TimePicker::make('end_time')
+                                    ->required(),
+                            ])
+                            ->columns(3)
+                            ->defaultItems(0)
+                            ->columnSpanFull(),
+                    ]),
+
                 Toggle::make('status')
                     ->label('Active')
                     ->required(),

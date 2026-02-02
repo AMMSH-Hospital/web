@@ -14,6 +14,7 @@ class Appointment extends Model
 
     protected $casts = [
         'appointment_date' => 'date',
+        'date_of_birth' => 'date',
     ];
 
     public function doctor(): BelongsTo

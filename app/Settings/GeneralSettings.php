@@ -10,7 +10,7 @@ class GeneralSettings extends Settings
 
     public bool $site_active = true;
 
-    public array $faqs = [];
+    public static array $faqs = [];
 
     public ?string $phone = null;
 
