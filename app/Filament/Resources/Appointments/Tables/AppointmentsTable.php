@@ -21,9 +21,9 @@ class AppointmentsTable
                     ->searchable(),
                 TextColumn::make('patient_email')
                     ->searchable(),
-                TextColumn::make('doctor.id')
+                TextColumn::make('doctor.doctor_name')
                     ->searchable(),
-                TextColumn::make('department.id')
+                TextColumn::make('department.dept_name')
                     ->searchable(),
                 TextColumn::make('appointment_date')
                     ->date()
@@ -46,7 +46,7 @@ class AppointmentsTable
             ])
             ->recordActions([
                 ViewAction::make(),
-                EditAction::make(),
+                // EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

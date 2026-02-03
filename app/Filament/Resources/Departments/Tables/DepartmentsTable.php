@@ -20,7 +20,7 @@ class DepartmentsTable
             ->columns([
                 TextColumn::make('dept_name')
                     ->searchable(),
-                ImageColumn::make('image')->defaultImageUrl(asset('assets/images/image_placeholder.png')),
+                ImageColumn::make('image')->disk('public')->defaultImageUrl(asset('assets/images/image_placeholder.png')),
                 IconColumn::make('status')
                     ->boolean(),
                 TextColumn::make('created_at')

@@ -335,8 +335,6 @@
                                             <option value="" selected disabled>লিঙ্গ নির্বাচন করুন</option>
                                             <option value="male">পুরুষ</option>
                                             <option value="female">মহিলা</option>
-                                            <option value="other">অন্যান্য</option>
-                                            <option value="prefer-not-to-say">বলতে চাই না</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">

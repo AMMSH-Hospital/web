@@ -48,18 +48,30 @@ class DepartmentForm
                                     ]),
                             ]),
 
-                        Section::make()
-                            ->columnSpan(1)
+                        Grid::make(1)
                             ->schema([
-                                FileUpload::make('image')
-                                    ->directory('departments')
-                                    ->disk('public')
-                                    ->label('Image')
-                                    ->image(),
+                                Section::make()
+                                    ->columnSpan(1)
+                                    ->schema([
+                                        TextInput::make('contact_phone')
+                                            ->label('Contact Phone'),
+                                        TextInput::make('contact_mail')
+                                            ->label('Contact Mail')
+                                            ->email(),
+                                    ]),
+                                Section::make()
+                                    ->columnSpan(1)
+                                    ->schema([
+                                        FileUpload::make('image')
+                                            ->directory('departments')
+                                            ->disk('public')
+                                            ->label('Image')
+                                            ->image(),
 
-                                Toggle::make('status')
-                                    ->label('Active')
-                                    ->required(),
+                                        Toggle::make('status')
+                                            ->label('Active')
+                                            ->required(),
+                                    ]),
                             ]),
                     ]),
             ]);
