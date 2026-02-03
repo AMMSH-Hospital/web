@@ -60,7 +60,14 @@ class FrontendController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $departments = Department::active()
+            ->where(function ($query) {
+                $query->whereNotNull('contact_phone')
+                    ->orWhereNotNull('contact_mail');
+            })
+            ->get();
+
+        return view('contact', compact('departments'));
     }
 
     public function contactStore(Request $request)

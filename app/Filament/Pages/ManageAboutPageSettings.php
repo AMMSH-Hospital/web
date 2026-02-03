@@ -41,6 +41,10 @@ class ManageAboutPageSettings extends SettingsPage
                             ]),
                         TextInput::make('mission'),
                         TextInput::make('vision'),
+                        FileUpload::make('about_image')
+                            ->disk('public')
+                            ->directory('home_page_settings/about_page')
+                            ->image(),
                     ]),
                 Section::make('Experience Counters')
                     ->schema([

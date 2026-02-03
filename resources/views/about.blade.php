@@ -22,7 +22,7 @@
                     {!! settings('about_page')->about_description !!}
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ asset('assets/images/ammsh.png') }}"
+                    <img src="{{ settings('about_page')->about_image && Storage::disk('public')->exists(settings('about_page')->about_image) ? Storage::url(settings('about_page')->about_image) : asset('assets/images/ammsh.png') }}"
                         alt="Hospital Building" class="img-fluid rounded shadow-lg">
                 </div>
             </div>

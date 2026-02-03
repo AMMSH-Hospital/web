@@ -39,7 +39,8 @@
 
         .department-features {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            align-items: center;
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid #eee;
@@ -157,30 +158,15 @@
                             <p class="card-text">দ্রুত প্রতিক্রিয়া টিম এবং উন্নত লাইফ সাপোর্ট সিস্টেম সহ ২৪/৭ জরুরি
                                 পরিষেবা।</p>
 
-                            <ul class="department-services">
-                                <li><i class="fas fa-check"></i> ট্রমা কেয়ার</li>
-                                <li><i class="fas fa-check"></i> কার্ডিয়াক ইমারজেন্সি</li>
-                                <li><i class="fas fa-check"></i> পয়জন ম্যানেজমেন্ট</li>
-                                <li><i class="fas fa-check"></i> ক্রিটিক্যাল কেয়ার</li>
-                            </ul>
-
                             <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">১৫</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
                                 <div class="feature-item">
                                     <span class="feature-value">২৪/৭</span>
                                     <span class="feature-label">সার্ভিস</span>
                                 </div>
-                                <div class="feature-item">
-                                    <span class="feature-value">৩০+</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
                             </div>
 
                             <div class="department-cta">
-                                <a href="{{ route('appointment') }}" class="btn btn-outline-primary w-100">
+                                <a href="{{ route('contact') }}" class="btn btn-outline-primary w-100">
                                     <i class="fas fa-phone-alt me-2"></i>জরুরি যোগাযোগ
                                 </a>
                             </div>
@@ -188,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- Radiology & Imaging -->
+                {{-- <!-- Radiology & Imaging -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card department-card">
                         <div class="card-body text-center p-4">
@@ -269,7 +255,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

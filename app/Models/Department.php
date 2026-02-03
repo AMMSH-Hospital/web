@@ -26,4 +26,9 @@ class Department extends Model
     {
         return $this->hasMany(Appointment::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
+    }
 }

@@ -34,17 +34,14 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex gap-4">
-                        <a href="tel:028333081"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: ০২ ৮৩৩৩০৮১</a>
-                        <a href="mailto:info@al-mutmainnah.com"><i class="fas fa-envelope me-2"></i>
-                            info@al-mutmainnah.com</a>
+                        <a href="tel:{{ settings('general')?->phone }}"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: {{ settings('general')?->phone }}</a>
+                        <a href="mailto:{{ settings('general')?->mail }}"><i class="fas fa-envelope me-2"></i>
+                            {{ settings('general')?->mail }}</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="d-flex justify-content-md-end gap-3">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/al.mutmainnah.hospital" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
@@ -100,7 +97,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <h5>আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল</h5>
                     <p class="mt-3">
                         শরীয়ত সম্মত পরিবেশে আধুনিক ও সাশ্রয়ী চিকিৎসা সেবা প্রদানে অঙ্গীকারবদ্ধ একটি নির্ভরযোগ্য মা ও
@@ -115,29 +112,18 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3">
                     <h5>দ্রুত লিংক</h5>
                     <ul class="footer-links">
-                        <li><a href="index.html">হোম</a></li>
-                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
-                        <li><a href="doctors.html">চিকিৎসকবৃন্দ</a></li>
-                        <li><a href="departments.html">বিভাগসমূহ</a></li>
-                        <li><a href="contact.html">যোগাযোগ</a></li>
+                        <li><a href="{{ route('index') }}">হোম</a></li>
+                        <li><a href="{{ route('about') }}">আমাদের সম্পর্কে</a></li>
+                        <li><a href="{{ route('doctors') }}">চিকিৎসকবৃন্দ</a></li>
+                        <li><a href="{{ route('departments') }}">বিভাগসমূহ</a></li>
+                        <li><a href="{{ route('contact') }}">যোগাযোগ</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <h5>আমাদের সেবাসমূহ</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">গাইনি ও প্রসূতি সেবা</a></li>
-                        <li><a href="#">শিশুরোগ সেবা</a></li>
-                        <li><a href="#">জেনারেল মেডিসিন</a></li>
-                        <li><a href="#">ডায়াগনস্টিক ও প্যাথলজি</a></li>
-                        <li><a href="#">২৪ ঘণ্টা ফার্মেসি</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h5>যোগাযোগের তথ্য</h5>
                     <ul class="footer-links">
                         <li>
@@ -162,12 +148,12 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <button id="whatsappBtn" class="floating-btn whatsapp" title="হোয়াটসঅ্যাপ করুন">
+        <a href="{{ settings('general')?->whatsapp }}" target="_blank" id="whatsappBtn" class="floating-btn whatsapp text-decoration-none" title="হোয়াটসঅ্যাপ করুন">
             <i class="fab fa-whatsapp"></i>
-        </button>
-        <button id="emergencyBtn" class="floating-btn emergency" title="জরুরী সেবা">
+        </a>
+        <a href="tel:{{ settings('general')?->phone }}" id="emergencyBtn" class="floating-btn emergency text-decoration-none" title="জরুরী সেবা">
             <i class="fas fa-phone-alt"></i>
-        </button>
+        </a>
         <button id="scrollToTop" class="floating-btn scroll-top" title="উপরে যান">
             <i class="fas fa-arrow-up"></i>
         </button>

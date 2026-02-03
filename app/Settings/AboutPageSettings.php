@@ -10,6 +10,8 @@ class AboutPageSettings extends Settings
 
     public ?string $about_description = null;
 
+    public ?string $about_image = null;
+
     public ?string $mission = null;
 
     public ?string $vision = null;

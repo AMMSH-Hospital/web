@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ settings('home_page')->hero_image ? Storage::url(settings('home_page')->hero_image) : asset('assets/images/ammsh.png') }}" alt="Hospital Staff"
+                    <img src="{{ settings('home_page')->hero_image && Storage::disk('public')->exists(settings('home_page')->hero_image) ? Storage::url(settings('home_page')->hero_image) : asset('assets/images/ammsh.png') }}" alt="Hospital Staff"
                         class="img-fluid rounded shadow-lg">
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="service-icon">
-                            <img class="img-fluid" width="75" src="{{ Storage::url($service['image']) }}" alt="{{ $service['title'] }}">
+                            <img class="img-fluid" width="75" src="{{ $service['image'] && Storage::disk('public')->exists($service['image']) ? Storage::url($service['image']) : asset('assets/images/logo.png') }}" alt="{{ $service['title'] }}">
                         </div>
                         <h4>{{ $service['title'] }}</h4>
                         <p>{{ $service['description'] }}</p>

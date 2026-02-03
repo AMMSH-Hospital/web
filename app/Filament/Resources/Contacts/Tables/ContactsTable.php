@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Contacts\Tables;
 
+use App\Models\Contact;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -40,6 +42,16 @@ class ContactsTable
                 //
             ])
             ->recordActions([
+                // seen status action
+                Action::make('Seen')
+                    ->action(function (Contact $record) {
+                        $record->seen_status = true;
+                        $record->save();
+                    })
+                    ->visible(function (Contact $record) {
+                        return ! $record->seen_status;
+                    })
+                    ->icon('heroicon-o-eye'),
                 ViewAction::make(),
                 // EditAction::make(),
             ])

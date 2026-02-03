@@ -22,6 +22,11 @@ class ContactResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftEllipsis;
 
+    public static function getNavigationBadge(): ?string
+    {
+        return 'Unseen: '.static::getModel()::where('seen_status', false)->count();
+    }
+
     public static function form(Schema $schema): Schema
     {
         return ContactForm::configure($schema);

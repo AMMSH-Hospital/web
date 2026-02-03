@@ -17,13 +17,13 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: var(--light-blue);
+            background-color: var(--light-green);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
             font-size: 1.5rem;
-            color: var(--primary-blue);
+            color: var(--primary-green);
         }
 
         .emergency-contact {
@@ -175,8 +175,7 @@
                         </div>
                         <h4>ফোন নম্বর</h4>
                         <p class="mb-2"><strong>তথ্য:</strong> ০২ ৮৩৩৩০৮১</p>
-                        <p class="mb-2"><strong>সিরিয়ালের জন্য:</strong> ০১৭৪০৬৫৬৭৪৮</p>
-                        <p class="mb-2"><strong>সিরিয়ালের জন্য:</strong> ০১৭১১০৫২৩৬৬</p>
+                        <p class="mb-2"><strong>সিরিয়ালের জন্য:</strong> ০১৭৪০৬৫৬৭৪৮, ০১৭১১০৫২৩৬৬</p>
                         <p class="mb-0"><strong>অন্যান্য:</strong> ৯৩৪১৩৯৪</p>
 
                         <div class="opening-hours">
@@ -201,17 +200,12 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h4>ইমেইল ও অনলাইন</h4>
-                        <p class="mb-2"><strong>সাধারণ তথ্য:</strong> info@al-mutmainnah.com</p>
-                        <p class="mb-2"><strong>এপয়েন্টমেন্ট:</strong> appointments@al-mutmainnah.com</p>
+                        <p class="mb-2"><strong>সাধারণ তথ্য:</strong> {{ settings('general')?->mail }}</p>
+                        <a href="{{ route('appointment') }}" class="mb-2 text-decoration-none text-success"><strong>এপয়েন্টমেন্ট নিন</strong></a>
 
                         <div class="mt-4">
-                            <h5>ফলো করুন</h5>
                             <div class="d-flex gap-3 mt-3">
-                                <a href="#" class="text-primary"><i class="fab fa-facebook-f fa-2x"></i></a>
-                                <a href="#" class="text-primary"><i class="fab fa-twitter fa-2x"></i></a>
-                                <a href="#" class="text-primary"><i class="fab fa-instagram fa-2x"></i></a>
-                                <a href="#" class="text-primary"><i class="fab fa-linkedin-in fa-2x"></i></a>
-                                <a href="#" class="text-primary"><i class="fab fa-youtube fa-2x"></i></a>
+                                <a href="https://www.facebook.com/al.mutmainnah.hospital/" class="text-primary bg-light rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +220,7 @@
                     </div>
                     <div>
                         <h6 class="mb-1">কল করুন</h6>
-                        <p class="mb-0 text-muted">০২ ৮৩৩৩০৮১</p>
+                        <p class="mb-0 text-muted">{{ settings('general')->phone }}</p>
                     </div>
                 </a>
 
@@ -240,17 +234,17 @@
                     </div>
                 </a>
 
-                <a href="mailto:info@al-mutmainnah.com" class="quick-contact-btn">
+                <a href="mailto:{{ settings('general')->mail }}" class="quick-contact-btn">
                     <div class="quick-contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div>
                         <h6 class="mb-1">ইমেইল পাঠান</h6>
-                        <p class="mb-0 text-muted">info@al-mutmainnah.com</p>
+                        <p class="mb-0 text-muted">{{ settings('general')->mail }}</p>
                     </div>
                 </a>
 
-                <a href="#" onclick="initiateChat()" class="quick-contact-btn">
+                {{-- <a href="#" onclick="initiateChat()" class="quick-contact-btn">
                     <div class="quick-contact-icon">
                         <i class="fas fa-comments"></i>
                     </div>
@@ -258,7 +252,7 @@
                         <h6 class="mb-1">লাইভ চ্যাট</h6>
                         <p class="mb-0 text-muted">২৪/৭ সাপোর্ট</p>
                     </div>
-                </a>
+                </a> --}}
             </div>
         </div>
     </section>
@@ -272,7 +266,7 @@
                     <div class="map-container">
                         <!-- Google Maps Embed -->
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.177858804427!2d-73.98784468459418!3d40.70555197933205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a315cdf4c9b%3A0x8b934de5cae6f7a!2sHealthcare%20District!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116874.33003900644!2d90.37486002344104!3d23.73586520842099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8613abf5649%3A0x2c4d0e0c475bce4e!2z4KaG4KayIOCmruCngeCmpOCmruCmvuCmh-CmqOCnjeCmqOCmvuCmuSDgpq7gpr4g4KaTIOCmtuCmv-CmtuCngSDgprngpr7gprjgpqrgpr7gpqTgpr7gprI!5e0!3m2!1sen!2sbd!4v1770113215788!5m2!1sen!2sbd"
                             width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
@@ -373,59 +367,20 @@
             </div>
 
             <div class="row g-3">
+                @foreach ($departments as $department)
                 <div class="col-md-6 col-lg-4">
                     <div class="department-contact">
-                        <h5 class="mb-2">কার্ডিওলজি বিভাগ</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯১৫</p>
+                        <h5 class="mb-2">{{ $department->dept_name }}</h5>
+                        @if ($department->contact_phone)
+                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> {{ $department->contact_phone }}</p>
+                        @endif
+                        @if ($department->contact_mail)
                         <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
-                            cardiology@medicarehospital.com</p>
+                            {{ $department->contact_mail }}</p>
+                        @endif
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">জরুরি বিভাগ</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯১২</p>
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i> emergency@medicarehospital.com
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">শিশুরোগ বিভাগ</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯১৬</p>
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
-                            pediatrics@medicarehospital.com</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">রেডিওলজি বিভাগ</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯১৭</p>
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i> radiology@medicarehospital.com
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">বিলিং বিভাগ</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯০২</p>
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i> billing@medicarehospital.com
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">ফার্মেসি</h5>
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> +১ (২৩৪) ৫৬৭-৮৯১৮</p>
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i> pharmacy@medicarehospital.com
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -443,84 +398,21 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="accordion" id="contactFAQ">
+                        @foreach (settings('general')?->faqs as $faq)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq1">
-                                    রোগী দেখার সময়সূচী কি?
+                                    {{ $faq['question'] }}
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
                                 <div class="accordion-body">
-                                    রোগী দেখার সময় প্রতিদিন সকাল ১০:০০ টা থেকে রাত ৮:০০ টা। আইসিইউ-তে রোগী দেখার জন্য
-                                    নির্দিষ্ট সময় রয়েছে (দুপুর ১২টা এবং বিকাল ৫টা)। জরুরি বিভাগ ২৪/৭ খোলা থাকে।
+                                    {{ $faq['answer'] }}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq2">
-                                    আমি কীভাবে আমার মেডিকেল রেকর্ড পাব?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                                <div class="accordion-body">
-                                    আপনি মেডিকেল রেকর্ডস বিভাগে গিয়ে অথবা +১ (২৩৪) ৫৬৭-৮৯০৩ নম্বরে কল করে মেডিকেল রেকর্ডের
-                                    জন্য অনুরোধ করতে পারেন। আপনাকে একটি অনুরোধ ফর্ম পূরণ করতে হবে এবং বৈধ পরিচয়পত্র প্রদান
-                                    করতে হবে। রেকর্ড সাধারণত ৩-৫ কার্যদিবসের মধ্যে পাওয়া যায়।
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq3">
-                                    আপনারা কি ইন্স্যুরেন্স গ্রহণ করেন?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                                <div class="accordion-body">
-                                    হ্যাঁ, আমরা অধিকাংশ প্রধান ইন্স্যুরেন্স প্ল্যান গ্রহণ করি। আপনার নির্দিষ্ট ইন্স্যুরেন্স
-                                    প্ল্যান গ্রহণযোগ্য কিনা তা যাচাই করতে অনুগ্রহ করে আমাদের বিলিং বিভাগের সাথে +১ (২৩৪)
-                                    ৫৬৭-৮৯০২ নম্বরে যোগাযোগ করুন। আমরা নগদ পেমেন্ট এবং ইন্স্যুরেন্সবিহীন রোগীদের জন্য
-                                    পেমেন্ট প্ল্যানও অফার করি।
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq4">
-                                    আমি কীভাবে অ্যাপয়েন্টমেন্ট বাতিল বা পরিবর্তন করতে পারি?
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                                <div class="accordion-body">
-                                    আপনি আমাদের অ্যাপয়েন্টমেন্ট ডেস্কে +১ (২৩৪) ৫৬৭-৮৯০২ নম্বরে কল করে অথবা আপনার অনলাইন
-                                    পেশেন্ট পোর্টালের মাধ্যমে অ্যাপয়েন্টমেন্ট বাতিল বা পরিবর্তন করতে পারেন। বাতিলকরণ ফি
-                                    এড়াতে অনুগ্রহ করে কমপক্ষে ২৪ ঘন্টা আগে নোটিশ প্রদান করুন।
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq5">
-                                    হাসপাতালে কি পার্কিং সুবিধা আছে?
-                                </button>
-                            </h2>
-                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                                <div class="accordion-body">
-                                    হ্যাঁ, আমাদের হাসপাতাল প্রাঙ্গনে রোগীদের এবং দর্শনার্থীদের জন্য পর্যাপ্ত পার্কিং
-                                    ব্যবস্থা রয়েছে।
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

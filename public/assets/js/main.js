@@ -152,23 +152,23 @@ function initFloatingButtons() {
     const emergencyBtn = document.getElementById('emergencyBtn');
     const whatsappBtn = document.getElementById('whatsappBtn');
     
-    if (emergencyBtn) {
-        emergencyBtn.addEventListener('click', function() {
-            // In a real application, this would initiate a phone call
-            // For demo, we'll show a toast notification
-            showToast('Emergency call initiated. Connecting to emergency services...', 'info');
-        });
-    }
+    // if (emergencyBtn) {
+    //     emergencyBtn.addEventListener('click', function() {
+    //         // In a real application, this would initiate a phone call
+    //         // For demo, we'll show a toast notification
+    //         showToast('Emergency call initiated. Connecting to emergency services...', 'info');
+    //     });
+    // }
     
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', function() {
-            // WhatsApp chat URL
-            const phoneNumber = '+1234567890';
-            const message = 'Hello, I need assistance with medical services.';
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        });
-    }
+    // if (whatsappBtn) {
+    //     whatsappBtn.addEventListener('click', function() {
+    //         // WhatsApp chat URL
+    //         const phoneNumber = '+1234567890';
+    //         const message = 'Hello, I need assistance with medical services.';
+    //         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    //         window.open(url, '_blank');
+    //     });
+    // }
 }
 
 /* ===== TOAST NOTIFICATION ===== */
