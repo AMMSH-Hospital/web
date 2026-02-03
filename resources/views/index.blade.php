@@ -6,10 +6,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-3">মানসম্মত চিকিৎসা, <span class="text-success">নির্ভরযোগ্য সেবা</span>
-                    </h1>
-                    <p class="lead mb-4">আধুনিক প্রযুক্তি ও বিশেষজ্ঞ চিকিৎসকদের তত্ত্বাবধানে <br>
-                        আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল গড়ে তুলেছে মানসম্মত চিকিৎসার আস্থা।</p>
+                    <h1 class="display-4 fw-bold mb-3">{!! settings('home_page')->hero_title !!}</h1>
+                    <p class="lead mb-4">{!! settings('home_page')->hero_description !!}</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{{ route('appointment') }}" class="btn btn-primary btn-lg">
                             <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিন
@@ -20,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ asset('assets/images/ammsh.jpg') }}" alt="Hospital Staff"
+                    <img src="{{ settings('home_page')->hero_image ? Storage::url(settings('home_page')->hero_image) : asset('assets/images/ammsh.png') }}" alt="Hospital Staff"
                         class="img-fluid rounded shadow-lg">
                 </div>
             </div>
@@ -38,6 +36,17 @@
             </div>
 
             <div class="row g-4">
+                @forelse (settings('home_page')->our_services as $service)
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img class="img-fluid" width="75" src="{{ Storage::url($service['image']) }}" alt="{{ $service['title'] }}">
+                        </div>
+                        <h4>{{ $service['title'] }}</h4>
+                        <p>{{ $service['description'] }}</p>
+                    </div>
+                </div>
+                @empty
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="service-icon">
@@ -47,36 +56,7 @@
                         <p>দ্রুত সাড়া প্রদানকারী টিম ও উন্নত লাইফ সাপোর্টসহ ২৪/৭ জরুরি চিকিৎসা সেবা।</p>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h4>বহির্বিভাগ (ওপিডি) সেবা</h4>
-                        <p>বিশেষজ্ঞ চিকিৎসকের পরামর্শ ও ডায়াগনস্টিক সেবাসহ বহির্বিভাগ।</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-procedures"></i>
-                        </div>
-                        <h4>আইসিইউ (ICU) সুবিধা</h4>
-                        <p>সার্বক্ষণিক পর্যবেক্ষণসহ আধুনিক মানের ইনটেনসিভ কেয়ার ইউনিট।</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <h4>ফার্মেসি</h4>
-                        <p>সকল প্রয়োজনীয় ওষুধ ও পেশাদার পরামর্শসহ সুসজ্জিত ফার্মেসি।</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

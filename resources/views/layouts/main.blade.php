@@ -35,7 +35,8 @@
                 <div class="col-md-6">
                     <div class="d-flex gap-4">
                         <a href="tel:028333081"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: ০২ ৮৩৩৩০৮১</a>
-                        <a href="mailto:info@ammsh.com"><i class="fas fa-envelope me-2"></i> info@ammsh.com</a>
+                        <a href="mailto:info@al-mutmainnah.com"><i class="fas fa-envelope me-2"></i>
+                            info@al-mutmainnah.com</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-md-end">

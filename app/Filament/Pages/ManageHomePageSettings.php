@@ -7,6 +7,7 @@ use App\Settings\HomePageSettings;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
@@ -31,11 +32,15 @@ class ManageHomePageSettings extends SettingsPage
                 Section::make('Hero Section')
                     ->description('Settings for the home page hero section')
                     ->schema([
-                        TextInput::make('hero_title')
-                            ->required(),
+                        RichEditor::make('hero_title')
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'link', 'textColor'],
+                            ]),
                         Textarea::make('hero_description')
                             ->rows(3),
                         FileUpload::make('hero_image')
+                            ->disk('public')
+                            ->directory('home_page_settings')
                             ->image(),
                     ]),
                 Section::make('Our Services')
@@ -44,6 +49,8 @@ class ManageHomePageSettings extends SettingsPage
                         Repeater::make('our_services')
                             ->schema([
                                 FileUpload::make('image')
+                                    ->disk('public')
+                                    ->directory('home_page_settings/our_services')
                                     ->image()
                                     ->required(),
                                 TextInput::make('title')
@@ -51,8 +58,7 @@ class ManageHomePageSettings extends SettingsPage
                                 Textarea::make('description')
                                     ->rows(2)
                                     ->required(),
-                            ])
-                            ->grid(2),
+                            ]),
                     ]),
             ]);
     }

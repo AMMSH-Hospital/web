@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Filament\Clusters\Settings\SettingsCluster;
 use App\Settings\GeneralSettings;
 use BackedEnum;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -45,6 +46,17 @@ class ManageGeneralSettings extends SettingsPage
                         Textarea::make('address')
                             ->label('Address')
                             ->rows(3)
+                            ->columnSpanFull(),
+                        Repeater::make('faqs')
+                            ->label('FAQ')
+                            ->schema([
+                                TextInput::make('question')
+                                    ->label('Question')
+                                    ->required(),
+                                TextInput::make('answer')
+                                    ->label('Answer')
+                                    ->required(),
+                            ])
                             ->columnSpanFull(),
                         Toggle::make('site_active')
                             ->columnSpanFull()

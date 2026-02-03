@@ -136,7 +136,8 @@
                         @foreach ($doctor->professional_experiences as $experience)
                             <div class="experience-item">
                                 <h5>{{ $experience['title'] }}</h5>
-                                <p class="text-primary mb-1">{{ $experience['organization'] }} • {{ $experience['duration'] }}</p>
+                                <p class="text-primary mb-1">{{ $experience['organization'] }} •
+                                    {{ $experience['duration'] }}</p>
                                 <p>{{ $experience['description'] }}</p>
                             </div>
                         @endforeach
@@ -160,8 +161,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">যোগাযোগের তথ্য</h4>
-                            <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong> {{ $doctor->phone }}</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong> {{ $doctor->email }}</p>
+                            <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong>
+                                {{ $doctor->phone }}</p>
+                            <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong>
+                                {{ $doctor->email }}</p>
                             <hr>
                             <p class="text-muted"><small><i class="fas fa-info-circle me-2"></i> আপনার প্রথম পরিদর্শনের সময়
                                     অনুগ্রহ করে পূর্ববর্তী মেডিকেল রেকর্ডগুলি সাথে আনুন।</small></p>
@@ -188,69 +191,45 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th onclick="sortSchedule(1)" style="width: 15%;">
-                                        দিন <i class="fas fa-sort ms-1"></i>
-                                    </th>
-                                    <th onclick="sortSchedule(2)" style="width: 15%;">
-                                        তারিখ <i class="fas fa-sort ms-1"></i>
-                                    </th>
-                                    <th onclick="sortSchedule(3)" style="width: 30%;">
-                                        সময়ের স্লট <i class="fas fa-sort ms-1"></i>
-                                    </th>
-                                    <th onclick="sortSchedule(4)" style="width: 20%;">
-                                        উপলব্ধতা <i class="fas fa-sort ms-1"></i>
-                                    </th>
-                                    <th style="width: 20%;">অ্যাকশন</th>
+                                    <th style="width: 20%;">দিন</th>
+                                    <th style="width: 25%;">সময়</th>
+                                    <th style="width: 25%;">অবস্থান</th>
+                                    <th style="width: 30%;">অ্যাকশন</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>সোমবার</td>
-                                    <td>পরবর্তী সপ্তাহ</td>
-                                    <td>
-                                        <span class="time-slot available">৯:০০ - ১০:০০</span>
-                                        <span class="time-slot available">১০:০০ - ১১:০০</span>
-                                        <span class="time-slot available">১১:০০ - ১২:০০</span>
-                                        <span class="time-slot booked">১২:০০ - ১:০০</span>
-                                        <span class="time-slot available">২:০০ - ৩:০০</span>
-                                        <span class="time-slot available">৩:০০ - ৪:০০</span>
-                                    </td>
-                                    <td><span class="badge bg-success">উপলব্ধ</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#bookSlotModal">বুক করুন</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>মঙ্গলবার</td>
-                                    <td>পরবর্তী সপ্তাহ</td>
-                                    <td>
-                                        <span class="time-slot booked">৯:০০ - ১০:০০</span>
-                                        <span class="time-slot available">১০:০০ - ১১:০০</span>
-                                        <span class="time-slot booked">১২:০০ - ১:০০</span>
-                                        <span class="time-slot available">২:০০ - ৩:০০</span>
-                                        <span class="time-slot available">৩:০০ - ৪:০০</span>
-                                    </td>
-                                    <td><span class="badge bg-warning">সীমিত</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#bookSlotModal">বুক করুন</button>
-                                    </td>
-                                </tr>
-                                <!-- Skipping some rows for brevity but in real edit I should handle all or replace with static -->
-                                <tr>
-                                    <td>বুধবাার</td>
-                                    <td>পরবর্তী সপ্তাহ</td>
-                                    <td>
-                                        <span class="time-slot available">৯:০০ - ১০:০০</span>
-                                        <span class="time-slot available">১:০০ - ২:০০</span>
-                                    </td>
-                                    <td><span class="badge bg-success">উপলব্ধ</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#bookSlotModal">বুক করুন</button>
-                                    </td>
-                                </tr>
+                                @forelse ($doctor->schedules as $schedule)
+                                    @php
+                                        $days = [
+                                            'Saturday' => 'শনিবার',
+                                            'Sunday' => 'রবিবার',
+                                            'Monday' => 'সোমবার',
+                                            'Tuesday' => 'মঙ্গলবার',
+                                            'Wednesday' => 'বুধবার',
+                                            'Thursday' => 'বৃহস্পতিবার',
+                                            'Friday' => 'শুক্রবার',
+                                        ];
+                                        $bnDay = $days[$schedule->day_name] ?? $schedule->day_name;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $bnDay }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($schedule->start_time)->format('h:i A') }} -
+                                            {{ \Carbon\Carbon::parse($schedule->end_time)->format('h:i A') }}
+                                        </td>
+                                        <td><span class="badge bg-success">উপলব্ধ</span></td>
+                                        <td>
+                                            <a href="{{ route('appointment', ['department' => $doctor->department_id, 'doctor' => $doctor->id]) }}"
+                                                class="btn btn-sm btn-primary">
+                                                বুক করুন
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="text-center text-muted">কোন সময়সূচী পাওয়া যায়নি</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -267,92 +246,4 @@
         </div>
     </section>
 
-    <!-- Book Slot Modal -->
-    <div class="modal fade" id="bookSlotModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">ডা. সারাহ জনসনের সাথে অ্যাপয়েন্টমেন্ট বুক করুন</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">নির্বাচিত সময়ের স্লট</label>
-                            <input type="text" class="form-control" value="Wednesday, 10:00 AM" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">রোগীর নাম *</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">যোগাযোগ নম্বর *</label>
-                            <input type="tel" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">ইমেইল ঠিকানা</label>
-                            <input type="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">ভিজিটের কারণ</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="termsCheck">
-                            <label class="form-check-label" for="termsCheck">
-                                আমি শর্তাবলী এবং শর্তসাপেক্ষে সম্মত
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
-                    <button type="button" class="btn btn-primary" onclick="bookAppointment()">বুকিং নিশ্চিত
-                        করুন</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
-
-@push('scripts')
-    <script>
-        function bookAppointment() {
-            const modal = bootstrap.Modal.getInstance(document.getElementById('bookSlotModal'));
-            modal.hide();
-
-            // Show success message
-            const toastContainer = document.getElementById('toastContainer') || createToastContainer();
-            const toastId = 'toast-' + Date.now();
-
-            toastContainer.insertAdjacentHTML('beforeend', `
-                <div id="${toastId}" class="toast align-items-center text-bg-success border-0" role="alert">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            <i class="fas fa-check-circle me-2"></i>
-                            অ্যাপয়েন্টমেন্ট অনুরোধ সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই নিশ্চিতকরণের জন্য আপনার সাথে যোগাযোগ করব।
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-                    </div>
-                </div>
-            `);
-
-            const toast = new bootstrap.Toast(document.getElementById(toastId), {
-                delay: 5000
-            });
-            toast.show();
-
-            setTimeout(() => {
-                document.getElementById(toastId).remove();
-            }, 5000);
-        }
-
-        function createToastContainer() {
-            const container = document.createElement('div');
-            container.id = 'toastContainer';
-            container.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-            document.body.appendChild(container);
-            return container;
-        }
-    </script>
-@endpush

@@ -1,5 +1,8 @@
 <?php
 
+use Spatie\LaravelSettings\Settings;
+use Spatie\LaravelSettings\SettingsContainer;
+
 if (! function_exists('enToBnNumber')) {
     function enToBnNumber($number)
     {
@@ -7,5 +10,20 @@ if (! function_exists('enToBnNumber')) {
         $bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
 
         return str_replace($en, $bn, $number);
+    }
+}
+
+if (! function_exists('settings')) {
+    function settings(string $group): Settings
+    {
+        /** @var SettingsContainer $container */
+        $container = app(SettingsContainer::class);
+        foreach ($container->getSettingClasses() as $settingsClass) {
+            if ($settingsClass::group() === $group) {
+                return app($settingsClass);
+            }
+        }
+
+        throw new InvalidArgumentException("Settings group [{$group}] not found.");
     }
 }

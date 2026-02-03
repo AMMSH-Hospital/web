@@ -5,7 +5,9 @@ namespace App\Filament\Pages;
 use App\Filament\Clusters\Settings\SettingsCluster;
 use App\Settings\AboutPageSettings;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
 use Filament\Schemas\Components\Section;
@@ -31,8 +33,12 @@ class ManageAboutPageSettings extends SettingsPage
                     ->columnSpanFull()
                     ->columns(2)
                     ->schema([
-                        TextInput::make('about_title'),
-                        TextInput::make('about_description'),
+                        TextInput::make('about_title')->columnSpanFull(),
+                        RichEditor::make('about_description')
+                            ->columnSpanFull()
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'link', 'textColor', 'h3'],
+                            ]),
                         TextInput::make('mission'),
                         TextInput::make('vision'),
                     ]),
@@ -41,9 +47,11 @@ class ManageAboutPageSettings extends SettingsPage
                         Repeater::make('experience_counters')
                             ->hiddenLabel()
                             ->schema([
-                                TextInput::make('label')
-                                    ->required(),
                                 TextInput::make('count')
+                                    ->required(),
+                                TextInput::make('title')
+                                    ->required(),
+                                TextInput::make('description')
                                     ->required(),
                             ])
                             ->defaultItems(1),
@@ -53,11 +61,13 @@ class ManageAboutPageSettings extends SettingsPage
                         Repeater::make('facilities')
                             ->hiddenLabel()
                             ->schema([
+                                FileUpload::make('image')
+                                    ->disk('public')
+                                    ->directory('home_page_settings/our_services')
+                                    ->image(),
                                 TextInput::make('title')
                                     ->required(),
                                 TextInput::make('description')
-                                    ->required(),
-                                TextInput::make('icon')
                                     ->required(),
                             ])
                             ->defaultItems(1),

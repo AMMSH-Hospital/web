@@ -26,6 +26,12 @@ body {
     background-color: var(--light-gray);
 }
 
+
+/* color */
+span.color {
+    color: var(--color);
+}
+
 /* ===== HEADER & NAVBAR ===== */
 .top-bar {
     background: linear-gradient(90deg, var(--dark-green), var(--primary-green));

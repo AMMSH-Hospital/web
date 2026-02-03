@@ -201,10 +201,8 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h4>ইমেইল ও অনলাইন</h4>
-                        <p class="mb-2"><strong>সাধারণ তথ্য:</strong> info@ammsh.com</p>
-                        <p class="mb-2"><strong>এপয়েন্টমেন্ট:</strong> appointments@ammsh.com</p>
-                        <p class="mb-2"><strong>মতামত ও অভিযোগ:</strong> feedback@medicarehospital.com</p>
-                        <p class="mb-0"><strong>ক্যারিয়ার সুযোগ:</strong> careers@medicarehospital.com</p>
+                        <p class="mb-2"><strong>সাধারণ তথ্য:</strong> info@al-mutmainnah.com</p>
+                        <p class="mb-2"><strong>এপয়েন্টমেন্ট:</strong> appointments@al-mutmainnah.com</p>
 
                         <div class="mt-4">
                             <h5>ফলো করুন</h5>
@@ -242,13 +240,13 @@
                     </div>
                 </a>
 
-                <a href="mailto:info@ammsh.com" class="quick-contact-btn">
+                <a href="mailto:info@al-mutmainnah.com" class="quick-contact-btn">
                     <div class="quick-contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div>
                         <h6 class="mb-1">ইমেইল পাঠান</h6>
-                        <p class="mb-0 text-muted">info@ammsh.com</p>
+                        <p class="mb-0 text-muted">info@al-mutmainnah.com</p>
                     </div>
                 </a>
 

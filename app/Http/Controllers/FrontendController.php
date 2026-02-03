@@ -48,6 +48,8 @@ class FrontendController extends Controller
 
     public function doctorProfile(Doctor $doctor)
     {
+        $doctor->load('schedules');
+
         return view('doctor-profile', compact('doctor'));
     }
 
