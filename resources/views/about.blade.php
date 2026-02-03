@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('meta_title', 'আমাদের সম্পর্কে')
+
+
 @section('content')
     <!-- Breadcrumb -->
     <div class="breadcrumb-container">
@@ -17,7 +20,7 @@
     <section class="py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-3">
                     <h1 class="display-5 fw-bold mb-4">আমাদের সম্পর্কে</h1>
                     {!! settings('about_page')->about_description !!}
                 </div>

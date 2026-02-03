@@ -1,11 +1,13 @@
 @extends('layouts.main')
 
+@section('meta_title', 'হোম')
+
 @section('content')
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-3">
                     <h1 class="display-4 fw-bold mb-3">{!! settings('home_page')->hero_title !!}</h1>
                     <p class="lead mb-4">{!! settings('home_page')->hero_description !!}</p>
                     <div class="d-flex flex-wrap gap-3">

@@ -930,7 +930,6 @@ span.color {
     }
     
     .top-bar .d-flex {
-        flex-direction: column;
         gap: 10px;
     }
 }

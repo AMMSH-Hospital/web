@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল</title>
+    <title>আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল - @yield('meta_title')</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,13 +33,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <div class="d-flex gap-4">
+                    <div class="d-flex flex-wrap gap-md-4">
                         <a href="tel:{{ settings('general')?->phone }}"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: {{ settings('general')?->phone }}</a>
                         <a href="mailto:{{ settings('general')?->mail }}"><i class="fas fa-envelope me-2"></i>
                             {{ settings('general')?->mail }}</a>
                     </div>
                 </div>
-                <div class="col-md-6 text-md-end">
+                <div class="col-md-6 text-md-end d-none d-md-block">
                     <div class="d-flex justify-content-md-end gap-3">
                         <a href="https://www.facebook.com/al.mutmainnah.hospital" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
@@ -70,15 +70,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('doctors') ? 'active' : '' }}"
-                            href="{{ route('doctors') }}">ডাক্তারগণ</a>
+                            href="{{ route('doctors') }}">চিকিৎসকবৃন্দ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('departments') ? 'active' : '' }}"
                             href="{{ route('departments') }}">বিভাগসমূহ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('appointment') ? 'active' : '' }}"
-                            href="{{ route('appointment') }}">অ্যাপয়েন্টমেন্ট</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}"

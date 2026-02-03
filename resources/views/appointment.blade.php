@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('meta_title', 'এপয়েন্টমেন্ট')
+
 @push('styles')
     <style>
         .appointment-steps {

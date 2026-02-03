@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('meta_title', 'চিকিৎসকবৃন্দ')
+
 @push('styles')
     <style>
         .filter-buttons {

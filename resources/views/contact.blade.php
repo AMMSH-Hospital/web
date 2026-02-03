@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('meta_title', 'যোগাযোগ')
+
 @push('styles')
     <style>
         .contact-info-card {

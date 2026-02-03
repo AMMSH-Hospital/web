@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('meta_title', $doctor->doctor_name)
+
 @push('styles')
     <style>
         .qualification-list {

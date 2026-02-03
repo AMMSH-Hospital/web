@@ -1,4 +1,7 @@
 @extends('layouts.main')
+
+@section('meta_title', 'বিভাগসমূহ')
+
 @push('styles')
     <style>
         .department-card {
