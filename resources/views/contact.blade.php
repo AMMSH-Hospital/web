@@ -404,11 +404,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq1">
+                                    data-bs-target="#faq{{ $loop->iteration }}">
                                     {{ $faq['question'] }}
                                 </button>
                             </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
+                            <div id="faq{{ $loop->iteration }}" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
                                 <div class="accordion-body">
                                     {{ $faq['answer'] }}
                                 </div>

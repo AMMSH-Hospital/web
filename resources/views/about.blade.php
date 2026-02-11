@@ -102,7 +102,7 @@
                 @foreach (settings('about_page')->facilities as $facility)
                 <div class="col-md-6 col-lg-4">
                     <div class="card">
-                        <img src="{{ $facility['image'] && Storage::exists($facility['image']) ? Storage::url($facility['image']) : asset('assets/images/ammsh.png') }}" class="card-img-top" alt="Emergency Ward">
+                        <img src="{{ $facility['image'] && Storage::disk('public')->exists($facility['image']) ? Storage::disk('public')->url($facility['image']) : asset('assets/images/ammsh.png') }}" class="card-img-top" alt="Emergency Ward">
                         <div class="card-body">
                             <h5 class="card-title">{{ $facility['title'] }}</h5>
                             <p class="card-text">{{ $facility['description'] }}</p>
