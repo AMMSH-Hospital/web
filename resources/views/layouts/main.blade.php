@@ -19,7 +19,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('fonts/solaimanlipi/stylesheet.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=2">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=3">
 
     @stack('styles')
 
@@ -34,14 +34,16 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex flex-wrap gap-md-4">
-                        <a href="tel:{{ settings('general')?->phone }}"><i class="fas fa-phone-alt me-2"></i> ইমারজেন্সি: {{ settings('general')?->phone }}</a>
+                        <a href="tel:{{ settings('general')?->phone }}"><i class="fas fa-phone me-2"></i> ইমারজেন্সি:
+                            {{ settings('general')?->phone }}</a>
                         <a href="mailto:{{ settings('general')?->mail }}"><i class="fas fa-envelope me-2"></i>
                             {{ settings('general')?->mail }}</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-md-end d-none d-md-block">
                     <div class="d-flex justify-content-md-end gap-3">
-                        <a href="https://www.facebook.com/al.mutmainnah.hospital" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/al.mutmainnah.hospital" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
@@ -62,10 +64,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('index') ? 'active' : '' }}" href="{{ route('index') }}">হোম</a>
+                        <a class="nav-link {{ Route::is('index') ? 'active' : '' }}"
+                            href="{{ route('index') }}">হোম</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('about') ? 'active' : '' }}" href="{{ route('about') }}">আমাদের
+                        <a class="nav-link {{ Route::is('about') ? 'active' : '' }}"
+                            href="{{ route('about') }}">আমাদের
                             সম্পর্কে</a>
                     </li>
                     <li class="nav-item">
@@ -101,8 +105,8 @@
                         সঠিক চিকিৎসার মাধ্যমে দেহ ও মনের প্রশান্তি নিশ্চিত করাই আমাদের লক্ষ্য।
                     </p>
                     <div class="d-flex gap-3 mt-4">
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/al.mutmainnah.hospital" target="_blank" class="text-white"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
                     </div>
@@ -127,7 +131,7 @@
                             ৫ আউটার সার্কুলার রোড, রাজারবাগ শরীফ, ঢাকা<br>
                             পুলিশ লাইন ৩ নং গেইটের বিপরীতে (পার্টি হাউজ কমিউনিটি সেন্টারের উপরে)
                         </li>
-                        <li><i class="fas fa-phone-alt me-2"></i> ০২-৮৩৩৩০৮১, ০২-৯৩৪১৩৯৪</li>
+                        <li><i class="fas fa-phone me-2"></i> ০২-৮৩৩৩০৮১, ০২-৯৩৪১৩৯৪</li>
                         <li><i class="fas fa-mobile-alt me-2"></i> ০১৭৪০৬৫৬৭৪৮, ০১৭১১০৫২৩৬৬</li>
                         <li><i class="fas fa-clock me-2"></i> ২৪ ঘণ্টা চিকিৎসা ও ফার্মেসি সেবা</li>
                     </ul>
@@ -144,11 +148,13 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <a href="{{ settings('general')?->whatsapp }}" target="_blank" id="whatsappBtn" class="floating-btn whatsapp text-decoration-none" title="হোয়াটসঅ্যাপ করুন">
+        <a href="{{ settings('general')?->whatsapp }}" target="_blank" id="whatsappBtn"
+            class="floating-btn whatsapp text-decoration-none" title="হোয়াটসঅ্যাপ করুন">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:{{ settings('general')?->phone }}" id="emergencyBtn" class="floating-btn emergency text-decoration-none" title="জরুরী সেবা">
-            <i class="fas fa-phone-alt"></i>
+        <a href="tel:{{ settings('general')?->phone }}" id="emergencyBtn"
+            class="floating-btn emergency text-decoration-none" title="জরুরী সেবা">
+            <i class="fas fa-phone"></i>
         </a>
         <button id="scrollToTop" class="floating-btn scroll-top" title="উপরে যান">
             <i class="fas fa-arrow-up"></i>

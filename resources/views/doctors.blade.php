@@ -16,8 +16,10 @@
         }
 
         .filter-btn.active {
-            background-color: var(--primary-blue);
-            color: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.2);
+            border-color: transparent;
         }
 
         .doctor-card {
@@ -61,7 +63,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="display-5 fw-bold mb-3">আমাদের বিশেষজ্ঞ ডাক্তারদের সাথে পরিচিত হোন</h1>
-                    <p class="lead text-muted">আমাদের অভিজ্ঞ চিকিৎসক দল আপনাকে সর্বোত্তম সেবা প্রদানে প্রতিশ্রুতিবদ্ধ।</p>
+                    <p class="lead text-muted">আমাদের অভিজ্ঞ চিকিৎসকবৃন্দ আপনাকে সর্বোত্তম সেবা প্রদানে প্রতিশ্রুতিবদ্ধ।</p>
                 </div>
             </div>
         </div>
@@ -84,6 +86,15 @@
                             </a>
                         @endforeach
                     </div>
+                    @php
+                        $has_department = request('department') && $departments->contains('id', request('department'));
+                        $selected_department = $departments->where('id', request('department'))->first();
+                    @endphp
+                    @if ($has_department && $selected_department)
+                        <div class="mt-3 text-center mx-auto" style="max-width: 520px;">
+                            <p>{{ $selected_department->description }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -111,7 +122,7 @@
 
                                 <div class="mt-4">
                                     <a href="{{ route('doctor-profile', $doctor) }}" class="btn btn-primary w-100">
-                                        <i class="fas fa-user-md me-2"></i>প্রোফাইল দেখুন
+                                        প্রোফাইল দেখুন
                                     </a>
                                 </div>
                             </div>

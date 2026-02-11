@@ -173,7 +173,7 @@
                 <div class="col-lg-4">
                     <div class="contact-info-card">
                         <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
+                            <i class="fas fa-phone"></i>
                         </div>
                         <h4>ফোন নম্বর</h4>
                         <p class="mb-2"><strong>তথ্য:</strong> ০২ ৮৩৩৩০৮১</p>
@@ -203,11 +203,15 @@
                         </div>
                         <h4>ইমেইল ও অনলাইন</h4>
                         <p class="mb-2"><strong>সাধারণ তথ্য:</strong> {{ settings('general')?->mail }}</p>
-                        <a href="{{ route('appointment') }}" class="mb-2 text-decoration-none text-success"><strong>এপয়েন্টমেন্ট নিন</strong></a>
+                        <a href="{{ route('appointment') }}"
+                            class="mb-2 text-decoration-none text-success"><strong>এপয়েন্টমেন্ট নিন</strong></a>
 
                         <div class="mt-4">
                             <div class="d-flex gap-3 mt-3">
-                                <a href="https://www.facebook.com/al.mutmainnah.hospital/" class="text-primary bg-light rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/al.mutmainnah.hospital/"
+                                    class="text-primary bg-light rounded-circle"
+                                    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i
+                                        class="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +222,7 @@
             <div class="quick-contact-buttons mt-5">
                 <a href="tel:028333081" class="quick-contact-btn">
                     <div class="quick-contact-icon">
-                        <i class="fas fa-phone-alt"></i>
+                        <i class="fas fa-phone"></i>
                     </div>
                     <div>
                         <h6 class="mb-1">কল করুন</h6>
@@ -370,18 +374,19 @@
 
             <div class="row g-3">
                 @foreach ($departments as $department)
-                <div class="col-md-6 col-lg-4">
-                    <div class="department-contact">
-                        <h5 class="mb-2">{{ $department->dept_name }}</h5>
-                        @if ($department->contact_phone)
-                        <p class="mb-1"><i class="fas fa-phone-alt text-primary me-2"></i> {{ $department->contact_phone }}</p>
-                        @endif
-                        @if ($department->contact_mail)
-                        <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
-                            {{ $department->contact_mail }}</p>
-                        @endif
+                    <div class="col-md-6 col-lg-4">
+                        <div class="department-contact">
+                            <h5 class="mb-2">{{ $department->dept_name }}</h5>
+                            @if ($department->contact_phone)
+                                <p class="mb-1"><i class="fas fa-phone text-primary me-2"></i>
+                                    {{ $department->contact_phone }}</p>
+                            @endif
+                            @if ($department->contact_mail)
+                                <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
+                                    {{ $department->contact_mail }}</p>
+                            @endif
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -401,19 +406,20 @@
                 <div class="col-lg-10 mx-auto">
                     <div class="accordion" id="contactFAQ">
                         @foreach (settings('general')?->faqs as $faq)
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq{{ $loop->iteration }}">
-                                    {{ $faq['question'] }}
-                                </button>
-                            </h2>
-                            <div id="faq{{ $loop->iteration }}" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                                <div class="accordion-body">
-                                    {{ $faq['answer'] }}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq{{ $loop->iteration }}">
+                                        {{ $faq['question'] }}
+                                    </button>
+                                </h2>
+                                <div id="faq{{ $loop->iteration }}" class="accordion-collapse collapse"
+                                    data-bs-parent="#contactFAQ">
+                                    <div class="accordion-body">
+                                        {{ $faq['answer'] }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>

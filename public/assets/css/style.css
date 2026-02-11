@@ -971,6 +971,10 @@ span.color {
     .counter {
         font-size: 2.5rem;
     }
+
+    .top-bar a {
+        font-size: 0.75rem;
+    }
 }
 
 /* ===== ANIMATIONS ===== */

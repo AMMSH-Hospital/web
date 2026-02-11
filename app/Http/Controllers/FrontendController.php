@@ -34,7 +34,7 @@ class FrontendController extends Controller
                 $query->where('department_id', request('department'));
             })
             ->with('department')
-            ->paginate(3);
+            ->paginate(9);
 
         return view('doctors', compact('doctors', 'departments'));
     }

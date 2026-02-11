@@ -101,78 +101,89 @@
         <div class="container">
             <div class="row g-4">
                 @foreach ($departments as $department)
-                <!-- Cardiology Department -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <img src="{{ Storage::url($department->image) }}" width="100" height="100" alt="{{ $department->dept_name }}">
-                            </div>
-                            <h4 class="card-title mb-3">{{ $department->dept_name }}</h4>
-                            <p class="card-text">{{ $department->description }}</p>
+                    <!-- Cardiology Department -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card department-card">
+                            <div class="card-body text-center p-4 d-flex flex-column justify-content-between gap-1">
+                                <div>
+                                    <div class="department-icon">
+                                        <img src="{{ Storage::url($department->image) }}" width="100" height="100"
+                                            alt="{{ $department->dept_name }}">
+                                    </div>
+                                    <h4 class="card-title mb-3">{{ $department->dept_name }}</h4>
+                                    <p class="card-text">{{ Str::words($department->description, 20) }}</p>
 
-                            <ul class="department-services">
-                                @foreach ($department->services as $service)
-                                    <li><i class="fas fa-check"></i> {{ $service }}</li>
-                                @endforeach
-                            </ul>
+                                    <ul class="department-services">
+                                        @foreach ($department->services as $service)
+                                            <li><i class="fas fa-check"></i> {{ $service }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
 
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">{{ enToBnNumber($department?->doctors?->count() ?? 0) }}</span>
-                                    <span class="feature-label">ডাক্তার</span>
-                                </div>
-                                @php
-                                    $featured = collect($department->extra_infos)
-                                        ->firstWhere('featured', true);
-                                @endphp
-                                @if ($featured)
-                                <div class="feature-item">
-                                    <span class="feature-value">{{ $featured['title'] }}</span>
-                                    <span class="feature-label">{{ $featured['description'] }}</span>
-                                </div>
-                                @endif
-                                <div class="feature-item">
-                                    <span class="feature-value">{{ $department->beds_count }}</span>
-                                    <span class="feature-label">বেড</span>
-                                </div>
-                            </div>
+                                <div>
+                                    <div class="department-features">
+                                        <div class="feature-item">
+                                            <span
+                                                class="feature-value">{{ enToBnNumber($department?->doctors?->count() ?? 0) }}</span>
+                                            <span class="feature-label">ডাক্তার</span>
+                                        </div>
+                                        @php
+                                            $featured = collect($department->extra_infos)->firstWhere('featured', true);
+                                        @endphp
+                                        @if ($featured)
+                                            <div class="feature-item">
+                                                <span class="feature-value">{{ $featured['title'] }}</span>
+                                                <span class="feature-label">{{ $featured['description'] }}</span>
+                                            </div>
+                                        @endif
+                                        <div class="feature-item">
+                                            <span class="feature-value">{{ $department->beds_count }}</span>
+                                            <span class="feature-label">বেড</span>
+                                        </div>
+                                    </div>
 
-                            <div class="department-cta">
-                                <a href="{{ route('doctors') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-user-md me-2"></i>ডাক্তার দেখুন
-                                </a>
+                                    <div class="department-cta">
+                                        <a href="{{ route('doctors') }}?department={{ $department->id }}"
+                                            class="btn btn-outline-primary w-100">
+                                            ডাক্তার দেখুন
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 
-                
+
 
                 <!-- Emergency Medicine -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card department-card">
-                        <div class="card-body text-center p-4">
-                            <div class="department-icon">
-                                <i class="fas fa-ambulance"></i>
+                        <div class="card-body text-center p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="department-icon">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <h4 class="card-title mb-3">জরুরি সেবা</h4>
+                                <p class="card-text">দ্রুত প্রতিক্রিয়া টিম এবং উন্নত লাইফ সাপোর্ট সিস্টেম সহ ২৪/৭ জরুরি
+                                    পরিষেবা।</p>
                             </div>
-                            <h4 class="card-title mb-3">জরুরি সেবা</h4>
-                            <p class="card-text">দ্রুত প্রতিক্রিয়া টিম এবং উন্নত লাইফ সাপোর্ট সিস্টেম সহ ২৪/৭ জরুরি
-                                পরিষেবা।</p>
 
-                            <div class="department-features">
-                                <div class="feature-item">
-                                    <span class="feature-value">২৪/৭</span>
-                                    <span class="feature-label">সার্ভিস</span>
+                            <div>
+                                <div class="department-features">
+                                    <div class="feature-item">
+                                        <span class="feature-value">২৪/৭</span>
+                                        <span class="feature-label">সার্ভিস</span>
+                                    </div>
+                                </div>
+
+                                <div class="department-cta">
+                                    <a href="{{ route('contact') }}" class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-phone me-2"></i>জরুরি যোগাযোগ
+                                    </a>
                                 </div>
                             </div>
 
-                            <div class="department-cta">
-                                <a href="{{ route('contact') }}" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-phone-alt me-2"></i>জরুরি যোগাযোগ
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

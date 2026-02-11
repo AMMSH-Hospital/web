@@ -118,7 +118,7 @@
                             <i class="fas fa-calendar-check me-2"></i>অ্যাপয়েন্টমেন্ট নিন
                         </a>
                         <a href="tel:+1234567890" class="btn btn-outline-primary btn-lg">
-                            <i class="fas fa-phone-alt me-2"></i>এখনই যোগাযোগ করুন
+                            <i class="fas fa-phone me-2"></i>এখনই যোগাযোগ করুন
                         </a>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">যোগাযোগের তথ্য</h4>
-                            <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>ফোন:</strong>
+                            <p><i class="fas fa-phone text-primary me-2"></i> <strong>ফোন:</strong>
                                 {{ $doctor->phone }}</p>
                             <p><i class="fas fa-envelope text-primary me-2"></i> <strong>ইমেইল:</strong>
                                 {{ $doctor->email }}</p>
