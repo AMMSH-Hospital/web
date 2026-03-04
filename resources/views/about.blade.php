@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-6">
                     <img src="{{ settings('about_page')->about_image && Storage::disk('public')->exists(settings('about_page')->about_image) ? Storage::url(settings('about_page')->about_image) : asset('assets/images/ammsh.png') }}"
-                        alt="Hospital Building" class="img-fluid rounded shadow-lg">
+                        alt="Hospital Building" class="img-fluid rounded shadow-lg" loading="lazy">
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
                 @foreach (settings('about_page')->facilities as $facility)
                 <div class="col-md-6 col-lg-4">
                     <div class="card">
-                        <img src="{{ $facility['image'] && Storage::disk('public')->exists($facility['image']) ? Storage::disk('public')->url($facility['image']) : asset('assets/images/ammsh.png') }}" class="card-img-top" alt="Emergency Ward">
+                        <img src="{{ $facility['image'] && Storage::disk('public')->exists($facility['image']) ? Storage::disk('public')->url($facility['image']) : asset('assets/images/ammsh.png') }}" class="card-img-top" alt="Emergency Ward" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">{{ $facility['title'] }}</h5>
                             <p class="card-text">{{ $facility['description'] }}</p>

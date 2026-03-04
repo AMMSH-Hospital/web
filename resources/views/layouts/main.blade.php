@@ -137,11 +137,17 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="copyright">
-                <p class="mb-0">
-                    &copy; ২০২৬ আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল | সর্বস্বত্ব সংরক্ষিত
-                </p>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <p class="mb-0">
+                        &copy; ২০২৬ আল মুতমাইন্নাহ মা ও শিশু হাসপাতাল | সর্বস্বত্ব সংরক্ষিত
+                    </p>
+                    <p class="mb-0">
+                        Made with ❤️ by <a href="https://muhsinazmal.com" style="color: #fff; text-decoration: none;" target="_blank">Muhsin</a>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>

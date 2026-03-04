@@ -4,7 +4,8 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" style="background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+        url('{{ asset('assets/images/hero-bg.jpg') }}'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-3">
@@ -21,7 +22,7 @@
                 </div>
                 <div class="col-lg-6">
                     <img src="{{ settings('home_page')->hero_image && Storage::disk('public')->exists(settings('home_page')->hero_image) ? Storage::url(settings('home_page')->hero_image) : asset('assets/images/ammsh.png') }}"
-                        alt="Hospital Staff" class="img-fluid rounded shadow-lg">
+                        alt="Hospital Staff" class="img-fluid rounded shadow-lg" loading="lazy">
                 </div>
             </div>
         </div>
