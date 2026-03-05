@@ -306,8 +306,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label required-field">ইমেইল</label>
-                                    <input type="email" class="form-control" id="contactEmail" name="email"
-                                        required>
+                                    <input type="email" class="form-control" id="contactEmail" name="email" required>
                                     <div class="invalid-feedback">
                                         অনুগ্রহ করে একটি সঠিক ইমেইল দিন।
                                     </div>
@@ -336,7 +335,8 @@
 
                             <div class="mb-3">
                                 <label class="form-label required-field">মেসেজ</label>
-                                <textarea class="form-control" id="contactMessage" name="message" rows="5" required></textarea>
+                                <textarea class="form-control" id="contactMessage" name="message" rows="5"
+                                    required></textarea>
                                 <div class="invalid-feedback">
                                     অনুগ্রহ করে আপনার মেসেজ লিখুন।
                                 </div>
@@ -344,8 +344,8 @@
 
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="contactNewsletter"
-                                        name="subscribe" value="1">
+                                    <input class="form-check-input" type="checkbox" id="contactNewsletter" name="subscribe"
+                                        value="1">
                                     <label class="form-check-label" for="contactNewsletter">
                                         স্বাস্থ্য টিপস এবং আপডেটের জন্য নিউজলেটারে সাবস্ক্রাইব করুন
                                     </label>
@@ -362,35 +362,37 @@
         </div>
     </section>
 
-    <!-- Department Contacts -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 text-center">
-                    <h2 class="section-title d-inline-block">বিভাগ অনুযায়ী যোগাযোগ</h2>
-                    <p class="text-muted">নির্দিষ্ট বিভাগের জন্য সরাসরি যোগাযোগ নম্বর</p>
+    @if ($departments->isNotEmpty())
+        <!-- Department Contacts -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title d-inline-block">বিভাগ অনুযায়ী যোগাযোগ</h2>
+                        <p class="text-muted">নির্দিষ্ট বিভাগের জন্য সরাসরি যোগাযোগ নম্বর</p>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    @foreach ($departments as $department)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="department-contact">
+                                <h5 class="mb-2">{{ $department->dept_name }}</h5>
+                                @if ($department->contact_phone)
+                                    <p class="mb-1"><i class="fas fa-phone text-primary me-2"></i>
+                                        {{ $department->contact_phone }}</p>
+                                @endif
+                                @if ($department->contact_mail)
+                                    <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
+                                        {{ $department->contact_mail }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-
-            <div class="row g-3">
-                @foreach ($departments as $department)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="department-contact">
-                            <h5 class="mb-2">{{ $department->dept_name }}</h5>
-                            @if ($department->contact_phone)
-                                <p class="mb-1"><i class="fas fa-phone text-primary me-2"></i>
-                                    {{ $department->contact_phone }}</p>
-                            @endif
-                            @if ($department->contact_mail)
-                                <p class="mb-0"><i class="fas fa-envelope text-primary me-2"></i>
-                                    {{ $department->contact_mail }}</p>
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <!-- FAQ Section -->
     <section class="py-5 bg-light">
@@ -454,10 +456,10 @@
 
     <script>
         // Contact Form Handling
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const contactForm = document.getElementById('contactForm');
 
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 if (!contactForm.checkValidity()) {
@@ -476,13 +478,13 @@
                 const formData = new FormData(contactForm);
 
                 fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'Accept': 'application/json'
-                        }
-                    })
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -513,21 +515,21 @@
             });
 
             // Live chat simulation
-            window.initiateChat = function() {
+            window.initiateChat = function () {
                 const toastContainer = document.getElementById('toastContainer') || createToastContainer();
                 const toastId = 'toast-' + Date.now();
 
                 toastContainer.insertAdjacentHTML('beforeend', `
-                    <div id="${toastId}" class="toast align-items-center text-bg-info border-0" role="alert">
-                        <div class="d-flex">
-                            <div class="toast-body">
-                                <i class="fas fa-comments me-2"></i>
-                                আপনাকে কাস্টমার সার্ভিস প্রতিনিধির সাথে সংযুক্ত করা হচ্ছে...
+                        <div id="${toastId}" class="toast align-items-center text-bg-info border-0" role="alert">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <i class="fas fa-comments me-2"></i>
+                                    আপনাকে কাস্টমার সার্ভিস প্রতিনিধির সাথে সংযুক্ত করা হচ্ছে...
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
                             </div>
-                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
                         </div>
-                    </div>
-                `);
+                    `);
 
                 const toast = new bootstrap.Toast(document.getElementById(toastId), {
                     delay: 3000
